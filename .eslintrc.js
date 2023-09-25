@@ -8,5 +8,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 'off',
     'linebreak-style': 'off',
+    'no-undef': 'error',
   },
 }
