@@ -4,8 +4,8 @@ import Cookies from 'js-cookie'
 export const mainSlice = createSlice({
   name: 'main',
   initialState: {
-    darkMode: false,
-    direction: Cookies.get('direction') || 'ltr',
+    currentMode: Cookies.get('CurrentMode') || 'light',
+    direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
     sidebar: 1,
   },
@@ -14,8 +14,8 @@ export const mainSlice = createSlice({
       state.direction = action.payload
     },
     changeMode: (state, action) => {
-      state.darkMode = action.payload
-      Cookies.set('dark', action.payload)
+      state.currentMode = action.payload
+      Cookies.set('CurrentMode', action.payload)
     },
     changePreloader: (state, action) => {
       state.preloader = action.payload

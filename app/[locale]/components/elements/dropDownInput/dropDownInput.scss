@@ -1,0 +1,32 @@
+[data-pc-section="hiddenselectedmessage"]{
+    display: none;
+}
+
+.dropDownInput{
+    border: solid 1px var(--themeGray-300);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 9.9rem;
+ img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.75rem;
+}
+
+& > div{
+    display: flex;
+    align-items: center;
+ }
+span.p-dropdown-label.p-inputtext > div {
+    display: flex;
+    align-items: center;
+}
+ 
+span.p-dropdown-label.p-inputtext {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+svg{
+    margin:auto
+}
+}

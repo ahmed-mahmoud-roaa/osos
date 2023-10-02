@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 import { baseURL } from '../const/request'
 import { noAuthRoutes } from '../const/request'
 import { roles } from '../const/request'
+import { redirect } from 'next/navigation'
 
 const useApi = () => {
   let axiosObject = {
@@ -63,7 +64,7 @@ const useApi = () => {
       if (err?.response?.status == 401) {
         Cookies.remove('userData')
         Cookies.remove('token')
-        //route to login
+        redirect('/')
       }
 
       if (err?.response?.data?.metadata) {

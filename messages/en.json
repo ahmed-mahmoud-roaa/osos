@@ -1,5 +1,10 @@
 {
   "Index": {
-    "title": "Hello world!"
+    "Focus": "Focus",
+    "Search": "Search",
+    "Developer": "Developer",
+    "Admin": "Admin",
+    "User": "User",
+    "RoaaPortal": "Roaa Portal"
   }
 }

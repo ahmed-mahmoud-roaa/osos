@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
+import { redirect } from 'next/navigation'
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -9,7 +10,7 @@ export const authSlice = createSlice({
     logOut: (state) => {
       state.userInfo = {}
       Cookies.remove('token')
-      window.location.href = '/'
+      redirect('/')
     },
     addUserInfo: (state, action) => {
       state.userInfo = action.payload

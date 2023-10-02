@@ -23,15 +23,22 @@
     "next": "13.5.2",
     "next-intl": "3.0.0-beta.19",
     "postcss": "8.4.30",
+    "primereact": "^10.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
     "sass": "^1.68.0",
+    "styled-components": "^6.0.8",
     "tailwindcss": "3.3.3",
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "@swc/plugin-styled-components": "^1.5.87",
+    "babel-plugin-styled-components": "^2.1.4",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }

@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import { baseURL } from '../const/request'
 import { noAuthRoutes } from '../const/request'
 import { roles } from '../const/request'
+import { redirect } from 'next/navigation'
 
 const serverApi = (endPoint, type) => {
   const headers = new Headers()
@@ -30,7 +31,6 @@ const serverApi = (endPoint, type) => {
       return response.json() // Parse the response as JSON
     })
     .then((res) => {
-      console.log({ res })
       // Handle the JSON data here
       res.data?.data?.token?.accessToken &&
         Cookies.set('token', res.data?.data?.token?.accessToken)
@@ -48,7 +48,7 @@ const serverApi = (endPoint, type) => {
       if (err?.response?.status == 401) {
         Cookies.remove('userData')
         Cookies.remove('token')
-        //route to login
+        redirect('/')
       }
 
       if (err?.response?.data?.metadata) {
