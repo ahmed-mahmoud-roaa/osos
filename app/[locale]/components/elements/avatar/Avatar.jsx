@@ -3,7 +3,9 @@ import React from 'react'
 
 export default function Avatar({ src, width, height, status, classAttr }) {
   return (
-    <div className={`avatarWrapper relative m-auto w-c w-fit ${classAttr}`}>
+    <div
+      className={`avatarWrapper relative m-auto w-c w-fit min-w-[${width}px] ${classAttr}`}
+    >
       <Image src={src} alt="avatar" width={width} height={height} />
       <span
         className={`status rounded-full absolute w-[30%] h-[30%] bottom-[-5%] right-[-5%] border border-themeWhite-white ${

@@ -29,12 +29,16 @@ const GlobalStyle = createGlobalStyle`
     --primary-50: ${(props) =>
       props.currentMode !== 'dark' ? '#EFF8FF' : '#006fc6'}; 
 
+    --themeGray-900:${(props) =>
+      props.currentMode !== 'dark' ? '#101828' : '#8fa6c6'}; 
     --themeGray-800:${(props) =>
       props.currentMode !== 'dark' ? '#1d2939' : '#8fa6c6'}; 
     --themeGray-700:${(props) =>
       props.currentMode !== 'dark' ? '#344054' : '#8fa6c6'}; 
     --themeGray-500:${(props) =>
       props.currentMode !== 'dark' ? '#6b7280' : '#c3c6cd'}; 
+    --themeGray-400: ${(props) =>
+      props.currentMode !== 'dark' ? '#98A2B3' : '#4b5360'}; 
     --themeGray-300: ${(props) =>
       props.currentMode !== 'dark' ? '#d1d5db' : '#4b5360'}; 
     --themeGray-200: ${(props) =>

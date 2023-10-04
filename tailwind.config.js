@@ -18,9 +18,11 @@ module.exports = {
           50: 'var(--primary-50)',
         },
         themeGray: {
+          900: 'var(--themeGray-900)',
           800: 'var(--themeGray-800)',
           700: 'var(--themeGray-700)',
           500: 'var(--themeGray-500)',
+          400: 'var(--themeGray-400)',
           300: 'var(--themeGray-300)',
           200: 'var(--themeGray-200)',
           100: 'var(--themeGray-100)',
