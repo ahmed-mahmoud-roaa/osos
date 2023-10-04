@@ -85,7 +85,7 @@ export default function Ui({
             DISPLAY SETTINGS
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm">Interface</p>
+            <p className="text-sm text-themeGray-800 ">Interface</p>
 
             <SelectButtonList
               value={value}
@@ -96,7 +96,7 @@ export default function Ui({
           </div>
 
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm">Display mode</p>
+            <p className="text-sm  text-themeGray-800 ">Display mode</p>
             <SelectButtonList
               value={value}
               onChange={(e) => setValue(e.value)}
@@ -105,11 +105,11 @@ export default function Ui({
             />
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm">Language</p>
+            <p className="text-sm  text-themeGray-800 ">Language</p>
             <DropDownInput options={langOptions} />
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm">Font size</p>
+            <p className="text-sm text-themeGray-800 ">Font size</p>
             <SliderInput
               setValueInput={changeFontSize}
               valueInput={zoomSlider}

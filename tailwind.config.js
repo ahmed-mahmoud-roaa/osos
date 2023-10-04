@@ -12,12 +12,14 @@ module.exports = {
         primary: {
           950: 'var(--primary-950)',
           600: 'var(--primary-600)',
+          500: 'var(--primary-500)',
           300: 'var(--primary-300)',
           200: 'var(--primary-200)',
           50: 'var(--primary-50)',
         },
         themeGray: {
           800: 'var(--themeGray-800)',
+          700: 'var(--themeGray-700)',
           500: 'var(--themeGray-500)',
           300: 'var(--themeGray-300)',
           200: 'var(--themeGray-200)',

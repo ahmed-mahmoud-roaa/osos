@@ -9,6 +9,7 @@ import { LuFocus } from 'react-icons/lu'
 import ButtonsGroup from '../../elements/buttonsGroup/ButtonsGroup'
 import IconRoundedButton from '../../elements/buttons/iconRoundedButton/IconRoundedButton'
 import Activities from '../activities/Activities'
+import Search from '../../elements/search/Search'
 
 export default function Ui({ translation, dynamicElements }) {
   return (
@@ -38,22 +39,18 @@ export default function Ui({ translation, dynamicElements }) {
               }}
             />
           </div>
-          <div className={`relative text-themeGray-500 md:min-w-[20rem]`}>
-            <input
-              type="text"
-              placeholder={`${translation.Search}...`}
-              className={`md:min-w-full relative rounded-full border border-themeGray-300 focus-visible:outline-0 bg-themeGray-50 px-8 py-2 flex items-center text-sm`}
-            />
-            <span className="icon absolute left-3 rtl:left-auto rtl:right-3 top-3">
-              <PiMagnifyingGlass />
-            </span>
 
-            <span
-              className={`icon absolute right-3 rtl:left-3 rtl:right-auto text-sm top-2 flex items-center rtl:flex-row-reverse rounded-md border border-themeGray-100 bg-themeGray-50 mix-blend-multiply px-0.5`}
-            >
-              <BiCommand />/
-            </span>
-          </div>
+          <Search
+            placeholder={`${translation.Search}...`}
+            firstIcon={<PiMagnifyingGlass />}
+            className={'md:min-w-[20rem]'}
+            lastIcon={
+              <>
+                <BiCommand />/
+              </>
+            }
+            roundedFull
+          />
 
           <Activities />
         </div>

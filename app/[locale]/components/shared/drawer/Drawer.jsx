@@ -1,5 +1,4 @@
 'use client'
-import './Drawer.scss'
 import React from 'react'
 import Ui from './Ui'
 import { useSelector } from 'react-redux'
