@@ -38,7 +38,13 @@ module.exports = {
           black: 'var(--themeWhite-white)',
         },
         error: {
-          700: '#B42318',
+          700: 'var(--error-700)',
+          200: 'var(--error-200)',
+          50: 'var(--error-50)',
+        },
+        themeGreen: {
+          600: 'var(--themeGreen-600)',
+          500: 'var(--themeGreen-500)',
         },
       },
       screens: {},

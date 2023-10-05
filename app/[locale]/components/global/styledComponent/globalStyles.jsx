@@ -53,6 +53,18 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#fff' : '#000'}; 
     --themeBlack-black: ${(props) =>
       props.currentMode !== 'dark' ? '#000' : '#fff'}; 
+
+    --error-700: ${(props) =>
+      props.currentMode !== 'dark' ? '#B42318' : '#facac7'}; 
+    --error-200: ${(props) =>
+      props.currentMode !== 'dark' ? '#facac7' : '#B42318'}; 
+    --error-50: ${(props) =>
+      props.currentMode !== 'dark' ? '#fef3f2' : '#B42318'}; 
+
+    --themeGreen-600: ${(props) =>
+      props.currentMode !== 'dark' ? '#0E9384' : '#83cfc6'}; 
+    --themeGreen-500: ${(props) =>
+      props.currentMode !== 'dark' ? '#17B26A' : '#83cfc6'}; 
 }
 img{
     max-width: 100%;
