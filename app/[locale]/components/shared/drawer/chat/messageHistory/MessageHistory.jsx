@@ -4,6 +4,7 @@ import { PiMagnifyingGlass } from 'react-icons/pi'
 import { FiEdit } from 'react-icons/fi'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
+import { formatTimeDifference } from '@/app/[locale]/func/time/time'
 
 export default function MessageHistory({ setCurrentPage }) {
   const userDate = useSelector((state) => state.auth.userInfo)
@@ -15,7 +16,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 02 2023 13:28:56 GMT+0300'),
       count: '5',
     },
     {
@@ -24,7 +25,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
     },
     {
       avatar: userDate.avatar,
@@ -32,7 +33,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
       count: '5',
     },
     {
@@ -41,7 +42,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
     },
     {
       avatar: userDate.avatar,
@@ -49,7 +50,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
       count: '5',
     },
     {
@@ -58,7 +59,7 @@ export default function MessageHistory({ setCurrentPage }) {
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: '5 min ago',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
     },
   ]
 

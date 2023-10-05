@@ -7,6 +7,7 @@ import { MdOutlineArrowBack } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { useSelector } from 'react-redux'
 import Message from './message/Message'
+import { formatTimeDifference } from '@/app/[locale]/func/time/time'
 
 export default function Details({ setCurrentPage }) {
   const userInfo = useSelector((state) => state.auth.userInfo)
@@ -34,8 +35,7 @@ export default function Details({ setCurrentPage }) {
       {
         owner: 'you',
         status: false,
-        time: '5 min ago',
-
+        time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
         reactions: {},
@@ -46,7 +46,7 @@ export default function Details({ setCurrentPage }) {
         status: false,
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
+        time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
         reactions: { 'some one': '🧡', you: '😂' },
       },
     ],
