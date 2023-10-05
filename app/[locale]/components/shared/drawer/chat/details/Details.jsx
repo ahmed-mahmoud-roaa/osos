@@ -1,3 +1,4 @@
+//https://smiley.cool/emoji-list.php
 import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -5,10 +6,12 @@ import { BsSend } from 'react-icons/bs'
 import { MdOutlineArrowBack } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { useSelector } from 'react-redux'
+import Message from './message/Message'
 
 export default function Details({ setCurrentPage }) {
   const userInfo = useSelector((state) => state.auth.userInfo)
   const [newMessage, setNewMessage] = useState()
+
   const data = {
     isGroup: false,
     head: {
@@ -31,9 +34,11 @@ export default function Details({ setCurrentPage }) {
       {
         owner: 'you',
         status: false,
+        time: '5 min ago',
+
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
+        reactions: {},
       },
 
       {
@@ -42,62 +47,7 @@ export default function Details({ setCurrentPage }) {
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
         time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
-      },
-
-      {
-        owner: 'some one',
-        status: false,
-        message:
-          'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
-        time: '5 min ago',
+        reactions: { 'some one': '🧡', you: '😂' },
       },
     ],
   }
@@ -132,45 +82,11 @@ export default function Details({ setCurrentPage }) {
           style={{ height: 'calc(100vh - 236px)' }}
         >
           {data.messages.map((message, index) => (
-            <div
+            <Message
               key={index}
-              className={`message flex mb-3 max-w-[90%]  ${
-                message.owner !== 'you'
-                  ? 'mr-auto rtl:mr-0 rtl:ml-auto'
-                  : 'ml-auto rtl:ml-0 rtl:mr-auto'
-              } `}
-            >
-              {message.owner !== 'you' && (
-                <Avatar
-                  src={data.users[message.owner].avatar}
-                  width={40}
-                  height={40}
-                  status={message.status}
-                  classAttr={'mr-3 rtl:mr-0 rtl:ml-3'}
-                />
-              )}
-              <div>
-                <div className="flex justify-between">
-                  <div className="name text-sm text-themeGray-700">
-                    {message.owner !== 'you'
-                      ? data.users[message.owner].name
-                      : 'You'}
-                  </div>
-                  <div className="time text-themeGray-500 text-sm">
-                    {message.time}
-                  </div>
-                </div>
-                <div
-                  className={`${
-                    message.owner !== 'you'
-                      ? ' bg-themeGray-100 text-themeGray-900  rounded-tl-[0px] rtl:rounded-tr-[0px] rtl:rounded-tl-xl '
-                      : 'bg-primary-600 text-themeWhite-white rounded-tr-[0px]  rtl:rounded-tl-[0px]  rtl:rounded-tr-xl '
-                  } message  px-3 py-2 rounded-xl mt-2 text-base`}
-                >
-                  {message.message}
-                </div>
-              </div>
-            </div>
+              messageData={message}
+              user={data.users[message.owner]}
+            />
           ))}
         </div>
       </div>
@@ -183,10 +99,10 @@ export default function Details({ setCurrentPage }) {
           onChange={(e) => setNewMessage(e.value)}
           id=""
           placeholder="Send message"
-          className="grow h-12 p-2.5 border border-themeGray-200 rounded-md outline-0 text-themeGray-500"
+          className="grow h-12 p-2.5 border border-themeGray-200 rounded-md outline-0 text-themeGray-500 bg-themeWhite-white"
         />
         <button
-          className="text-themeWhite-white bg-primary-600 p-3 rounded-md text-xl ml-3"
+          className="text-themeWhite-white bg-primary-600 p-3 rounded-md text-xl ml-3 rtl:ml:0 rtl:mr-3"
           onClick={() => {
             setNewMessage('')
           }}

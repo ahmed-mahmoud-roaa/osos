@@ -4,7 +4,8 @@ import React from 'react'
 export default function Avatar({ src, width, height, status, classAttr }) {
   return (
     <div
-      className={`avatarWrapper relative m-auto w-c w-fit min-w-[${width}px] ${classAttr}`}
+      style={{ minWidth: `${width}px` }}
+      className={`avatarWrapper relative m-auto w-c w-fit  ${classAttr}`}
     >
       <Image src={src} alt="avatar" width={width} height={height} />
       <span

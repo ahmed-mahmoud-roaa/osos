@@ -5,7 +5,7 @@ import { FiEdit } from 'react-icons/fi'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
 
-export default function Message({ setCurrentPage }) {
+export default function MessageHistory({ setCurrentPage }) {
   const userDate = useSelector((state) => state.auth.userInfo)
 
   const chatBlocks = [

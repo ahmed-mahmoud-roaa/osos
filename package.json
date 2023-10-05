@@ -10,8 +10,11 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/react": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@tailwindcss/typography": "^0.5.10",
+    "@tinymce/tinymce-react": "^4.3.0",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
@@ -26,6 +29,7 @@
     "primereact": "^10.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-emoji-render": "^2.0.1",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
     "sass": "^1.68.0",
