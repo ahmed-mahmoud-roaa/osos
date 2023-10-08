@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import Activities from '../../activities/Activities'
 import { useSelector } from 'react-redux'
 import Avatar from '../../../elements/avatar/Avatar'
 import NotificationButton from '../../../elements/buttons/notificationButton/NotificationButton'
@@ -10,8 +9,9 @@ import { RiUserAddLine } from 'react-icons/ri'
 import { MdOutlineElectricBolt } from 'react-icons/md'
 import { BsStars } from 'react-icons/bs'
 import SelectButtonList from '../../../elements/selectButtonList/SelectButtonList'
-import DropDownInput from '../../../elements/dropDownInput/dropDownInput'
+// import DropDownInput from '../../../elements/dropDownInput/dropDownInput'
 import SliderInput from '../../../elements/slider/Slider'
+import DropDownInput from '../../../elements/dropDownInput/DropDownInput'
 
 export default function Ui({
   notificationButtonsData,
@@ -22,7 +22,6 @@ export default function Ui({
   interFace,
 }) {
   const userData = useSelector((state) => state.auth.userInfo)
-
   const [value, setValue] = useState(modeOptions[0])
   return (
     <>
@@ -106,7 +105,7 @@ export default function Ui({
           </div>
           <div className="flex justify-between items-center mt-2">
             <p className="text-sm  text-themeGray-800 ">Language</p>
-            <DropDownInput options={langOptions} />
+            <DropDownInput options={langOptions} className={'w-[9.9rem]'} />
           </div>
           <div className="flex justify-between items-center mt-2">
             <p className="text-sm text-themeGray-800 ">Font size</p>

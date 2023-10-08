@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         primary: {
           950: 'var(--primary-950)',
+          700: 'var(--primary-700)',
           600: 'var(--primary-600)',
           500: 'var(--primary-500)',
           300: 'var(--primary-300)',
@@ -43,8 +44,10 @@ module.exports = {
           50: 'var(--error-50)',
         },
         themeGreen: {
+          800: 'var(--themeGreen-800)',
           600: 'var(--themeGreen-600)',
           500: 'var(--themeGreen-500)',
+          50: 'var(--themeGreen-50)',
         },
       },
       screens: {},

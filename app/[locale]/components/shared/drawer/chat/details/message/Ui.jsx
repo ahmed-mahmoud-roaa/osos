@@ -47,7 +47,7 @@ export default function Ui({ messageData, user, handleEmoji }) {
               Object.keys(handleEmoji(emoji)).map((react, index) => (
                 <>
                   <Tooltip target={`.emoji-${index}`}>
-                    <div className=" break-normal">
+                    <div className="w-max break-normal">
                       {handleEmoji(emoji)[react].author.join(' , ')}
                     </div>
                   </Tooltip>

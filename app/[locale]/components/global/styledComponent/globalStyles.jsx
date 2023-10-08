@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#102a56' : '#EFF8FF'};
     --primary-600:${(props) =>
       props.currentMode !== 'dark' ? '#1570EF' : '#072d61'};
+    --primary-700:${(props) =>
+      props.currentMode !== 'dark' ? '#175CD3' : '#072d61'};
     --primary-500:${(props) =>
       props.currentMode !== 'dark' ? '#2E90FA' : '#072d61'};
     --primary-300: ${(props) =>
@@ -61,10 +63,14 @@ const GlobalStyle = createGlobalStyle`
     --error-50: ${(props) =>
       props.currentMode !== 'dark' ? '#fef3f2' : '#B42318'}; 
 
+    --themeGreen-800: ${(props) =>
+      props.currentMode !== 'dark' ? '#326212' : '#83cfc6'}; 
     --themeGreen-600: ${(props) =>
       props.currentMode !== 'dark' ? '#0E9384' : '#83cfc6'}; 
     --themeGreen-500: ${(props) =>
       props.currentMode !== 'dark' ? '#17B26A' : '#83cfc6'}; 
+    --themeGreen-50: ${(props) =>
+      props.currentMode !== 'dark' ? '#f3fee7' : '#326212'}; 
 }
 img{
     max-width: 100%;

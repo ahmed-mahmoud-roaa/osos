@@ -44,6 +44,7 @@ export default function Ui({ translation, dynamicElements }) {
             placeholder={`${translation.Search}...`}
             firstIcon={<PiMagnifyingGlass />}
             className={'md:min-w-[20rem]'}
+            inputStyle={'bg-themeGray-50'}
             lastIcon={
               <>
                 <BiCommand />/
