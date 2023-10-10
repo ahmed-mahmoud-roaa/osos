@@ -30,7 +30,6 @@ export default function Ui({ setCurrentPage, chatBlocks }) {
         <div
           key={index}
           onClick={() => {
-            console.log('getData')
             setCurrentPage('details')
           }}
           className={`chatBlock p-4 border-b ${

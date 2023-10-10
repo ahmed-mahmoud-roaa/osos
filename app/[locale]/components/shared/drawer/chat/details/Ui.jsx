@@ -7,7 +7,6 @@ import Message from './message/Message'
 
 export default function Ui({ setCurrentPage, data }) {
   const [newMessage, setNewMessage] = useState()
-  console.log(data, '4646546')
   return (
     <div className="grow flex flex-col justify-between">
       <div>

@@ -44,7 +44,6 @@ export default function DropDownInput({
     <div
       className={`dropDownInput bg-themeWhite-white text-themeGray-800 ${className}`}
     >
-      {console.log({ options })}
       <Dropdown
         value={
           selected ||

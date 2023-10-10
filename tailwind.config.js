@@ -41,13 +41,20 @@ module.exports = {
         error: {
           700: 'var(--error-700)',
           200: 'var(--error-200)',
+          100: 'var(--error-100)',
           50: 'var(--error-50)',
         },
         themeGreen: {
           800: 'var(--themeGreen-800)',
+          700: 'var(--themeGreen-700)',
           600: 'var(--themeGreen-600)',
           500: 'var(--themeGreen-500)',
+          400: 'var(--themeGreen-400)',
+          200: 'var(--themeGreen-200)',
           50: 'var(--themeGreen-50)',
+        },
+        themeOrange: {
+          500: 'var(--themeOrange-500)',
         },
       },
       screens: {},

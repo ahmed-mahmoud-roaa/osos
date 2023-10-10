@@ -60,17 +60,28 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#B42318' : '#facac7'}; 
     --error-200: ${(props) =>
       props.currentMode !== 'dark' ? '#facac7' : '#B42318'}; 
+    --error-100: ${(props) =>
+      props.currentMode !== 'dark' ? '#fee4e2' : '#B42318'}; 
     --error-50: ${(props) =>
       props.currentMode !== 'dark' ? '#fef3f2' : '#B42318'}; 
 
     --themeGreen-800: ${(props) =>
       props.currentMode !== 'dark' ? '#326212' : '#83cfc6'}; 
+    --themeGreen-700: ${(props) =>
+      props.currentMode !== 'dark' ? '#067647' : '#83cfc6'}; 
     --themeGreen-600: ${(props) =>
       props.currentMode !== 'dark' ? '#0E9384' : '#83cfc6'}; 
     --themeGreen-500: ${(props) =>
       props.currentMode !== 'dark' ? '#17B26A' : '#83cfc6'}; 
+    --themeGreen-400: ${(props) =>
+      props.currentMode !== 'dark' ? '#3CCB7F' : '#83cfc6'}; 
+    --themeGreen-200: ${(props) =>
+      props.currentMode !== 'dark' ? '#ABEFC6' : '#0E9384'}; 
     --themeGreen-50: ${(props) =>
-      props.currentMode !== 'dark' ? '#f3fee7' : '#326212'}; 
+      props.currentMode !== 'dark' ? '#ECFDF3' : '#326212'}; 
+      
+    --themeOrange-500: ${(props) =>
+      props.currentMode !== 'dark' ? '#EF6820' : '#e9b046'}; 
 }
 img{
     max-width: 100%;
