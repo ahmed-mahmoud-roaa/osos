@@ -80,5 +80,5 @@ export default function Details({ setCurrentPage }) {
       'As a product designer, I want to design a set of consistent and user-friendly input fields for our design system so that developers can easily implement them across our digital products. <br /> <br /> Acceptance Criteria: <br /> <br /> 1. As a designer, I need to understand the requirements and use cases of different input fields, such as text input, password input, number input, date input, and dropdown/select input. <br /> <br /> 2. I will collaborate with UX researchers and stakeholders to gather insights about user preferences, accessibility requirements, and any specific brand guidelines we need to consider.',
   }
 
-  return <Ui block={block} />
+  return <Ui block={block} setCurrentPage={setCurrentPage} />
 }

@@ -5,13 +5,15 @@ export const Wrapper = styled.label`
   position: relative;
   padding-left: 1.25rem;
   margin-bottom: 12px;
+  min-height: 1.25rem;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
+  display: flex;
+  align-items: flex-start;
   /* Hide the browser's default checkbox */
   input {
     position: absolute;

@@ -4,7 +4,7 @@ import Ui from './Ui'
 import { useSelector } from 'react-redux'
 import Profile from './profile/Profile'
 import Feed from './feed/Feed'
-import Calender from './calender/Calender'
+import Calendar from './calendar/Calendar'
 import Notification from './notification/Notification'
 import Chat from './chat/Chat'
 import Task from './task/Task'
@@ -13,7 +13,7 @@ export default function Drawer() {
   const drawerElements = {
     profile: <Profile />,
     feed: <Feed />,
-    calender: <Calender />,
+    calendar: <Calendar />,
     notification: <Notification />,
     chat: <Chat />,
     task: <Task />,

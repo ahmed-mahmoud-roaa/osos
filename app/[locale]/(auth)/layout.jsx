@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
       activities: {
         feed: 5,
-        calender: 5,
+        calendar: 5,
         notification: 5,
         chat: 5,
         task: 5,

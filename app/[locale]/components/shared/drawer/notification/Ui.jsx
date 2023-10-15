@@ -8,7 +8,7 @@ import { Tooltip } from 'primereact/tooltip'
 
 export default function Ui({ data, asRead }) {
   return (
-    <div>
+    <div className="text-themeGray-800">
       <div className="head bg-primary-50 py-2 px-4">
         <div className="chatHead flex items-center justify-between mb-2">
           <h3 className="font-medium text-xl mt-2 mb-4 flex">
@@ -75,8 +75,10 @@ export default function Ui({ data, asRead }) {
                         <div className="title font-semibold text-sm">
                           {notification.text}
                         </div>
-                        <div className="from text-xs">{notification.from}</div>
-                        <div className="time  text-xs">
+                        <div className="from text-xs text-themeGray-500">
+                          {notification.from}
+                        </div>
+                        <div className="time  text-xs  text-themeGray-500">
                           {formatTimeDifference(notification.time)}
                         </div>
                       </div>

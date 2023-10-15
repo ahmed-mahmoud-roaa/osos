@@ -23,6 +23,8 @@ export const Wrapper = styled.div`
   th {
     padding: 0;
     font-size: 0.75rem;
+    border-radius: 50%;
+
     span {
       box-shadow: unset;
     }
@@ -41,9 +43,23 @@ export const Wrapper = styled.div`
     top: 2rem;
     border-radius: 50%;
   }
-  td:focus-within {
-    background: var(--primary-600);
-    color: var(--themeWhite-white);
-    border-radius: 50%;
+
+  button[class^='p-datepicker'] svg {
+    transform: ${(props) => props.direction === 'ar' && 'rotate(180deg)'};
+  }
+
+  .p-datepicker-month {
+    margin: 0 5px;
+    font-weight: bold;
+  }
+  .p-datepicker-title {
+    font-size: 1.25rem;
+  }
+  .p-datepicker-header {
+    margin-bottom: 10px;
+  }
+  svg.p-icon.p-datepicker-next-icon,
+  svg.p-icon.p-datepicker-prev-icon {
+    width: 0.825rem;
   }
 `

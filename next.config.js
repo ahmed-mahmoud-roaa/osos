@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['https://www.svgrepo.com'],
+    domains: ['https://www.svgrepo.com', 'https://primefaces.org'],
   },
   compiler: {
     styledComponents: true,

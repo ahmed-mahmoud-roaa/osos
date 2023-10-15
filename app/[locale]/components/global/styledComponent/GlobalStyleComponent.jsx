@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux'
 import Override from './override'
 export default function GlobalStyleComponent({ children }) {
   const currentMode = useSelector((state) => state.main.currentMode)
+  const direction = useSelector((state) => state.main.direction)
 
   return (
     <>
-      <GlobalStyle currentMode={currentMode} />
-      <Override />
+      <GlobalStyle currentMode={currentMode} direction={direction} />
+      <Override direction={direction} currentMode={currentMode} />
       {children}
     </>
   )
