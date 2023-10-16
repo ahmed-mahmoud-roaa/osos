@@ -11,26 +11,6 @@ export default function CalendarHead({ currentPage, setCurrentPage }) {
           <span>My Calendar</span>
         </h3>
         <div>
-          {currentPage === 'CalendarSetting' ? (
-            <button
-              className="bg-themeWhite-white border border-primary-200 rounded-md text-lg text-primary-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
-              onClick={() => {
-                setCurrentPage('CalendarDate')
-              }}
-            >
-              <MdClose />
-            </button>
-          ) : (
-            <button
-              className="bg-themeWhite-white border border-themeGray-200 rounded-md text-lg text-themeGray-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
-              onClick={() => {
-                setCurrentPage('CalendarSetting')
-              }}
-            >
-              <BsCalendar2Plus />
-            </button>
-          )}
-
           {currentPage === 'AddEvent' ? (
             <button
               className="bg-themeWhite-white border border-primary-200 rounded-md text-lg text-primary-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
@@ -45,6 +25,26 @@ export default function CalendarHead({ currentPage, setCurrentPage }) {
               className="bg-themeWhite-white border border-themeGray-200 rounded-md text-lg text-themeGray-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
               onClick={() => {
                 setCurrentPage('AddEvent')
+              }}
+            >
+              <BsCalendar2Plus />
+            </button>
+          )}
+
+          {currentPage === 'CalendarSetting' ? (
+            <button
+              className="bg-themeWhite-white border border-primary-200 rounded-md text-lg text-primary-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
+              onClick={() => {
+                setCurrentPage('CalendarDate')
+              }}
+            >
+              <MdClose />
+            </button>
+          ) : (
+            <button
+              className="bg-themeWhite-white border border-themeGray-200 rounded-md text-lg text-themeGray-700 p-1.5 mr-2 rtl:mr-0 rtl:ml-2"
+              onClick={() => {
+                setCurrentPage('CalendarSetting')
               }}
             >
               <FiSettings />

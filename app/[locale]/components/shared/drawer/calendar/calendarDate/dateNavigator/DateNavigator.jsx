@@ -30,15 +30,15 @@ const DateNavigator = () => {
       ? formatLocalizedDate(currentDate, 'en-US').split(' ')
       : formatLocalizedDate(currentDate, 'ar-EG').split(' ')
   return (
-    <div className="flex rtl:flex-row-reverse justify-between items-center px-6 py-4 border-t border-themeGray-100 text-themeGray-800">
-      <button onClick={handlePrevDate}>
+    <div className="flex justify-between items-center px-6 py-4 border-t border-themeGray-100 text-themeGray-800">
+      <button onClick={handlePrevDate} className="rtl:rotate-180">
         <MdArrowBackIos />
       </button>
       <div className="text-themeGray-700 text-xl">
         <span className="font-semibold">{`${formattedDate[0]} ${formattedDate[1]}`}</span>
         <span className="mx-2">{`${formattedDate[2]}`}</span>
       </div>
-      <button onClick={handleNextDate}>
+      <button onClick={handleNextDate} className="rtl:rotate-180">
         <MdArrowForwardIos />
       </button>
     </div>

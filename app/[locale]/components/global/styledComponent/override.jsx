@@ -59,6 +59,11 @@ const Override = createGlobalStyle`
     background: var(--themeWhite-white);
     color: var(--themeGray-700);
 }
+
+button[class^='p-datepicker'] svg {
+    transform: ${(props) => props.direction === 'ar' && 'rotate(180deg)'};
+  }  
+  
 `
 
 export default Override

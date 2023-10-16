@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Calendar } from 'primereact/calendar'
 import { Wrapper } from './CalendarSelect.styled'
 import { useSelector } from 'react-redux'
 import { addLocale } from 'primereact/api'
 
-export default function CalendarSelect({ EventsDatesString }) {
-  console.log({ EventsDatesString }, '000000000000000')
+export default function CalendarSelect({
+  inline,
+  onChange,
+  onSelect,
+  dateTemplate,
+  value,
+  name,
+  id,
+  selectionMode,
+}) {
   const direction = useSelector((state) => state.main.direction)
-  const [selected, setSelected] = useState()
   addLocale('ar', {
     firstDayOfWeek: 0, // In Arabic, the week typically starts with Sunday
     showMonthAfterYear: true,
@@ -54,49 +61,18 @@ export default function CalendarSelect({ EventsDatesString }) {
     clear: 'مسح',
   })
 
-  const EventsDates = EventsDatesString.map((item) => new Date(item))
-
-  const [datesData, setDatesData] = useState(EventsDates)
-
-  const dateTemplate = (date) => {
-    const check = (checkDate, component) => {
-      const year = checkDate?.getFullYear()
-      const month = checkDate?.getMonth()
-      const day = checkDate?.getDate()
-      if (date.year == year && date.month == month && date.day == day) {
-        return component
-      }
-    }
-
-    const selectedDay = check(
-      selected,
-      <div className="bg-primary-600 text-themeWhite-white flex items-center justify-center w-full h-full">
-        {date.day}
-      </div>
-    )
-
-    const checkEvent = datesData.map((eventData, index) => {
-      return check(
-        eventData,
-        <div key={index} className="flex justify-center">
-          <span className="absolute w-1 h-1 bg-primary-500 top-8 rounded-full"></span>
-          {date.day}
-        </div>
-      )
-    })
-
-    const filteredEvent = checkEvent.filter((value) => value !== undefined)[0]
-
-    return selectedDay || filteredEvent || date.day
-  }
   return (
     <Wrapper direction={direction}>
       <Calendar
-        onSelect={(e) => setSelected(e.value)}
-        inline
-        selectionMode="multiple"
+        onSelect={onSelect && onSelect}
+        onChange={onChange && onChange}
+        inline={inline}
+        selectionMode={selectionMode}
         dateTemplate={dateTemplate}
         locale={direction === 'ar' && 'ar'}
+        value={value && value}
+        name={name && name}
+        id={id && id}
       />
     </Wrapper>
   )

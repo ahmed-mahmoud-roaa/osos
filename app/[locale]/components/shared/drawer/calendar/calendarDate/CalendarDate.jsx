@@ -1,7 +1,5 @@
 import React from 'react'
-import DateNavigator from './dateNavigator/DateNavigator'
-import CalendarEvent from './calendarEvent/calendarEvent'
-import CalendarSelect from './calendarSelect/CalendarSelect'
+import Ui from './Ui'
 
 export default function CalendarDate() {
   const EventsDatesString = [
@@ -82,13 +80,5 @@ export default function CalendarDate() {
     },
   ]
 
-  return (
-    <>
-      <CalendarSelect EventsDatesString={EventsDatesString} />
-      <div className="pb-4">
-        <DateNavigator />
-        <CalendarEvent eventData={eventData} />
-      </div>
-    </>
-  )
+  return <Ui EventsDatesString={EventsDatesString} eventData={eventData} />
 }
