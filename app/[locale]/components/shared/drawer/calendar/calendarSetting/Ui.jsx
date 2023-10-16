@@ -9,7 +9,7 @@ export default function Ui({ checks }) {
         Calendar Setting
       </div>
       <div className="settingWrapper p-4">
-        <LineTitle content={'AVAILABLE CALENDARS'} parentClass="pb-2" />
+        <LineTitle content={'AVAILABLE CALENDARS'} parentClass="pb-2 mb-2" />
         {checks.map((check, index) => (
           <dv className="checkBox" key={index}>
             <CheckBox

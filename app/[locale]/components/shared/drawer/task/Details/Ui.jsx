@@ -79,7 +79,7 @@ export default function Ui({ setCurrentPage, block }) {
       </div>
 
       <div className="detailsBody p-3">
-        <LineTitle content={'Task details'} />
+        <LineTitle content={'Task details'} parentClass={'mb-2'} />
         <div className="taskDetails">
           <table>
             {Object.keys(block.details).map((key, index) => (
@@ -95,7 +95,7 @@ export default function Ui({ setCurrentPage, block }) {
             ))}
           </table>
         </div>
-        <LineTitle content={'Description'} />
+        <LineTitle content={'Description'} parentClass={'mb-2'} />
         <div
           className="description text-themeGray-700 text-sm"
           dangerouslySetInnerHTML={{ __html: block.description }}
