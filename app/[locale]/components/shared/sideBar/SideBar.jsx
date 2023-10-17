@@ -1,48 +1,29 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { BiHomeAlt2 } from 'react-icons/bi'
 import { HiOutlineUsers } from 'react-icons/hi'
-import { PiMagnifyingGlass, PiUserSquareLight } from 'react-icons/pi'
+import { PiMagnifyingGlass } from 'react-icons/pi'
 import Search from '../../elements/search/Search'
 import LineTitle from '../../elements/lineTitle/LineTitle'
-import { HiOutlineChevronRight } from 'react-icons/hi'
+import { AiOutlinePlus } from 'react-icons/ai'
+import { LuUsers } from 'react-icons/lu'
+import ParentRoutes from './parentRoutes/ParentRoutes'
+import ChildrenRoutes from './childRoutes/ChildRoutes'
 
 export default function SideBar() {
-  const ChildrenRoutes = ({ routes }) => {
-    return (
-      <>
-        {Object.keys(routes).map((child, index) => (
-          <div key={index} onClick={() => routes[child].action()}>
-            {routes[child].title}
-          </div>
-        ))}
-      </>
-    )
+  const RouteGenerator = ({ routeGroupe }) => {
+    return Object.keys(routeGroupe).map((route, index) => (
+      <div key={index}>
+        {routeGroupe[route].type === 'parent' ? (
+          <ParentRoutes key={index} parentRoutes={routeGroupe[route]} />
+        ) : (
+          <ChildrenRoutes childRoutes={routeGroupe[route]} />
+        )}
+      </div>
+    ))
   }
 
-  const ParentRoutes = ({ parentRoutes }) => {
-    return (
-      <>
-        {Object.keys(parentRoutes).map((route, index) => (
-          <div className="route" key={index}>
-            {console.log(route, '00000000000')}
-            <div className="icon">{parentRoutes[route].icon}</div>
-            <div className="title">{parentRoutes[route].title}</div>
-            <div className="arrow">
-              {parentRoutes[route].type === 'parent' && (
-                <HiOutlineChevronRight />
-              )}
-            </div>
-            <div className="children">
-              {<ChildrenRoutes routes={parentRoutes[route].children} />}
-            </div>
-          </div>
-        ))}
-      </>
-    )
-  }
-
-  const levels = {
+  const routeData = {
     type: 'basic',
     currentPanelPath: ['main'],
     panels: {
@@ -56,60 +37,119 @@ export default function SideBar() {
               items: {
                 humanResources: {
                   type: 'parent',
-                  level: 1,
-                  icon: <PiUserSquareLight />,
+                  icon: <LuUsers />,
                   title: 'Human Resources',
                   path: [''],
                   children: {
                     itemOne: {
-                      level: 2,
-                      type: 'child',
-                      title: 'itemOne',
-                      icon: <PiUserSquareLight />,
-                      action: () => {
-                        console.log('weee')
+                      type: 'parent',
+                      title: 'itemOne0000000',
+                      icon: <LuUsers />,
+                      children: {
+                        itemTow: {
+                          type: 'child',
+                          title: 'itemOne1111111',
+                          icon: <LuUsers />,
+                          action: () => {
+                            console.log('weee')
+                          },
+                        },
                       },
                     },
                   },
                 },
                 taskManagement: {
                   type: 'parent',
-                  level: 1,
-                  icon: <PiUserSquareLight />,
+                  icon: <LuUsers />,
                   title: 'Task Management',
                   path: [''],
                   children: {
                     itemOne: {
-                      level: 2,
                       type: 'child',
-                      title: 'itemOne',
-                      icon: <PiUserSquareLight />,
+                      title: 'itemOne2233',
+                      icon: <LuUsers />,
                       action: () => {
                         console.log('weee')
                       },
                     },
                   },
                 },
+                childRoute: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child route',
+                  action: () => {
+                    console.log('weee')
+                  },
+                },
+              },
+
+              add: {
+                title: 'add Module',
+                action: () => {
+                  console.log('0')
+                },
+              },
+            },
+            pages: {
+              title: 'PAGES',
+              //   count: 4,
+              items: {
+                childRoute: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child route',
+                  action: () => {
+                    console.log('weee')
+                  },
+                },
+                childRoute2: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child route2',
+                  action: () => {
+                    console.log('weee')
+                  },
+                },
+                childRoute3: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child route3',
+                  action: () => {
+                    console.log('weee')
+                  },
+                },
+              },
+
+              add: {
+                title: 'add page',
+                action: () => {
+                  console.log('0')
+                },
               },
             },
           },
         },
         bottomSections: {
-          title: 'WORKSPACE',
-          items: {
-            level: 1,
-            type: 'parent',
-            icon: <HiOutlineUsers />,
-            title: 'Access & Permissions',
-            path: [''],
-            children: {
-              itemOne: {
-                level: 2,
-                type: 'child',
-                title: 'itemOne',
-                icon: <PiUserSquareLight />,
-                action: () => {
-                  console.log('')
+          groupe: {
+            dataModules: {
+              title: 'WORKSPACE',
+              items: {
+                accessPermission: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'Access & Permissions',
+                  action: () => {
+                    console.log('')
+                  },
+                },
+                service: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'service',
+                  action: () => {
+                    console.log('')
+                  },
                 },
               },
             },
@@ -119,45 +159,110 @@ export default function SideBar() {
     },
   }
 
-  const currentPanel = levels.panels[levels.currentPanelPath[0]]
+  const currentPanel = routeData.panels[routeData.currentPanelPath[0]]
   return (
-    <div className="relative w-[19.5rem] text-themeGray-700 border border-themeGray-200">
-      <div className="head  p-4  flex items-center border-b border-themeGray-200">
-        <div className="icon border border-themeGray-200 p-2 rounded-md mr-3 rtl:mr-0 rtl:ml-3 text-2xl">
-          {currentPanel.head.icon}
+    <div className="relative w-[19.5rem] text-themeGray-600 border border-themeGray-200">
+      <div className="body h-full flex flex-col justify-between overflow-auto">
+        <div className="upperSec">
+          <div className="top  p-4  flex items-center border-b border-themeGray-200">
+            <div className="icon border border-themeGray-200 p-2 rounded-md mr-3 rtl:mr-0 rtl:ml-3 text-2xl">
+              {currentPanel.head.icon}
+            </div>
+            <div className="title text-base font-semibold">
+              {currentPanel.head.title}
+            </div>
+          </div>
+          <div className="routes p-4">
+            <Search
+              placeholder={'Search'}
+              inputStyle={`bg-themeWhite-white py-2`}
+              firstIcon={<PiMagnifyingGlass />}
+            />
+            <div className="topSection">
+              {Object.keys(currentPanel.topSections.groupe).map(
+                (item, index) => (
+                  <div className="groupe" key={index}>
+                    <div className="groupeTitle my-4 flex items-center justify-between grow ">
+                      <LineTitle
+                        parentClass={
+                          'mb-0 w-full font-semibold text-themeGray-500'
+                        }
+                        content={currentPanel.topSections.groupe[item].title}
+                      />
+
+                      <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-500">
+                        <AiOutlinePlus />
+                      </div>
+                    </div>
+                    <div className="groupeRout">
+                      <RouteGenerator
+                        routeGroupe={
+                          currentPanel.topSections.groupe[item].items
+                        }
+                      />
+
+                      <div
+                        className="add flex items-center text-primary-600  font-semibold"
+                        onClick={() =>
+                          currentPanel.topSections.groupe[item].add.action()
+                        }
+                      >
+                        <div className="icon p-2 text-2xl">
+                          <AiOutlinePlus />
+                        </div>
+                        <div className="title">
+                          {currentPanel.topSections.groupe[item].add.title}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
         </div>
-        <div className="title text-base font-semibold">
-          {currentPanel.head.title}
-        </div>
-      </div>
-      <div className="body p-4">
-        <Search
-          placeholder={'Search'}
-          inputStyle={`bg-themeWhite-white py-2`}
-          firstIcon={<PiMagnifyingGlass />}
-        />
-        <div className="routes">
-          <div className="topSection">
-            {Object.keys(currentPanel.topSections.groupe).map((item, index) => (
-              <div className="groupe" key={index}>
-                <div className="groupeTitle my-4 flex items-center">
-                  <LineTitle
-                    parentClass={'mb-0'}
-                    content={currentPanel.topSections.groupe[item].title}
-                  />
-                  <button>+</button>
+        <div>
+          <div className="bottomSection border-t border-themeGray-200 px-4  my-4">
+            {Object.keys(currentPanel.bottomSections.groupe).map(
+              (item, index) => (
+                <div className="groupe" key={index}>
+                  <div className="groupeTitle pt-3 pb-1 flex items-center justify-between grow text-sm text-themeGray-500">
+                    <div className="title mb-0 w-full font-semibold">
+                      {currentPanel.bottomSections.groupe[item].title}
+                    </div>
+                  </div>
+                  <div className="groupeRout">
+                    <RouteGenerator
+                      routeGroupe={
+                        currentPanel.bottomSections.groupe[item].items
+                      }
+                    />
+                  </div>
                 </div>
-                <div className="groupeRout">
-                  <ParentRoutes
-                    parentRoutes={currentPanel.topSections.groupe[item].items}
-                  />
+              )
+            )}
+
+            {Object.keys(currentPanel.bottomSections.groupe).map(
+              (item, index) => (
+                <div className="groupe" key={index}>
+                  <div className="groupeTitle pt-3 pb-1 flex items-center justify-between grow text-sm text-themeGray-500">
+                    <div className="title mb-0 w-full font-semibold">
+                      {currentPanel.bottomSections.groupe[item].title}
+                    </div>
+                  </div>
+                  <div className="groupeRout">
+                    <RouteGenerator
+                      routeGroupe={
+                        currentPanel.bottomSections.groupe[item].items
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </div>
-      <div className="bottomSection"></div>
     </div>
   )
 }

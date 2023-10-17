@@ -7,7 +7,12 @@ export const mainSlice = createSlice({
     currentMode: Cookies.get('CurrentMode') || 'light',
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
-    sidebar: 1,
+    sidebar: 'closed',
+    drawer: {
+      status: 'false',
+      currentComponent: '',
+    },
+    zoomSlider: 50,
   },
   reducers: {
     directionFun: (state, action) => {
@@ -20,10 +25,31 @@ export const mainSlice = createSlice({
     changePreloader: (state, action) => {
       state.preloader = action.payload
     },
+
+    changeCurrentComponent: (state, action) => {
+      state.drawer.currentComponent = action.payload
+    },
+    ChangeDrawerStatus: (state, action) => {
+      state.drawer.status = action.payload
+    },
+    ChangeZoomSlider: (state, action) => {
+      state.zoomSlider = action.payload
+    },
+    ChangeSideBar: (state, action) => {
+      state.sidebar = action.payload
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { directionFun, changePreloader, changeMode, addToHistory } =
-  mainSlice.actions
+export const {
+  directionFun,
+  changePreloader,
+  changeMode,
+  addToHistory,
+  changeCurrentComponent,
+  ChangeDrawerStatus,
+  ChangeZoomSlider,
+  ChangeSideBar,
+} = mainSlice.actions
 export default mainSlice.reducer

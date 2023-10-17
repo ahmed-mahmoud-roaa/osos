@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 import TopBar from '../components/shared/topBar/TopBar'
 import Drawer from '../components/shared/drawer/Drawer'
-import SideBar from '../components/shared/sideBar/SideBar'
+import Content from './home/content/Content'
 
 export default function Layout({ children }) {
   const t = useTranslations('Index')
@@ -33,11 +33,10 @@ export default function Layout({ children }) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <TopBar translation={translation} serverData={serverData.userInfo} />
       <Drawer />
-      <SideBar />
-      <div className="Content">{children}</div>
+      <Content content={children} />
     </div>
   )
 }

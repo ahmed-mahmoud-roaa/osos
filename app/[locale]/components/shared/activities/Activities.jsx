@@ -9,7 +9,7 @@ import { TfiLayoutListThumb } from 'react-icons/tfi'
 import {
   ChangeDrawerStatus,
   changeCurrentComponent,
-} from '@/app/store/slices/status'
+} from '@/app/store/slices/main'
 
 export default function Activities() {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ export default function Activities() {
   }
 
   const userDate = useSelector((state) => state.auth.userInfo)
-  const drawer = useSelector((state) => state.status.drawer)
+  const drawer = useSelector((state) => state.main.drawer)
   const NotificationButtons = {
     feed: {
       icon: <TfiLayoutListThumb />,

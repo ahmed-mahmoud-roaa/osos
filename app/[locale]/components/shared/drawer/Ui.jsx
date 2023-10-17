@@ -1,5 +1,5 @@
 'use client'
-import { ChangeDrawerStatus } from '@/app/store/slices/status'
+import { ChangeDrawerStatus } from '@/app/store/slices/main'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Activities from '../activities/Activities'
@@ -8,7 +8,7 @@ import Help from '../topBar/help/Help'
 export default function Ui({ currentComponent }) {
   const dispatch = useDispatch()
 
-  const drawerStatus = useSelector((state) => state.status.drawer).status
+  const drawerStatus = useSelector((state) => state.main.drawer).status
   const CurrentMode = useSelector((state) => state.main.CurrentMode)
   const direction = useSelector((state) => state.main.direction)
 
@@ -16,7 +16,7 @@ export default function Ui({ currentComponent }) {
     <>
       {
         <div
-          className={` shadow-[0_0px_10px_var(--themeGray-200)] h-full drawer absolute top-0 w-[360px] transition-all ease-linear ${
+          className={` shadow-[0_0px_10px_var(--themeGray-200)] h-full drawer absolute top-0 w-[360px] transition-all ease-linear z-10 ${
             direction === 'ar' ? 'leftDrawer ' : ' '
           }  
           ${

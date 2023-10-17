@@ -11,7 +11,7 @@ import IconRoundedButton from '../../elements/buttons/iconRoundedButton/IconRoun
 import Activities from '../activities/Activities'
 import Search from '../../elements/search/Search'
 
-export default function Ui({ translation, dynamicElements }) {
+export default function Ui({ translation, dynamicElements, sidebarToggle }) {
   return (
     <>
       {
@@ -19,7 +19,10 @@ export default function Ui({ translation, dynamicElements }) {
           className={`wrapper flex border-b border-themeGray-200 py-4 px-6 justify-between items-center`}
         >
           <div className="firstSide flex items-center">
-            <button className="sidebarMenuIcon text-2xl mr-6 rtl:mr-0 rtl:ml-6 transform rtl:rotate-180 text-themeGray-800">
+            <button
+              className="sidebarMenuIcon text-2xl mr-6 rtl:mr-0 rtl:ml-6 transform rtl:rotate-180 text-themeGray-800"
+              onClick={() => sidebarToggle()}
+            >
               <HiMenuAlt1 />
             </button>
             <div className="brand flex items-center mr-4 rtl:mr-0 rtl:ml-4 ">

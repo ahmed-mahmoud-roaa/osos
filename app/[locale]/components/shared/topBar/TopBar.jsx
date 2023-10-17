@@ -6,8 +6,12 @@ import { RiUserSettingsLine, RiUserLine } from 'react-icons/ri'
 
 import Ui from './Ui'
 import { addUserInfo } from '@/app/store/slices/auth'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { ChangeSideBar } from '@/app/store/slices/main'
+
 export default function TopBar({ translation, serverData }) {
+  const sidebar = useSelector((state) => state.main.sidebar)
+
   const dispatch = useDispatch()
   dispatch(addUserInfo(serverData))
 
@@ -40,5 +44,15 @@ export default function TopBar({ translation, serverData }) {
     groupedButtons,
   }
 
-  return <Ui dynamicElements={dynamicElements} translation={translation} />
+  const sidebarToggle = () => {
+    const status = sidebar === 'closed' ? 'opened' : 'closed'
+    dispatch(ChangeSideBar(status))
+  }
+  return (
+    <Ui
+      dynamicElements={dynamicElements}
+      translation={translation}
+      sidebarToggle={sidebarToggle}
+    />
+  )
 }

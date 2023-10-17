@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props) =>
       props.currentMode !== 'dark' ? 'white' : 'black'}; 
       overflow-x: hidden;
+      min-height: 100vh;
    }
 
    *{

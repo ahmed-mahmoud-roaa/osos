@@ -6,7 +6,7 @@ import { FiSettings } from 'react-icons/fi'
 import { BiUser } from 'react-icons/bi'
 import { MdOutlineLogout } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChangeZoomSlider } from '@/app/store/slices/status'
+import { ChangeZoomSlider } from '@/app/store/slices/main'
 import english from '@/public/assets/images/english.png'
 import { useRouter } from 'next/navigation'
 import { changeMode, directionFun } from '@/app/store/slices/main'
@@ -15,7 +15,7 @@ import Cookies from 'js-cookie'
 export default function Profile() {
   const router = useRouter()
   const dispatch = useDispatch()
-  const zoomSlider = useSelector((state) => state.status.zoomSlider)
+  const zoomSlider = useSelector((state) => state.main.zoomSlider)
   const direction = useSelector((state) => state.main.direction)
   const changeFontSize = (value) => {
     document.documentElement.style.zoom = value / 4 + 87.5 + '%'

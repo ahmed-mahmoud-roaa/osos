@@ -19,7 +19,7 @@ export default function Drawer() {
     task: <Task />,
   }
   const currentComponent = useSelector(
-    (state) => state.status.drawer
+    (state) => state.main.drawer
   ).currentComponent
   return <Ui currentComponent={drawerElements[currentComponent]} />
 }
