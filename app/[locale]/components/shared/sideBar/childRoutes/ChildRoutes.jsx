@@ -1,7 +1,9 @@
-const ChildrenRoutes = ({ childRoutes }) => {
+const ChildrenRoutes = ({ childRoutes, actions }) => {
   return (
     <div
-      onClick={() => childRoutes.action()}
+      onClick={() => {
+        actions[childRoutes.action[0]](...childRoutes.action[1])
+      }}
       className={`cursor-pointer ${!childRoutes.active && 'group'}`}
     >
       <div
@@ -17,7 +19,7 @@ const ChildrenRoutes = ({ childRoutes }) => {
           {childRoutes.icon}
         </div>
         <div
-          className={`title group-hover:text-primary-600 ${
+          className={`title group-hover:text-primary-600  text-themeGray-700 ${
             childRoutes.active && 'text-primary-600'
           }`}
         >

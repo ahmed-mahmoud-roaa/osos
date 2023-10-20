@@ -3,12 +3,12 @@ import ChildrenRoutes from '../childRoutes/ChildRoutes'
 const { useState } = require('react')
 const { HiOutlineChevronRight } = require('react-icons/hi')
 
-const ParentRoutes = ({ parentRoutes }) => {
+const ParentRoutes = ({ parentRoutes, actions }) => {
   const [status, setStatus] = useState(false)
 
   return (
     <>
-      <div className="route flex items-center justify-between flex-wrap ">
+      <div className="route flex items-center justify-between flex-wrap  text-themeGray-700">
         <div
           onClick={() => setStatus(!status)}
           className={`group flex items-center w-full justify-between cursor-pointer hover:bg-themeGray-100 rounded-md`}
@@ -23,8 +23,8 @@ const ParentRoutes = ({ parentRoutes }) => {
           </div>
           <div
             className={`${
-              status ? 'rotate-90' : 'rotate-0'
-            } arrow font-semibold ease-in-out duration-300 text-xl text-themeGray-500 p-2 title group-hover:text-primary-700`}
+              status ? 'rotate-90' : 'rotate-0 rtl:rotate-180'
+            } arrow font-semibold ease-in-out duration-300 text-xl text-themeGray-500 p-2 title group-hover:text-primary-700 `}
           >
             <HiOutlineChevronRight />
           </div>
@@ -41,9 +41,11 @@ const ParentRoutes = ({ parentRoutes }) => {
                   {parentRoutes.children[childRoute].type === 'parent' ? (
                     <ParentRoutes
                       parentRoutes={parentRoutes.children[childRoute]}
+                      actions={actions}
                     />
                   ) : (
                     <ChildrenRoutes
+                      actions={actions}
                       childRoutes={parentRoutes.children[childRoute]}
                     />
                   )}

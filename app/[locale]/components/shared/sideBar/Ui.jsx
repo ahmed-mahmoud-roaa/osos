@@ -9,20 +9,48 @@ import ParentRoutes from './parentRoutes/ParentRoutes'
 import ChildrenRoutes from './childRoutes/ChildRoutes'
 import { FiArrowLeft } from 'react-icons/fi'
 
-export default function Ui({
-  routeData,
-  history,
-  currentPanel,
-  goToTab,
-  goBack,
-}) {
+export default function Ui({ routeData }) {
+  const [history, setHistory] = useState([])
+
+  const goToTab = (index) => {
+    setCurrentPanel([...history, currentPanel][index])
+    setHistory(history.slice(0, index))
+  }
+
+  const goBack = () => {
+    setCurrentPanel(history[history.length - 1])
+    // setHistory(history.pop())
+    // console.log(history, '999999999999', history.slice(0, -1))
+    setHistory(history.slice(0, -1))
+  }
+
+  const [currentPanel, setCurrentPanel] = useState(routeData.panels['main'])
+
+  const goToPanel = (path) => {
+    console.log({ history }, '55')
+    setHistory([...history, currentPanel])
+    setCurrentPanel(routeData.panels[path])
+  }
+  const doSomeThing = (x) => {
+    console.log('do some thing ', x)
+  }
+
+  const actions = {
+    goToPanel: (x) => goToPanel(x),
+    doSomeThing: (x) => doSomeThing(x),
+  }
+
   function RouteGenerator({ routeGroupe }) {
     return Object.keys(routeGroupe).map((route, index) => (
       <div key={index}>
         {routeGroupe[route].type === 'parent' ? (
-          <ParentRoutes key={index} parentRoutes={routeGroupe[route]} />
+          <ParentRoutes
+            key={index}
+            parentRoutes={routeGroupe[route]}
+            actions={actions}
+          />
         ) : (
-          <ChildrenRoutes childRoutes={routeGroupe[route]} />
+          <ChildrenRoutes childRoutes={routeGroupe[route]} actions={actions} />
         )}
       </div>
     ))
@@ -36,7 +64,7 @@ export default function Ui({
             <div className="otherPanel">
               {[...history, currentPanel].map((panel, index) => (
                 <div
-                  className="panelTitle pt-3 pb-5 px-4 rounded-xl shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0"
+                  className="panelTitle pt-3 pb-5 px-4 rounded-xl  text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default"
                   key={index}
                   onClick={() => goToTab(index)}
                 >
@@ -45,12 +73,13 @@ export default function Ui({
               ))}
             </div>
           ) : (
-            <div className="top  p-4  flex items-center border-b border-themeGray-200">
+            <div className="top  p-4  flex items-center border-b border-themeGray-200  text-themeGray-700">
               <div
                 className="icon border border-themeGray-200 p-2 rounded-md mr-3 rtl:mr-0 rtl:ml-3 text-2xl cursor-pointer"
                 onClick={() => (history.length > 0 ? goBack() : null)}
               >
                 {history.length > 0 ? <FiArrowLeft /> : <BiHomeAlt2 />}
+                {history.length}
               </div>
               <div className="title text-base font-semibold">
                 {currentPanel.head.title}

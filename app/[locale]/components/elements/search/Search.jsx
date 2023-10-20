@@ -13,7 +13,7 @@ export default function Search({
       <input
         type="text"
         placeholder={placeholder}
-        className={`${inputStyle} md:min-w-full relative ${
+        className={`${inputStyle} md:min-w-full relative w-full ${
           roundedFull ? 'rounded-full' : 'rounded-md'
         } border border-themeGray-300 focus-visible:outline-0 py-2 px-2 ${
           firstIcon ? 'pl-8 rtl:pr-8' : 'pl-2 rtl:pr-2'
