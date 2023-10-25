@@ -11,9 +11,9 @@ export default function Ui({ data, asRead }) {
     <div className="text-themeGray-800">
       <div className="head bg-primary-50 py-2 px-4">
         <div className="chatHead flex items-center justify-between mb-2">
-          <h3 className="font-medium text-xl mt-2 mb-4 flex">
+          <h3 className=" font-semibold text-xl mt-2 mb-4 flex">
             <span>Notifications</span>
-            <span className="bg-themeWhite-white text-themeGray-700 text-xs py-1 px-1.5 border border-themeGray-200 rounded-md ml-2 rtl:ml-0 rtl:mr-2">
+            <span className="bg-themeWhite-white text-themeGray-700 text-xs py-1 px-1.5 border border-themeGray-200 rounded-md ml-2 rtl:ml-0 rtl:mr-2 flex items-center">
               5
             </span>
           </h3>

@@ -48,7 +48,7 @@ export default function TaskItems({ setCurrentPage }) {
 
   const cats = [
     {
-      text: 'pending',
+      text: 'Pending',
       count: 5,
     },
     {

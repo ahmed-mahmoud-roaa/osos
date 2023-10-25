@@ -25,7 +25,7 @@ export default function Details({ setCurrentPage }) {
         label: 'Overdue',
       },
     ],
-    title: 'Leave Request - Jasmin ELsayed',
+    title: 'Input fields - Design system',
     from: 'HR > Leaves',
     points: '2',
     level: 'high',
@@ -38,15 +38,15 @@ export default function Details({ setCurrentPage }) {
         data: [
           {
             avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-            name: 'some one 1',
+            name: 'Some One 1',
           },
           {
             avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-            name: 'some one 2',
+            name: 'Some One 2',
           },
           {
             avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-            name: 'some one 2',
+            name: 'Some One 2',
           },
         ],
       },
@@ -70,7 +70,7 @@ export default function Details({ setCurrentPage }) {
         data: [
           {
             avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-            name: 'some one 1',
+            name: 'Some One 1',
           },
         ],
       },

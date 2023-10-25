@@ -11,13 +11,13 @@ export default function Details({ setCurrentPage }) {
     isGroup: false,
     head: {
       avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-      name: 'some one',
+      name: 'Some One',
       position: 'his position',
     },
     users: {
-      'some one': {
+      'Some One': {
         avatar: 'https://www.svgrepo.com/show/61986/avatar.svg',
-        name: 'some one',
+        name: 'Some One',
       },
       you: {
         avatar: userInfo.avatar,
@@ -36,12 +36,12 @@ export default function Details({ setCurrentPage }) {
       },
 
       {
-        owner: 'some one',
+        owner: 'Some One',
         status: false,
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
         time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
-        reactions: { 'some one': '🧡', you: '😂' },
+        reactions: { 'Some One': '🧡', you: '😂' },
       },
     ],
   }

@@ -4,7 +4,8 @@ import CalendarEvent from './calendarEvent/calendarEvent'
 import CalendarSelect from '../../../../elements/calendarSelect/CalendarSelect'
 
 export default function Ui({ EventsDatesString, eventData }) {
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState(new Date())
+  // new Date('Wed Oct 11 2023 00:00:00 GMT+0300 (Eastern European Summer Time)')
   const EventsDates = EventsDatesString.map((item) => new Date(item))
   const [datesData, setDatesData] = useState(EventsDates)
 
@@ -45,12 +46,14 @@ export default function Ui({ EventsDatesString, eventData }) {
       <CalendarSelect
         EventsDatesString={EventsDatesString}
         inline={true}
-        onSelect={(e) => setSelected(e.value)}
+        onSelect={(e) => {
+          setSelected(e.value)
+        }}
         dateTemplate={dateTemplate}
         selectionMode="multiple"
       />
       <div className="pb-4">
-        <DateNavigator />
+        <DateNavigator setSelected={setSelected} selected={selected} />
         <CalendarEvent eventData={eventData} />
       </div>
     </>

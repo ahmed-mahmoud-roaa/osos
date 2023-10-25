@@ -48,23 +48,23 @@ export default function Ui({
     <Wrapper>
       <form onSubmit={formik.handleSubmit} className="p-4  text-themeGray-800">
         <div className="inputWrapper mb-2">
-          <label className="text-sm mb-2 block">Name</label>
+          <label className="text-sm mb-2 block">Title</label>
           <input
             type="text"
-            id="name"
-            name="name"
+            id="title"
+            name="title"
             onChange={formik.handleChange}
-            value={formik.values.name}
+            value={formik.values.title}
             className="block border border-themeGray-200 p-2 bg-themeWhite-white text-themeGray-800 rounded-lg w-full text-base outline-none"
           />
 
-          {formik.touched.name && formik.errors.name && (
+          {formik.touched.title && formik.errors.title && (
             <span
               type="invalid"
               style={{ display: 'block' }}
               className="validationError text-xs text-error-700 mt-1"
             >
-              {formik.errors.name}
+              {formik.errors.title}
             </span>
           )}
         </div>
@@ -103,7 +103,7 @@ export default function Ui({
           <div className="inputWrapper mt-4 text-themeGray-700 w-[48%]">
             <label className="text-sm mb-2 block">From</label>
             <span className="calendarWrapper relative  block border border-themeGray-200  bg-themeWhite-white text-themeGray-800 rounded-lg w-full text-base outline-none">
-              <span className="icon absolute left-3 top-2 z-10 text-2xl">
+              <span className="icon absolute left-3 top-2 z-10 text-2xl text-themeGray-500">
                 <MdOutlineWatchLater />
               </span>
               <div className="pl-8 rtl:pl-0 rtl:pr-8">
@@ -138,7 +138,7 @@ export default function Ui({
           <div className="inputWrapper mt-4 text-themeGray-700 w-[48%]">
             <label className="text-sm mb-2 block">To</label>
             <span className="calendarWrapper relative  block border border-themeGray-200  bg-themeWhite-white text-themeGray-800 rounded-lg w-full text-base outline-none">
-              <span className="icon absolute left-3 top-2 z-10 text-2xl">
+              <span className="icon absolute left-3 top-2 z-10 text-2xl  text-themeGray-500">
                 <MdOutlineWatchLater />
               </span>
               <div className="pl-8 rtl:pl-0 rtl:pr-8">
@@ -196,7 +196,7 @@ export default function Ui({
           <div className="actions">
             <WideButton
               content={'Save'}
-              className={'bg-primary-500 my-4 text-themeWhite-white'}
+              className={'bg-primary-600 my-4 text-themeWhite-white'}
               type={'submit'}
             />
             <WideButton

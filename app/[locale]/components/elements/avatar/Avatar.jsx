@@ -5,7 +5,7 @@ export default function Avatar({ src, width, height, status, classAttr }) {
   return (
     <div
       style={{ minWidth: `${width}px` }}
-      className={`avatarWrapper relative m-auto w-c w-fit  ${classAttr}`}
+      className={`avatarWrapper relative  w-c w-fit  ${classAttr}`}
     >
       <Image src={src} alt="avatar" width={width} height={height} />
       {status && (

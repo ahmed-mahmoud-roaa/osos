@@ -2,20 +2,19 @@ import React, { useState } from 'react'
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 
-const DateNavigator = () => {
+const DateNavigator = ({ setSelected, selected }) => {
   const direction = useSelector((state) => state.main.direction)
-  const [currentDate, setCurrentDate] = useState(new Date())
 
   const handlePrevDate = () => {
-    const newDate = new Date(currentDate)
-    newDate.setDate(currentDate.getDate() - 1)
-    setCurrentDate(newDate)
+    const newDate = new Date(selected)
+    newDate.setDate(selected.getDate() - 1)
+    setSelected(newDate)
   }
 
   const handleNextDate = () => {
-    const newDate = new Date(currentDate)
-    newDate.setDate(currentDate.getDate() + 1)
-    setCurrentDate(newDate)
+    const newDate = new Date(selected)
+    newDate.setDate(selected.getDate() + 1)
+    setSelected(newDate)
   }
 
   const formatLocalizedDate = (date, locale) => {
@@ -27,8 +26,8 @@ const DateNavigator = () => {
 
   const formattedDate =
     direction === 'en'
-      ? formatLocalizedDate(currentDate, 'en-US').split(' ')
-      : formatLocalizedDate(currentDate, 'ar-EG').split(' ')
+      ? formatLocalizedDate(selected, 'en-US').split(' ')
+      : formatLocalizedDate(selected, 'ar-EG').split(' ')
   return (
     <div className="flex justify-between items-center px-6 py-4 border-t border-themeGray-100 text-themeGray-800">
       <button onClick={handlePrevDate} className="rtl:rotate-180">

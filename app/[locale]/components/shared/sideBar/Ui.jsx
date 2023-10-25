@@ -19,15 +19,12 @@ export default function Ui({ routeData }) {
 
   const goBack = () => {
     setCurrentPanel(history[history.length - 1])
-    // setHistory(history.pop())
-    // console.log(history, '999999999999', history.slice(0, -1))
     setHistory(history.slice(0, -1))
   }
 
   const [currentPanel, setCurrentPanel] = useState(routeData.panels['main'])
 
   const goToPanel = (path) => {
-    console.log({ history }, '55')
     setHistory([...history, currentPanel])
     setCurrentPanel(routeData.panels[path])
   }
@@ -64,7 +61,7 @@ export default function Ui({ routeData }) {
             <div className="otherPanel">
               {[...history, currentPanel].map((panel, index) => (
                 <div
-                  className="panelTitle pt-3 pb-5 px-4 rounded-xl  text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default"
+                  className="panelTitle pt-3 pb-5 px-4 rounded-xl font-bold text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default"
                   key={index}
                   onClick={() => goToTab(index)}
                 >
@@ -79,7 +76,6 @@ export default function Ui({ routeData }) {
                 onClick={() => (history.length > 0 ? goBack() : null)}
               >
                 {history.length > 0 ? <FiArrowLeft /> : <BiHomeAlt2 />}
-                {history.length}
               </div>
               <div className="title text-base font-semibold">
                 {currentPanel.head.title}
@@ -89,8 +85,12 @@ export default function Ui({ routeData }) {
           <div className="routes p-4">
             <Search
               placeholder={'Search'}
-              inputStyle={`bg-themeWhite-white py-2`}
-              firstIcon={<PiMagnifyingGlass />}
+              inputStyle={`bg-themeWhite-white py-2.5 text-base`}
+              firstIcon={
+                <span className="text-base">
+                  <PiMagnifyingGlass />
+                </span>
+              }
             />
             <div className="topSection">
               {Object.keys(currentPanel.topSections.groupe).map(
@@ -104,7 +104,7 @@ export default function Ui({ routeData }) {
                         content={currentPanel.topSections.groupe[item].title}
                       />
 
-                      <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-500">
+                      <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-700">
                         <AiOutlinePlus />
                       </div>
                     </div>

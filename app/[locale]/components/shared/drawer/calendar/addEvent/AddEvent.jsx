@@ -15,7 +15,7 @@ export default function AddEvent({ setCurrentPage }) {
   }
 
   const initialValues = {
-    name: '',
+    title: '',
     date: '',
     from: '',
     to: '',
@@ -23,7 +23,7 @@ export default function AddEvent({ setCurrentPage }) {
   }
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('This field is required'),
+    title: Yup.string().required('This field is required'),
     date: Yup.date()
       .required('Date is required')
       .test('is-in-future', 'Date must be in the future', (value) => {

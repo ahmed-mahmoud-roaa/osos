@@ -14,6 +14,7 @@ module.exports = {
           700: 'var(--primary-700)',
           600: 'var(--primary-600)',
           500: 'var(--primary-500)',
+          400: 'var(--primary-400)',
           300: 'var(--primary-300)',
           200: 'var(--primary-200)',
           50: 'var(--primary-50)',
@@ -40,9 +41,11 @@ module.exports = {
         },
         error: {
           700: 'var(--error-700)',
+          400: 'var(--error-400)',
           200: 'var(--error-200)',
           100: 'var(--error-100)',
           50: 'var(--error-50)',
+          25: 'var(--error-25)',
         },
         themeGreen: {
           800: 'var(--themeGreen-800)',

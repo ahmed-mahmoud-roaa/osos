@@ -3,12 +3,12 @@ import { BsCalendar2Plus } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
 
-export default function CalendarHead({ currentPage, setCurrentPage }) {
+export default function CalendarHead({ currentPage, setCurrentPage, title }) {
   return (
     <div className="head bg-primary-50 py-2 px-4">
       <div className="chatHead flex items-center justify-between mb-2">
-        <h3 className="font-medium text-xl mt-2 mb-4 flex">
-          <span>My Calendar</span>
+        <h3 className=" font-semibold text-xl mt-2 mb-4 flex">
+          <span>{title}</span>
         </h3>
         <div>
           {currentPage === 'AddEvent' ? (

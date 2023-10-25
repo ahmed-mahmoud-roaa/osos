@@ -9,8 +9,8 @@ export default function Ui({ setCurrentPage, chatBlocks }) {
     <div>
       <div className="head bg-primary-50 p-4">
         <div className="chatHead flex items-center justify-between mb-2">
-          <h3 className="font-medium text-xl mt-2 mb-4 flex">
-            <span>Team chat</span>
+          <h3 className=" font-semibold text-xl mt-2 mb-4 flex">
+            <span>Team chats</span>
             <span className="bg-themeWhite-white text-themeGray-700 text-xs py-1 px-1.5 border border-themeGray-200 rounded-md ml-2 rtl:ml-0 rtl:mr-2">
               40
             </span>
@@ -20,7 +20,7 @@ export default function Ui({ setCurrentPage, chatBlocks }) {
           </button>
         </div>
         <Search
-          inputStyle={`bg-themeWhite-white`}
+          inputStyle={`bg-themeWhite-white py-2.5 rounded-lg`}
           placeholder={'Search chats'}
           firstIcon={<PiMagnifyingGlass />}
         />
@@ -32,7 +32,7 @@ export default function Ui({ setCurrentPage, chatBlocks }) {
           onClick={() => {
             setCurrentPage('details')
           }}
-          className={`chatBlock p-4 border-b ${
+          className={`chatBlock p-4 border-b cursor-pointer hover:bg-themeGray-50 ${
             block.count ? 'bg-themeWhite-white' : 'bg-themeGray-50'
           }`}
         >
@@ -40,7 +40,9 @@ export default function Ui({ setCurrentPage, chatBlocks }) {
             <div className="info flex items-center">
               <Image src={block.avatar} alt="user" width={40} height={40} />
               <div className="person mx-3 font-medium">
-                <h3 className="name  text-sm">{block.name}</h3>
+                <h3 className="name  text-sm text-themeGray-700">
+                  {block.name}
+                </h3>
                 <p className="position  text-xs text-themeGray-500">
                   {block.position}
                 </p>

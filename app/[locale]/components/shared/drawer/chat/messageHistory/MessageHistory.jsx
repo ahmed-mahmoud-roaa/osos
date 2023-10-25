@@ -9,7 +9,7 @@ export default function MessageHistory({ setCurrentPage }) {
   const chatBlocks = [
     {
       avatar: userDate.avatar,
-      name: 'some one',
+      name: 'Some One',
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
@@ -18,7 +18,7 @@ export default function MessageHistory({ setCurrentPage }) {
     },
     {
       avatar: userDate.avatar,
-      name: 'some one',
+      name: 'Some One',
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
@@ -26,24 +26,7 @@ export default function MessageHistory({ setCurrentPage }) {
     },
     {
       avatar: userDate.avatar,
-      name: 'some one',
-      position: 'his position',
-      lastMessage:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
-      count: '5',
-    },
-    {
-      avatar: userDate.avatar,
-      name: 'some one',
-      position: 'his position',
-      lastMessage:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
-      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
-    },
-    {
-      avatar: userDate.avatar,
-      name: 'some one',
+      name: 'Some One',
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
@@ -52,7 +35,24 @@ export default function MessageHistory({ setCurrentPage }) {
     },
     {
       avatar: userDate.avatar,
-      name: 'some one',
+      name: 'Some One',
+      position: 'his position',
+      lastMessage:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
+    },
+    {
+      avatar: userDate.avatar,
+      name: 'Some One',
+      position: 'his position',
+      lastMessage:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',
+      time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
+      count: '5',
+    },
+    {
+      avatar: userDate.avatar,
+      name: 'Some One',
       position: 'his position',
       lastMessage:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestiae fugit cum esse magni perferendis quis dolorem laboriosam? Vel accusantium aliquid non repellat enim culpa aspernatur in laborum odit laudantium?',

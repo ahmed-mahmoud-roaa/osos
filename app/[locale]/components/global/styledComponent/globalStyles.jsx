@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
-
+import { createGlobalStyle, css } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
+
+
   body {
     background-color: ${(props) =>
       props.currentMode !== 'dark' ? 'white' : 'black'}; 
@@ -16,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode == 'dark' ? 'white' : 'black'}; */
  }
 
+ 
 :root{
     --primary-950:${(props) =>
       props.currentMode !== 'dark' ? '#102a56' : '#EFF8FF'};
@@ -25,6 +27,8 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#175CD3' : '#072d61'};
     --primary-500:${(props) =>
       props.currentMode !== 'dark' ? '#2E90FA' : '#072d61'};
+    --primary-400:${(props) =>
+      props.currentMode !== 'dark' ? '#53B1FD' : '#072d61'};
     --primary-300: ${(props) =>
       props.currentMode !== 'dark' ? '#84CAFF' : '#00589b'}; 
     --primary-200: ${(props) =>
@@ -45,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
     --themeGray-300: ${(props) =>
       props.currentMode !== 'dark' ? '#d1d5db' : '#4b5360'}; 
     --themeGray-200: ${(props) =>
-      props.currentMode !== 'dark' ? '#e5e7eb' : '#515969'}; 
+      props.currentMode !== 'dark' ? '#EAECF0' : '#515969'}; 
     --themeGray-100: ${(props) =>
       props.currentMode !== 'dark' ? '#f3f4f6' : '#545d70'}; 
     --themeGray-50: ${(props) =>
@@ -59,12 +63,16 @@ const GlobalStyle = createGlobalStyle`
 
     --error-700: ${(props) =>
       props.currentMode !== 'dark' ? '#B42318' : '#facac7'}; 
+    --error-400: ${(props) =>
+      props.currentMode !== 'dark' ? '#F97066' : '#B42318'}; 
     --error-200: ${(props) =>
       props.currentMode !== 'dark' ? '#facac7' : '#B42318'}; 
     --error-100: ${(props) =>
       props.currentMode !== 'dark' ? '#fee4e2' : '#B42318'}; 
     --error-50: ${(props) =>
       props.currentMode !== 'dark' ? '#fef3f2' : '#B42318'}; 
+    --error-25: ${(props) =>
+      props.currentMode !== 'dark' ? '#FFFBFA' : '#B42318'}; 
 
     --themeGreen-800: ${(props) =>
       props.currentMode !== 'dark' ? '#326212' : '#83cfc6'}; 
@@ -84,6 +92,12 @@ const GlobalStyle = createGlobalStyle`
     --themeOrange-500: ${(props) =>
       props.currentMode !== 'dark' ? '#EF6820' : '#e9b046'}; 
 }
+
+
+ 
+
+
+
 img{
     max-width: 100%;
 }

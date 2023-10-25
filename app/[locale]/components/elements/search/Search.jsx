@@ -9,7 +9,7 @@ export default function Search({
   inputStyle,
 }) {
   return (
-    <div className={` relative text-themeGray-500 ${className}`}>
+    <div className={`relative text-themeGray-500 ${className}`}>
       <input
         type="text"
         placeholder={placeholder}
@@ -19,15 +19,15 @@ export default function Search({
           firstIcon ? 'pl-8 rtl:pr-8' : 'pl-2 rtl:pr-2'
         }  ${
           lastIcon ? 'pr-10 rtl:pl-10' : 'pr-2 rtl:pl-2'
-        }  flex items-center text-sm`}
+        }  flex items-center `}
       />
-      <span className="icon absolute left-3 rtl:left-auto rtl:right-3 top-3">
+      <span className="icon absolute left-3 rtl:left-auto rtl:right-3 top-[50%] translate-y-[-50%]">
         {firstIcon}
       </span>
 
       {lastIcon && (
         <span
-          className={`icon absolute right-3 rtl:left-3 rtl:right-auto text-sm top-2 flex items-center rtl:flex-row-reverse rounded-md border border-themeGray-100 bg-themeGray-50 mix-blend-multiply px-0.5`}
+          className={`icon absolute right-3 rtl:left-3 rtl:right-auto   top-2 flex items-center rtl:flex-row-reverse rounded-md border border-themeGray-100 bg-themeGray-50 mix-blend-multiply px-0.5`}
         >
           {lastIcon}
         </span>

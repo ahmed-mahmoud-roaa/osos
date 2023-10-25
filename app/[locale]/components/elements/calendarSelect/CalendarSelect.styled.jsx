@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
     td
     span:not(.p-highlight):not(.p-disabled):hover {
     background-color: var(--primary-500);
+    color: var(--themeWhite-white);
   }
   td,
   th {
@@ -50,10 +51,11 @@ export const Wrapper = styled.div`
 
   .p-datepicker-month {
     margin: 0 5px;
-    font-weight: bold;
+    font-weight: 600;
   }
   .p-datepicker-title {
     font-size: 1.25rem;
+    font-weight: 400;
   }
   .p-datepicker-header {
     margin-bottom: 10px;

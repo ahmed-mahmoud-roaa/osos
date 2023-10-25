@@ -57,15 +57,15 @@ export default function Ui({ setCurrentPage, block }) {
     <div className="">
       <div className="detailsHead flex justify-between p-4 border-b border-b-themeGray-200">
         <button
-          className="mb-auto back text-themeGray-700 text-xl p-2   border border-themeGray-300 rounded-md"
+          className="mb-auto back text-themeGray-700 text-xl p-2   border border-themeGray-300 rounded-md mr-4 rtl:mr-0 rtl:ml-4"
           onClick={() => setCurrentPage('TaskItems')}
         >
           <MdOutlineArrowBack />
         </button>
-        <div className="info">
+        <div className="info flex-grow">
           <Label labels={block.labels} />
           <div
-            className={`title text-base text-themeGray-800 cursor-pointer ${
+            className={`title text-base text-themeGray-800 font-semibold ${
               block.block.status === 'green' && 'line-through'
             }`}
           >

@@ -9,12 +9,13 @@ export default function Ui({ messageData, user, handleEmoji }) {
 
   return (
     <div
-      className={`message flex mb-10 max-w-[90%]  ${
+      className={`message flex ${
         messageData.owner !== 'you'
-          ? 'mr-auto rtl:mr-0 rtl:ml-auto'
-          : 'ml-auto rtl:ml-0 rtl:mr-auto'
-      } `}
+          ? 'mr-auto rtl:mr-0 rtl:ml-auto max-w-[90%] '
+          : 'ml-auto rtl:ml-0 rtl:mr-auto max-w-[70%] '
+      } ${Object.keys(emoji).length > 0 ? 'mb-10' : 'mb-5'} `}
     >
+      {console.log(Object.keys(emoji).length > 0, '2222222222222')}
       {messageData.owner !== 'you' && (
         <Avatar
           src={user.avatar}
@@ -26,7 +27,7 @@ export default function Ui({ messageData, user, handleEmoji }) {
       )}
       <div>
         <div className="flex justify-between">
-          <div className="name text-sm text-themeGray-700">
+          <div className="name text-sm text-themeGray-700 font-semibold">
             {messageData.owner !== 'you' ? user.name : 'You'}
           </div>
           <div className="time text-themeGray-500 text-sm">
@@ -35,7 +36,7 @@ export default function Ui({ messageData, user, handleEmoji }) {
         </div>
         <div
           onClick={() => setShowReact(!showReact)}
-          className={`${
+          className={` cursor-pointer ${
             messageData.owner !== 'you'
               ? ' bg-themeGray-100 text-themeGray-900  rounded-tl-[0px] rtl:rounded-tr-[0px] rtl:rounded-tl-xl '
               : 'bg-primary-600 text-themeWhite-white rounded-tr-[0px]  rtl:rounded-tl-[0px]  rtl:rounded-tr-xl '

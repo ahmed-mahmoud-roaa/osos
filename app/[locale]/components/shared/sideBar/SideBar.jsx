@@ -9,7 +9,7 @@ import Ui from './Ui'
 export default function SideBar() {
   const routeData = {
     type: 'basic',
-    type: 'tabs',
+    // type: 'tabs',
     panels: {
       main: {
         head: { title: 'Roaa Portal', search: true },

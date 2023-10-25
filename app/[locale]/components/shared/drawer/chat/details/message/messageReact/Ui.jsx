@@ -4,7 +4,7 @@ export default function Ui({ show, addEmoji, emojisArray }) {
   return (
     <>
       {show && (
-        <div className="absolute z-40 bg-themeGray-50 p-2 rounded-full text-3xl">
+        <div className="absolute z-40 bg-themeGray-50 p-2 rounded-full text-2xl">
           {emojisArray.map((emo, index) => (
             <button key={index} onClick={() => addEmoji(emo)}>
               {emo}

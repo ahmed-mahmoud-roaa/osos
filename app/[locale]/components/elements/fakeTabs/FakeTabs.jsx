@@ -6,7 +6,7 @@ export default function FakeTabs({ currentCat, setCurrentCat, data }) {
       {data.map((item, index) => (
         <button
           key={index}
-          className={`pending pb-2 min-w-[5rem] ${
+          className={`flex items-center justify-center pending pb-2 min-w-[5rem]  text-xs font-semibold ${
             index === currentCat &&
             'border-b border-primary-700 text-primary-700'
           }`}
@@ -15,7 +15,7 @@ export default function FakeTabs({ currentCat, setCurrentCat, data }) {
           <span className="text">{item.text}</span>
           {item.count && parseInt(item.count) > 0 ? (
             <span
-              className={`count py-0.5 px-1.5 ml-2 rtl:ml-0 rtl:mr-2 border rounded-full text-xs ${
+              className={`count py-0.5 px-1.5 ml-2 rtl:ml-0 rtl:mr-2 border rounded-full ${
                 index === currentCat
                   ? 'border-primary-500 bg-primary-50'
                   : 'border-themeGray-300 bg-themeGray-50'

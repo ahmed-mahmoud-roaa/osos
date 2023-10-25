@@ -26,7 +26,7 @@ export default function Ui({
   return (
     <>
       <div>
-        <div className="profileData p-4 relative  after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-1/2 after:bg-primary-50">
+        <div className="profileData p-4 relative  after:content-[''] flex justify-center after:absolute after:top-0 after:left-0 after:w-full after:h-1/2 after:bg-primary-50">
           <Avatar
             src={userData.avatar}
             width={64}
@@ -63,7 +63,7 @@ export default function Ui({
         </div>
         <div className="org p-4 mt-4 w-full border-y">
           <div className="orgName flex items-center">
-            <div className="flex mr-4 rtl:mr-0 rtl:ml-4 border bg-themeGray-100 py-2 px-2.5 rounded-full text-themeGray-500 text-lx">
+            <div className="flex mr-4 rtl:mr-0 rtl:ml-4 border bg-themeGray-100 py-2 px-2.5 rounded-full text-themeGray-500 text-lx font-semibold">
               RT
             </div>
             <div className="info">
@@ -80,11 +80,13 @@ export default function Ui({
         </div>
 
         <div className="p-4 w-full border-b ">
-          <div className="title text-themeGray-500  text-xs">
+          <div className="title text-themeGray-500  text-xs font-semibold">
             DISPLAY SETTINGS
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm text-themeGray-800 ">Interface</p>
+            <p className="text-sm text-themeGray-800 font-semibold">
+              Interface
+            </p>
 
             <SelectButtonList
               value={value}
@@ -94,7 +96,7 @@ export default function Ui({
             />
           </div>
 
-          <div className="flex justify-between items-center mt-2">
+          <div className="flex justify-between items-center mt-2 font-semibold">
             <p className="text-sm  text-themeGray-800 ">Display mode</p>
             <SelectButtonList
               value={value}
@@ -104,11 +106,15 @@ export default function Ui({
             />
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm  text-themeGray-800 ">Language</p>
+            <p className="text-sm  text-themeGray-800 font-semibold">
+              Language
+            </p>
             <DropDownInput options={langOptions} className={'w-[9.9rem]'} />
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="text-sm text-themeGray-800 ">Font size</p>
+            <p className="text-sm text-themeGray-800 font-semibold">
+              Font size
+            </p>
             <SliderInput
               setValueInput={changeFontSize}
               valueInput={zoomSlider}

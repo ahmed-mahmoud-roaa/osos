@@ -21,20 +21,31 @@ export function formatTimeDifference(utcString) {
   const currentDate = new Date()
   const dateDifferenceInSeconds = Math.floor((currentDate - utcDate) / 1000) // Calculate the difference in seconds
 
+  const isEnglish = Cookies.get('NEXT_LOCALE') === 'en'
+
   if (dateDifferenceInSeconds < 60) {
     // Less than 1 minute
-    return `${dateDifferenceInSeconds} ${
-      Cookies.get('NEXT_LOCALE') === 'en' ? 'sec' : 'ثانيه'
-    }`
+    // return `${dateDifferenceInSeconds} ${isEnglish ? 'sec' : 'ثانيه'}`
+    return `${isEnglish ? 'Just now' : 'حالا'}`
   } else if (dateDifferenceInSeconds < 3600) {
     // Less than 1 hour
     const minutes = Math.floor(dateDifferenceInSeconds / 60)
-    return `${minutes} ${Cookies.get('NEXT_LOCALE') === 'en' ? 'min' : 'دقيقه'}`
+    return `${minutes} ${isEnglish ? 'min' : 'دقيقه'}`
   } else if (dateDifferenceInSeconds < 86400) {
     // Less than 1 day
     const hours = Math.floor(dateDifferenceInSeconds / 3600)
-    return `${hours} ${Cookies.get('NEXT_LOCALE') === 'en' ? 'hour' : 'ساعه'}`
+    return `${hours} ${isEnglish ? 'hour' : 'ساعه'}`
   } else {
     return formatDateString(utcString)
   }
 }
+
+// label ==> today , yesterday, yesterday with hour
+
+// } else if (dateDifferenceInSeconds < 86400) {
+//   // Less than 1 day
+//   const hours = Math.floor(dateDifferenceInSeconds / 3600)
+//   return `${hours} ${isEnglish ? 'hour' : 'ساعه'}`
+// } else if (dateDifferenceInSeconds < 172800) {
+//   // Less than 2 day
+//   return `  ${isEnglish ? 'yesterday' : 'البارحه'}`

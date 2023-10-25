@@ -12,12 +12,12 @@ export default function Ui({ setCurrentPage, data }) {
       <div>
         <div className="detailsHead flex justify-between p-4 border-b border-b-themeGray-200">
           <button
-            className="back text-themeGray-700 text-xl p-2 my-auto border border-themeGray-300 rounded-md"
+            className="back text-themeGray-700 text-xl p-2 my-auto border border-themeGray-300 rounded-md  mr-4 rtl:mr-0 rtl:ml-4"
             onClick={() => setCurrentPage('message')}
           >
             <MdOutlineArrowBack />
           </button>
-          <div className="info flex items-center">
+          <div className="info flex-grow flex items-center">
             <Image src={data.head.avatar} alt="user" width={48} height={48} />
             <div className="person mx-3 font-medium">
               <h3 className="name text-lg text-themeGray-900">

@@ -9,20 +9,32 @@ import { dotesColor, dotesRender } from '../../functions'
 
 const head = (head) => (
   <div
-    className={`head flex items-center py-2 ${
+    className={`head flex items-center py-2 font-semibold ${
       head.title === 'High'
         ? 'text-error-700'
         : head.title === 'Normal'
-        ? 'text-primary-700'
+        ? 'text-primary-600'
         : 'text-themeGray-600'
     }`}
   >
     {head.icon ? (
-      <span className={`icon mr-2 rtl:mr-0 rtl:ml-2`}>{head.icon}</span>
+      <span
+        className={`icon mr-2 rtl:mr-0 rtl:ml-2 text-base  ${
+          head.title === 'High'
+            ? 'text-error-400 '
+            : head.title === 'Normal'
+            ? 'text-primary-400 '
+            : 'text-themeGray-400'
+        }`}
+      >
+        {head.icon}
+      </span>
     ) : (
       ''
     )}
-    <span className={`title mr-2 rtl:mr-0 rtl:ml-2`}>{head.title}</span>
+    <span className={`title mr-2 rtl:mr-0 rtl:ml-2 text-base `}>
+      {head.title}
+    </span>
     <span
       className={`count py-0.5 px-1.5 text-xs rounded-full ${
         head.title === 'High'
@@ -41,13 +53,13 @@ const body = (body, setCurrentPage) => (
       <div
         key={index}
         className={`flex rounded-xl border border-themeGray-100 overflow-hidden my-3 ${
-          block.block.status == 'red' ? 'bg-error-50' : ''
+          block.block.status == 'red' ? 'bg-error-25' : ''
         }`}
       >
         <div
           className={`check py-4 px-2  ${
             block.block.status == 'red'
-              ? 'bg-error-200'
+              ? 'bg-error-100'
               : block.block.status == 'green'
               ? 'bg-themeGreen-200'
               : 'bg-themeGray-200'
@@ -60,13 +72,13 @@ const body = (body, setCurrentPage) => (
 
           <div
             onClick={() => setCurrentPage('details')}
-            className={`title text-base my-1 text-themeGray-800 cursor-pointer ${
+            className={`title text-base my-1 text-themeGray-800 cursor-pointer font-semibold ${
               block.block.status === 'green' && 'line-through'
             }`}
           >
             {block.title}
           </div>
-          <div className="from text-xs text-themeGray-700 mb-3">
+          <div className="from text-xs text-themeGray-600 mb-3">
             {block.from}
           </div>
           <div className="info flex items-center text-xs justify-between">
@@ -114,7 +126,7 @@ export default function Ui({ taskData, setCurrentPage }) {
   return (
     <>
       {taskData.map((item, index) => (
-        <div key={index} className="border-b border-themeGray-100">
+        <div key={index} className="border-b border-themeGray-100 px-4">
           <Accordion
             head={head(item.head)}
             body={body(item.body, setCurrentPage)}

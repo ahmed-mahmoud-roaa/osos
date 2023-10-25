@@ -12,7 +12,7 @@ const ChildrenRoutes = ({ childRoutes, actions }) => {
         }`}
       >
         <div
-          className={`icon pr-2 rtl:pl-2 rtl:pr-0 text-2xl group-hover:text-primary-600 ${
+          className={`icon pr-2 rtl:pl-2 rtl:pr-0 text-xl group-hover:text-primary-600 ${
             childRoutes.active ? ' text-primary-600' : 'text-themeGray-500 '
           }`}
         >

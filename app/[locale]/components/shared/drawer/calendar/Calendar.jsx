@@ -7,14 +7,24 @@ import CalendarHead from './CalendarHead/CalendarHead'
 export default function Calendar() {
   const [currentPage, setCurrentPage] = useState('CalendarDate')
   const pages = {
-    CalendarDate: <CalendarDate />,
-    CalendarSetting: <CalendarSetting />,
-    AddEvent: <AddEvent setCurrentPage={setCurrentPage} />,
+    CalendarDate: { title: 'My Calendar', component: <CalendarDate /> },
+    CalendarSetting: {
+      title: 'Calendar Settings',
+      component: <CalendarSetting />,
+    },
+    AddEvent: {
+      title: 'Add Event',
+      component: <AddEvent setCurrentPage={setCurrentPage} />,
+    },
   }
   return (
     <>
-      <CalendarHead currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {pages[currentPage]}
+      <CalendarHead
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        title={pages[currentPage].title}
+      />
+      {pages[currentPage].component}
     </>
   )
 }
