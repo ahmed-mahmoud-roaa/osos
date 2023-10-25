@@ -86,7 +86,11 @@ export default function TaskItems({ setCurrentPage }) {
           points: '2',
           level: 'high',
           weight: '2',
-          time: { title: 'Yesterday', status: 'red' },
+          time: {
+            title:
+              'Thu Oct 20 2023 00:56:20 GMT+0300 (Eastern European Summer Time)',
+            status: 'red',
+          },
         },
         {
           block: {
@@ -110,7 +114,11 @@ export default function TaskItems({ setCurrentPage }) {
           points: '2',
           level: 'low',
           weight: '2',
-          time: { title: 'Yesterday', status: 'red' },
+          time: {
+            title:
+              'Thu Oct 20 2023 00:56:20 GMT+0300 (Eastern European Summer Time)',
+            status: 'red',
+          },
         },
       ],
     },
@@ -139,7 +147,12 @@ export default function TaskItems({ setCurrentPage }) {
           points: '2',
           level: 'high',
           weight: '2',
-          time: { title: 'Today', status: 'gray' },
+          time: {
+            title:
+              'Thu Oct 25 2023 00:56:20 GMT+0300 (Eastern European Summer Time)',
+
+            status: 'gray',
+          },
         },
         {
           block: {
@@ -163,7 +176,11 @@ export default function TaskItems({ setCurrentPage }) {
           points: '3',
           level: 'low',
           weight: '2',
-          time: { title: 'Yesterday', status: 'red' },
+          time: {
+            title:
+              'Thu Oct 20 2023 00:56:20 GMT+0300 (Eastern European Summer Time)',
+            status: 'red',
+          },
         },
       ],
     },

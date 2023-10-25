@@ -16,12 +16,23 @@ export function formatDateString(dateString) {
   return date.toLocaleDateString('en-US', options)
 }
 
-export function formatTimeDifference(utcString) {
+export function weekDayDayMonth(utcDate) {
+  const options = { weekday: 'short', day: '2-digit', month: 'short' }
+  const isEnglish = Cookies.get('NEXT_LOCALE') === 'en'
+  const lang = isEnglish ? 'en-US' : 'ar-EG'
+  const formattedDate = new Date(utcDate).toLocaleDateString(lang, options)
+  return formattedDate
+}
+
+const differenceInSecond = (utcString) => {
   const utcDate = new Date(utcString)
   const currentDate = new Date()
   const dateDifferenceInSeconds = Math.floor((currentDate - utcDate) / 1000) // Calculate the difference in seconds
-
   const isEnglish = Cookies.get('NEXT_LOCALE') === 'en'
+  return { dateDifferenceInSeconds, isEnglish }
+}
+export function formatTimeDifference(utcString) {
+  const { dateDifferenceInSeconds, isEnglish } = differenceInSecond(utcString)
 
   if (dateDifferenceInSeconds < 60) {
     // Less than 1 minute
@@ -35,17 +46,31 @@ export function formatTimeDifference(utcString) {
     // Less than 1 day
     const hours = Math.floor(dateDifferenceInSeconds / 3600)
     return `${hours} ${isEnglish ? 'hour' : 'ساعه'}`
+  } else if (dateDifferenceInSeconds < 172800) {
+    return `${isEnglish ? 'yesterday' : 'البارحه'} ${formatDateString(utcString)
+      .split(' ')[1]
+      .toString()}`
   } else {
     return formatDateString(utcString)
   }
 }
 
-// label ==> today , yesterday, yesterday with hour
+export function dateInLabel(utcString, withHour) {
+  const { dateDifferenceInSeconds, isEnglish } = differenceInSecond(utcString)
 
-// } else if (dateDifferenceInSeconds < 86400) {
-//   // Less than 1 day
-//   const hours = Math.floor(dateDifferenceInSeconds / 3600)
-//   return `${hours} ${isEnglish ? 'hour' : 'ساعه'}`
-// } else if (dateDifferenceInSeconds < 172800) {
-//   // Less than 2 day
-//   return `  ${isEnglish ? 'yesterday' : 'البارحه'}`
+  let shortDate
+  if (dateDifferenceInSeconds < 86400) {
+    shortDate = `${isEnglish ? 'today' : 'اليوم'}`
+  } else if (dateDifferenceInSeconds < 172800) {
+    shortDate = `${isEnglish ? 'yesterday' : 'البارحه'}`
+  } else {
+    shortDate = formatDateString(utcString).split(' ')[0].toString()
+  }
+
+  console.log({ shortDate })
+  if (withHour) {
+    return shortDate + formatDateString(utcString).split(' ')[1].toString()
+  } else {
+    return shortDate
+  }
+}

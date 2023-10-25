@@ -9,6 +9,7 @@ import { dotesColor, dotesRender } from '../functions'
 import LineTitle from '@/app/[locale]/components/elements/lineTitle/LineTitle'
 import { HiMiniArrowUpRight } from 'react-icons/hi2'
 import WideButton from '@/app/[locale]/components/elements/buttons/wideButton/WideButton'
+import { weekDayDayMonth } from '@/app/[locale]/func/time/time'
 
 const Assignees = ({ data }) => (
   <div className="flex flex-wrap">
@@ -24,7 +25,7 @@ export default function Ui({ setCurrentPage, block }) {
 
     dueDate: (
       <div className={`level text-xs flex items-center text-error-700 `}>
-        {block.details.dueDate.data}
+        {weekDayDayMonth(new Date(block.details.dueDate.data))}
       </div>
     ),
     importance: (

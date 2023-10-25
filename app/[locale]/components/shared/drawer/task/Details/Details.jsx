@@ -54,7 +54,7 @@ export default function Details({ setCurrentPage }) {
       dueDate: {
         icon: <MdOutlineWatchLater />,
         title: 'Due date',
-        data: 'Thu 10 Aug',
+        data: 'Thu Oct 25 2023 00:56:20 GMT+0300 (Eastern European Summer Time)',
       },
       urgency: {
         icon: <BsExclamationOctagon />,

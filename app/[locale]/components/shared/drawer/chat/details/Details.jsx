@@ -29,7 +29,7 @@ export default function Details({ setCurrentPage }) {
       {
         owner: 'you',
         status: false,
-        time: formatTimeDifference('Thu Oct 05 2023 13:28:56 GMT+0300'),
+        time: formatTimeDifference('Thu Oct 25 2023 13:28:56 GMT+0300'),
         message:
           'Hey Kadry, I’ve finished with the requirements doc! I made some notes in the gdoc as well for Rayaan to look over.',
         reactions: {},

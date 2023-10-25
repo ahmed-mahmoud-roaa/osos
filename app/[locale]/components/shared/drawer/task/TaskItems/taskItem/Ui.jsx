@@ -6,6 +6,7 @@ import { RiFlag2Line } from 'react-icons/ri'
 import { TbWeight } from 'react-icons/tb'
 import Label from '../../label/Label'
 import { dotesColor, dotesRender } from '../../functions'
+import { dateInLabel } from '@/app/[locale]/func/time/time'
 
 const head = (head) => (
   <div
@@ -113,7 +114,9 @@ const body = (body, setCurrentPage) => (
               }`}
             >
               <MdOutlineWatchLater />
-              <span className="ml-1 rtl:mr-1 rtl:ml-0">{block.time.title}</span>
+              <span className="ml-1 rtl:mr-1 rtl:ml-0">
+                {dateInLabel(new Date(block.time.title), false)}
+              </span>
             </div>
           </div>
         </div>
