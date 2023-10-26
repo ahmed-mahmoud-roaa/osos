@@ -4,9 +4,12 @@ import { BsSend } from 'react-icons/bs'
 import { MdOutlineArrowBack } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import Message from './message/Message'
+import { dateInLabel } from '@/app/[locale]/func/time/time'
 
 export default function Ui({ setCurrentPage, data }) {
   const [newMessage, setNewMessage] = useState()
+  let lastTime,
+    setLastTime = (value) => (lastTime = value)
   return (
     <div className="grow flex flex-col justify-between">
       <div>
@@ -37,11 +40,16 @@ export default function Ui({ setCurrentPage, data }) {
           style={{ height: 'calc(100vh - 236px)' }}
         >
           {data.messages.map((message, index) => (
-            <Message
-              key={index}
-              messageData={message}
-              user={data.users[message.owner]}
-            />
+            <span key={index}>
+              {lastTime !== dateInLabel(message.time) && (
+                <div className="flex items-center  mb-4 justify-center relative after:content-[' '] after:w-full  after:absolute after:top-[50%] after:left-0 after:h-[1px] after:bg-themeGray-200">
+                  <span className="bg-themeWhite-white px-2 relative z-10 text-themeGray-700">
+                    {setLastTime(dateInLabel(message.time))}
+                  </span>
+                </div>
+              )}
+              <Message messageData={message} user={data.users[message.owner]} />
+            </span>
           ))}
         </div>
       </div>

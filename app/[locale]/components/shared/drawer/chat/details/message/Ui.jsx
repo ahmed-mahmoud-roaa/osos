@@ -2,6 +2,7 @@ import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
 import React, { useState } from 'react'
 import MessageReact from './messageReact/MessageReact'
 import { Tooltip } from 'primereact/tooltip'
+import { formatTimeDifference } from '@/app/[locale]/func/time/time'
 
 export default function Ui({ messageData, user, handleEmoji }) {
   const [showReact, setShowReact] = useState(false)
@@ -15,7 +16,6 @@ export default function Ui({ messageData, user, handleEmoji }) {
           : 'ml-auto rtl:ml-0 rtl:mr-auto max-w-[70%] '
       } ${Object.keys(emoji).length > 0 ? 'mb-10' : 'mb-5'} `}
     >
-      {console.log(Object.keys(emoji).length > 0, '2222222222222')}
       {messageData.owner !== 'you' && (
         <Avatar
           src={user.avatar}
@@ -31,7 +31,7 @@ export default function Ui({ messageData, user, handleEmoji }) {
             {messageData.owner !== 'you' ? user.name : 'You'}
           </div>
           <div className="time text-themeGray-500 text-sm">
-            {messageData.time}
+            {formatTimeDifference(messageData.time)}
           </div>
         </div>
         <div
@@ -46,14 +46,13 @@ export default function Ui({ messageData, user, handleEmoji }) {
           <div className="react absolute right-0 rtl:right-auto rtl:left-0 text-base bottom-[-2rem] ">
             {emoji &&
               Object.keys(handleEmoji(emoji)).map((react, index) => (
-                <>
+                <span key={index}>
                   <Tooltip target={`.emoji-${index}`}>
                     <div className="w-max break-normal">
                       {handleEmoji(emoji)[react].author.join(' , ')}
                     </div>
                   </Tooltip>
                   <span
-                    key={index}
                     className={`emoji-${index} px-2 py-1 bg-themeGray-50 rounded-full ml-1 rtl:ml-0 rtl:mr-1`}
                   >
                     {handleEmoji(emoji)[react].count > 1 && (
@@ -63,7 +62,7 @@ export default function Ui({ messageData, user, handleEmoji }) {
                     )}
                     {react}
                   </span>
-                </>
+                </span>
               ))}
           </div>
           <MessageReact setEmoji={setEmoji} emoji={emoji} show={showReact} />

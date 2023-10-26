@@ -115,7 +115,7 @@ const body = (body, setCurrentPage) => (
             >
               <MdOutlineWatchLater />
               <span className="ml-1 rtl:mr-1 rtl:ml-0">
-                {dateInLabel(new Date(block.time.title), false)}
+                {dateInLabel(block.time.title, false)}
               </span>
             </div>
           </div>

@@ -2,7 +2,7 @@ const ChildrenRoutes = ({ childRoutes, actions }) => {
   return (
     <div
       onClick={() => {
-        actions[childRoutes.action[0]](...childRoutes.action[1])
+        actions && actions[childRoutes.action[0]](...childRoutes.action[1])
       }}
       className={`cursor-pointer ${!childRoutes.active && 'group'}`}
     >

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { HiOutlineChevronDown } from 'react-icons/hi'
 
-export default function Accordion({ head, body }) {
+export default function Accordion({ head, body, className }) {
   const [status, setStatus] = useState(false)
   return (
     <div className="Wrapper">
-      <div className="accordionHead flex items-center justify-between">
+      <div
+        className={`accordionHead flex items-center justify-between ${className}`}
+      >
         <div className="w-full mr-2 rtl:ml-2 rtl:mr-0 my-2">{head}</div>
         <button
           onClick={() => setStatus(!status)}

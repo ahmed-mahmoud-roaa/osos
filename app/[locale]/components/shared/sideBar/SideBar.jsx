@@ -114,7 +114,19 @@ export default function SideBar() {
                 service: {
                   type: 'child',
                   icon: <HiOutlineUsers />,
+                  title: 'service1',
+                  action: ['doSomeThing', ['00000']],
+                },
+                service2: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
                   title: 'service2',
+                  action: ['doSomeThing', ['00000']],
+                },
+                service3: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'service3',
                   action: ['doSomeThing', ['00000']],
                 },
               },

@@ -47,7 +47,7 @@ export function formatTimeDifference(utcString) {
     const hours = Math.floor(dateDifferenceInSeconds / 3600)
     return `${hours} ${isEnglish ? 'hour' : 'ساعه'}`
   } else if (dateDifferenceInSeconds < 172800) {
-    return `${isEnglish ? 'yesterday' : 'البارحه'} ${formatDateString(utcString)
+    return `${isEnglish ? 'Yesterday' : 'البارحه'} ${formatDateString(utcString)
       .split(' ')[1]
       .toString()}`
   } else {
@@ -56,13 +56,14 @@ export function formatTimeDifference(utcString) {
 }
 
 export function dateInLabel(utcString, withHour) {
+  utcString = new Date(utcString)
   const { dateDifferenceInSeconds, isEnglish } = differenceInSecond(utcString)
 
   let shortDate
   if (dateDifferenceInSeconds < 86400) {
-    shortDate = `${isEnglish ? 'today' : 'اليوم'}`
+    shortDate = `${isEnglish ? 'Today' : 'اليوم'}`
   } else if (dateDifferenceInSeconds < 172800) {
-    shortDate = `${isEnglish ? 'yesterday' : 'البارحه'}`
+    shortDate = `${isEnglish ? 'Yesterday' : 'البارحه'}`
   } else {
     shortDate = formatDateString(utcString).split(' ')[0].toString()
   }

@@ -8,9 +8,12 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import ParentRoutes from './parentRoutes/ParentRoutes'
 import ChildrenRoutes from './childRoutes/ChildRoutes'
 import { FiArrowLeft } from 'react-icons/fi'
+import Accordion from '../../elements/accordion/Accordion'
+import { BsThreeDots } from 'react-icons/bs'
 
 export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
+  const [more, setMore] = useState('more')
 
   const goToTab = (index) => {
     setCurrentPanel([...history, currentPanel][index])
@@ -37,20 +40,36 @@ export default function Ui({ routeData }) {
     doSomeThing: (x) => doSomeThing(x),
   }
 
-  function RouteGenerator({ routeGroupe }) {
-    return Object.keys(routeGroupe).map((route, index) => (
+  function RouteGenerator({ routeGroupe, more, setMore }) {
+    // const
+    const routes =
+      Object.keys(routeGroupe).length < 2 || more == 'more'
+        ? Object.keys(
+            Object.fromEntries(Object.entries(routeGroupe).slice(0, 1))
+          )
+        : Object.keys(routeGroupe)
+
+    const moreComponent = Object.keys(routeGroupe).length > 2 && (
+      <span onClick={() => setMore(more === 'more' ? 'less' : 'more')}>
+        <ChildrenRoutes
+          childRoutes={{
+            icon: <BsThreeDots />,
+            title: more == 'more' ? 'More' : 'Less',
+          }}
+        />
+      </span>
+    )
+    const routeRender = routes.map((route, index) => (
       <div key={index}>
         {routeGroupe[route].type === 'parent' ? (
-          <ParentRoutes
-            key={index}
-            parentRoutes={routeGroupe[route]}
-            actions={actions}
-          />
+          <ParentRoutes parentRoutes={routeGroupe[route]} actions={actions} />
         ) : (
           <ChildrenRoutes childRoutes={routeGroupe[route]} actions={actions} />
         )}
       </div>
     ))
+
+    return more ? [...routeRender, moreComponent] : routeRender
   }
 
   return (
@@ -96,25 +115,41 @@ export default function Ui({ routeData }) {
               {Object.keys(currentPanel.topSections.groupe).map(
                 (item, index) => (
                   <div className="groupe" key={index}>
-                    <div className="groupeTitle my-4 flex items-center justify-between grow ">
-                      <LineTitle
-                        parentClass={
-                          'mb-0 w-full font-semibold text-themeGray-500'
-                        }
-                        content={currentPanel.topSections.groupe[item].title}
-                      />
+                    <Accordion
+                      className={'flex-row-reverse'}
+                      head={
+                        <div className="groupeTitle my-0 flex items-center  justify-between grow ">
+                          <LineTitle
+                            parentClass={
+                              'mb-0 w-full font-semibold text-themeGray-500'
+                            }
+                            content={
+                              <>
+                                {currentPanel.topSections.groupe[item].title}
+                                <span className="py-0.5 px-1.5 bg-themeGray-50 text-themeGreen-700 border border-themeGray-200 rounded-full ml-2 rtl:ml-0 rtl:mr-2 font-medium text-xs">
+                                  {Object.keys(
+                                    currentPanel.topSections.groupe[item].items
+                                  ).length - 1}
+                                </span>
+                              </>
+                            }
+                          />
 
-                      <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-700">
-                        <AiOutlinePlus />
-                      </div>
-                    </div>
-                    <div className="groupeRout">
-                      <RouteGenerator
-                        routeGroupe={
-                          currentPanel.topSections.groupe[item].items
-                        }
-                      />
-                    </div>
+                          <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-700">
+                            <AiOutlinePlus />
+                          </div>
+                        </div>
+                      }
+                      body={
+                        <div className="groupeRout">
+                          <RouteGenerator
+                            routeGroupe={
+                              currentPanel.topSections.groupe[item].items
+                            }
+                          />
+                        </div>
+                      }
+                    />
                   </div>
                 )
               )}
@@ -136,6 +171,8 @@ export default function Ui({ routeData }) {
                       routeGroupe={
                         currentPanel.bottomSections.groupe[item].items
                       }
+                      more={more}
+                      setMore={setMore}
                     />
                   </div>
                 </div>
