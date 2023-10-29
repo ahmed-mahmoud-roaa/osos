@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie'
+const arabicLang = Cookies.get('arabicCountry') || 'ar-AE'
+
 export function formatDateString(dateString) {
   const date = new Date(dateString)
 
@@ -10,8 +12,8 @@ export function formatDateString(dateString) {
   }
 
   if (Cookies.get('NEXT_LOCALE') === 'ar') {
-    options.locale = 'ar-EG'
-    return date.toLocaleDateString('ar-SA', options)
+    options.locale = arabicLang
+    return date.toLocaleDateString(arabicLang, options)
   }
   return date.toLocaleDateString('en-US', options)
 }
@@ -19,7 +21,7 @@ export function formatDateString(dateString) {
 export function weekDayDayMonth(utcDate) {
   const options = { weekday: 'short', day: '2-digit', month: 'short' }
   const isEnglish = Cookies.get('NEXT_LOCALE') === 'en'
-  const lang = isEnglish ? 'en-US' : 'ar-EG'
+  const lang = isEnglish ? 'en-US' : arabicLang
   const formattedDate = new Date(utcDate).toLocaleDateString(lang, options)
   return formattedDate
 }
@@ -36,7 +38,6 @@ export function formatTimeDifference(utcString) {
 
   if (dateDifferenceInSeconds < 60) {
     // Less than 1 minute
-    // return `${dateDifferenceInSeconds} ${isEnglish ? 'sec' : 'ثانيه'}`
     return `${isEnglish ? 'Just now' : 'حالا'}`
   } else if (dateDifferenceInSeconds < 3600) {
     // Less than 1 hour
@@ -68,7 +69,6 @@ export function dateInLabel(utcString, withHour) {
     shortDate = formatDateString(utcString).split(' ')[0].toString()
   }
 
-  console.log({ shortDate })
   if (withHour) {
     return shortDate + formatDateString(utcString).split(' ')[1].toString()
   } else {

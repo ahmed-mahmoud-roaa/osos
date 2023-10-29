@@ -34,7 +34,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="flex flex-col h-screen">
-      <TopBar translation={{ translation }} serverData={serverData.userInfo} />
+      <TopBar translation={translation} serverData={serverData.userInfo} />
       <Drawer />
       <Content content={children} />
     </div>

@@ -16,7 +16,7 @@ export default function Ui({ currentComponent }) {
     <>
       {
         <div
-          className={` shadow-[0_0px_10px_var(--themeGray-200)] h-full drawer absolute top-0 w-[360px] transition-all ease-linear z-10 ${
+          className={` shadow-[0_0px_3px_var(--themeGray-200)] h-full drawer absolute top-0 w-[360px] transition-all ease-linear z-10 ${
             direction === 'ar' ? 'leftDrawer ' : ' '
           }  
           ${
