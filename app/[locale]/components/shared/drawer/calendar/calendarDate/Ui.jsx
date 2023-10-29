@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DateNavigator from './dateNavigator/DateNavigator'
-import CalendarEvent from './calendarEvent/calendarEvent'
+import CalendarEvent from './calendarEvent/CalendarEvent'
 import CalendarSelect from '../../../../elements/calendarSelect/CalendarSelect'
 
 export default function Ui({ EventsDatesString, eventData }) {
