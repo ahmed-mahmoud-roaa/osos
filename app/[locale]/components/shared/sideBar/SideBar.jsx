@@ -9,7 +9,7 @@ import Ui from './Ui'
 export default function SideBar() {
   const routeData = {
     type: 'basic',
-    // type: 'tabs',
+    type: 'tabs',
     panels: {
       main: {
         head: { title: 'Roaa Portal', search: true },
@@ -135,7 +135,7 @@ export default function SideBar() {
         },
       },
       HR: {
-        head: { title: 'second panel', search: true },
+        head: { title: 'Level 1', search: true },
         topSections: {
           groupe: {
             pages: {
@@ -145,7 +145,13 @@ export default function SideBar() {
                 childRoute: {
                   type: 'child',
                   icon: <LuUsers />,
-                  title: 'child route',
+                  title: 'third',
+                  action: ['goToPanel', ['third']],
+                },
+                childRoute1: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child rout00000',
                   action: ['doSomeThing', ['00000']],
                 },
                 childRoute2: {
@@ -158,6 +164,102 @@ export default function SideBar() {
                   type: 'child',
                   icon: <LuUsers />,
                   title: 'child route3',
+                  action: ['doSomeThing', ['00000']],
+                },
+
+                add: {
+                  type: 'child',
+                  active: true,
+                  icon: <AiOutlinePlus />,
+                  title: 'add Module',
+                  action: ['doSomeThing', ['00000']],
+                },
+              },
+            },
+          },
+        },
+        bottomSections: {
+          groupe: {
+            dataModules: {
+              title: 'WORKSPACE',
+              items: {
+                accessPermission: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'Access & Permissions',
+                  action: ['doSomeThing', ['00000']],
+                },
+                service: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'service',
+                  action: ['doSomeThing', ['00000']],
+                },
+              },
+            },
+          },
+        },
+      },
+      third: {
+        head: { title: 'Level 2', search: true },
+        topSections: {
+          groupe: {
+            pages: {
+              title: 'third',
+              //   count: 4,
+              items: {
+                childRoute2: {
+                  type: 'got to forth',
+                  icon: <LuUsers />,
+                  title: 'child route2',
+                  action: ['goToPanel', ['forth']],
+                },
+
+                add: {
+                  type: 'child',
+                  active: true,
+                  icon: <AiOutlinePlus />,
+                  title: 'add Module',
+                  action: ['doSomeThing', ['00000']],
+                },
+              },
+            },
+          },
+        },
+        bottomSections: {
+          groupe: {
+            dataModules: {
+              title: 'WORKSPACE',
+              items: {
+                accessPermission: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'Access & Permissions',
+                  action: ['doSomeThing', ['00000']],
+                },
+                service: {
+                  type: 'child',
+                  icon: <HiOutlineUsers />,
+                  title: 'service',
+                  action: ['doSomeThing', ['00000']],
+                },
+              },
+            },
+          },
+        },
+      },
+      forth: {
+        head: { title: 'Level 2', search: true },
+        topSections: {
+          groupe: {
+            pages: {
+              title: 'forth',
+              //   count: 4,
+              items: {
+                childRoute2: {
+                  type: 'child',
+                  icon: <LuUsers />,
+                  title: 'child route2',
                   action: ['doSomeThing', ['00000']],
                 },
 

@@ -17,7 +17,9 @@ module.exports = {
           400: 'var(--primary-400)',
           300: 'var(--primary-300)',
           200: 'var(--primary-200)',
+          100: 'var(--primary-100)',
           50: 'var(--primary-50)',
+          25: 'var(--primary-25)',
         },
         themeGray: {
           900: 'var(--themeGray-900)',

@@ -33,8 +33,12 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#84CAFF' : '#00589b'}; 
     --primary-200: ${(props) =>
       props.currentMode !== 'dark' ? '#b2ddff' : '#0061ad'}; 
+    --primary-100: ${(props) =>
+      props.currentMode !== 'dark' ? '#D1E9FF' : '#0061ad'}; 
     --primary-50: ${(props) =>
       props.currentMode !== 'dark' ? '#EFF8FF' : '#006fc6'}; 
+    --primary-25: ${(props) =>
+      props.currentMode !== 'dark' ? '#F5FAFF' : '#006fc6'}; 
 
     --themeGray-900:${(props) =>
       props.currentMode !== 'dark' ? '#101828' : '#8fa6c6'}; 

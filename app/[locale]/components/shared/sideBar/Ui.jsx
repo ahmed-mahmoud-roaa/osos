@@ -10,7 +10,9 @@ import ChildrenRoutes from './childRoutes/ChildRoutes'
 import { FiArrowLeft } from 'react-icons/fi'
 import Accordion from '../../elements/accordion/Accordion'
 import { BsThreeDots } from 'react-icons/bs'
+import { Wrapper } from './SideBar.styled'
 
+let oldHistory = []
 export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
   const [more, setMore] = useState('more')
@@ -71,116 +73,163 @@ export default function Ui({ routeData }) {
 
     return more ? [...routeRender, moreComponent] : routeRender
   }
+  const allTabs = [...history, currentPanel]
 
-  return (
-    <div className="relative w-[19.5rem] text-themeGray-600 border border-themeGray-200">
-      <div className="body h-full flex flex-col justify-between overflow-auto">
-        <div className="upperSec">
-          {routeData.type !== 'basic' ? (
-            <div className="otherPanel">
-              {[...history, currentPanel].map((panel, index) => (
+  function SingleSide({ currentPanel, index = 0 }) {
+    const [down, setDown] = useState(
+      allTabs.length < oldHistory.length || index < oldHistory.length
+        ? '0'
+        : '-100%'
+    )
+
+    if (index == allTabs.length - 1) {
+      oldHistory = allTabs
+    }
+
+    setTimeout(() => {
+      setDown('0')
+    }, 10)
+    return (
+      <Wrapper
+        className={`w-[19.5rem] text-themeGray-600 border border-themeGray-200 bg-themeWhite-white side-${index} transition-all duration-300 cursor-pointer`}
+        count={history.length}
+        index={index}
+        type={routeData.type}
+        down={down}
+      >
+        <div className="body h-full flex flex-col justify-between overflow-auto">
+          <div className="upperSec">
+            {routeData.type !== 'basic' ? (
+              <div className="otherPanel">
+                {/* {[...history, currentPanel].map((panel, index) => ( */}
                 <div
-                  className="panelTitle pt-3 pb-5 px-4 rounded-xl font-bold text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default"
+                  className="panelTitle pt-4   px-4 rounded-xl font-bold text-themeGray-700 relative z-10 overflow-hidden"
                   key={index}
                   onClick={() => goToTab(index)}
                 >
-                  {panel.head.title}
+                  {currentPanel.head.title}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="top  p-4  flex items-center border-b border-themeGray-200  text-themeGray-700">
-              <div
-                className="icon border border-themeGray-200 p-2 rounded-md mr-3 rtl:mr-0 rtl:ml-3 text-2xl cursor-pointer"
-                onClick={() => (history.length > 0 ? goBack() : null)}
-              >
-                {history.length > 0 ? <FiArrowLeft /> : <BiHomeAlt2 />}
+                {/* ))}   */}
+                {/* 
+                <div className="panelTitle pt-3 pb-5 px-4 rounded-xl font-bold text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default">
+                  {currentPanel.head.title}
+                </div> */}
               </div>
-              <div className="title text-base font-semibold">
-                {currentPanel.head.title}
+            ) : (
+              <div className="top  p-4  flex items-center border-b border-themeGray-200  text-themeGray-700">
+                <div
+                  className="icon border border-themeGray-200 p-2 rounded-md mr-3 rtl:mr-0 rtl:ml-3 text-2xl cursor-pointer"
+                  onClick={() => (history.length > 0 ? goBack() : null)}
+                >
+                  {history.length > 0 ? <FiArrowLeft /> : <BiHomeAlt2 />}
+                </div>
+                <div className="title text-base font-semibold">
+                  {currentPanel.head.title}
+                </div>
+              </div>
+            )}
+            <div className="routes p-4">
+              <Search
+                placeholder={'Search'}
+                inputStyle={`bg-themeWhite-white py-2.5 text-base`}
+                firstIcon={
+                  <span className="text-base">
+                    <PiMagnifyingGlass />
+                  </span>
+                }
+              />
+              <div className="topSection">
+                {Object.keys(currentPanel.topSections.groupe).map(
+                  (item, index) => (
+                    <div className="groupe" key={index}>
+                      <Accordion
+                        className={'flex-row-reverse'}
+                        head={
+                          <div className="groupeTitle my-0 flex items-center  justify-between grow ">
+                            <LineTitle
+                              parentClass={
+                                'mb-0 w-full font-semibold text-themeGray-500'
+                              }
+                              content={
+                                <>
+                                  {currentPanel.topSections.groupe[item].title}
+                                  <span className="py-0.5 px-1.5 bg-themeGray-50 text-themeGreen-700 border border-themeGray-200 rounded-full ml-2 rtl:ml-0 rtl:mr-2 font-medium text-xs">
+                                    {Object.keys(
+                                      currentPanel.topSections.groupe[item]
+                                        .items
+                                    ).length - 1}
+                                  </span>
+                                </>
+                              }
+                            />
+
+                            <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-700">
+                              <AiOutlinePlus />
+                            </div>
+                          </div>
+                        }
+                        body={
+                          <div className="groupeRout">
+                            <RouteGenerator
+                              routeGroupe={
+                                currentPanel.topSections.groupe[item].items
+                              }
+                            />
+                          </div>
+                        }
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </div>
-          )}
-          <div className="routes p-4">
-            <Search
-              placeholder={'Search'}
-              inputStyle={`bg-themeWhite-white py-2.5 text-base`}
-              firstIcon={
-                <span className="text-base">
-                  <PiMagnifyingGlass />
-                </span>
-              }
-            />
-            <div className="topSection">
-              {Object.keys(currentPanel.topSections.groupe).map(
+          </div>
+          <div>
+            <div className="bottomSection border-t border-themeGray-200 px-4  my-4">
+              {Object.keys(currentPanel.bottomSections.groupe).map(
                 (item, index) => (
                   <div className="groupe" key={index}>
-                    <Accordion
-                      className={'flex-row-reverse'}
-                      head={
-                        <div className="groupeTitle my-0 flex items-center  justify-between grow ">
-                          <LineTitle
-                            parentClass={
-                              'mb-0 w-full font-semibold text-themeGray-500'
-                            }
-                            content={
-                              <>
-                                {currentPanel.topSections.groupe[item].title}
-                                <span className="py-0.5 px-1.5 bg-themeGray-50 text-themeGreen-700 border border-themeGray-200 rounded-full ml-2 rtl:ml-0 rtl:mr-2 font-medium text-xs">
-                                  {Object.keys(
-                                    currentPanel.topSections.groupe[item].items
-                                  ).length - 1}
-                                </span>
-                              </>
-                            }
-                          />
-
-                          <div className="p-2 border border-themeGray-200 rounded-md ml-2 rtl:mr-2 rtl:ml-0 text-lg  text-themeGray-700">
-                            <AiOutlinePlus />
-                          </div>
-                        </div>
-                      }
-                      body={
-                        <div className="groupeRout">
-                          <RouteGenerator
-                            routeGroupe={
-                              currentPanel.topSections.groupe[item].items
-                            }
-                          />
-                        </div>
-                      }
-                    />
+                    <div className="groupeTitle pt-3 pb-1 flex items-center justify-between grow text-sm text-themeGray-500">
+                      <div className="title mb-0 w-full font-semibold">
+                        {currentPanel.bottomSections.groupe[item].title}
+                      </div>
+                    </div>
+                    <div className="groupeRout">
+                      <RouteGenerator
+                        routeGroupe={
+                          currentPanel.bottomSections.groupe[item].items
+                        }
+                        more={more}
+                        setMore={setMore}
+                      />
+                    </div>
                   </div>
                 )
               )}
             </div>
           </div>
         </div>
-        <div>
-          <div className="bottomSection border-t border-themeGray-200 px-4  my-4">
-            {Object.keys(currentPanel.bottomSections.groupe).map(
-              (item, index) => (
-                <div className="groupe" key={index}>
-                  <div className="groupeTitle pt-3 pb-1 flex items-center justify-between grow text-sm text-themeGray-500">
-                    <div className="title mb-0 w-full font-semibold">
-                      {currentPanel.bottomSections.groupe[item].title}
-                    </div>
-                  </div>
-                  <div className="groupeRout">
-                    <RouteGenerator
-                      routeGroupe={
-                        currentPanel.bottomSections.groupe[item].items
-                      }
-                      more={more}
-                      setMore={setMore}
-                    />
-                  </div>
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </div>
+      </Wrapper>
+    )
+  }
+
+  return (
+    <div className="w-[19.5rem] overflow-hidden h-full relative">
+      {routeData.type === 'basic' ? (
+        <SingleSide currentPanel={currentPanel} />
+      ) : (
+        <>
+          {allTabs.map((historyCard, index) => {
+            return (
+              <SingleSide
+                key={index}
+                currentPanel={historyCard}
+                index={index}
+              />
+            )
+          })}
+        </>
+      )}
     </div>
   )
 }
