@@ -2,9 +2,9 @@ import styled from 'styled-components'
 const sidesArray = [32, 28, 24]
 const sidesColor = [
   'var(--themeWhite-white)',
-  'var(--primary-25)',
-  'var(--primary-50)',
-  'var(--primary-100)',
+  'var(--themeGray-50)',
+  'var(--themeGray-100)',
+  'var(--themeGray-200)',
 ]
 const negativeHight = (index, count) =>
   sidesArray
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
   /* bottom: -100%; */
   bottom: ${(props) => props.down};
   position: absolute;
-  z-index: calc(20 * ${(props) => parseInt(props.index)});
+  z-index: calc(2 * ${(props) => parseInt(props.index)});
   border-radius: 10px 10px 0 0;
   background-color: ${(props) =>
     props.type == 'tabs'
@@ -71,5 +71,9 @@ export const Wrapper = styled.div`
     left: 0;
     box-shadow: 0px -4px 3px var(--themeGray-200);
     opacity: 50%;
+  }
+
+  &.remove ~ div {
+    bottom: -100% !important;
   }
 `

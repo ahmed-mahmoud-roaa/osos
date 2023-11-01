@@ -15,11 +15,14 @@ import { Wrapper } from './SideBar.styled'
 let oldHistory = []
 export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
+
   const [more, setMore] = useState('more')
 
   const goToTab = (index) => {
-    setCurrentPanel([...history, currentPanel][index])
-    setHistory(history.slice(0, index))
+    setTimeout(() => {
+      setCurrentPanel([...history, currentPanel][index])
+      setHistory(history.slice(0, index))
+    }, 300)
   }
 
   const goBack = () => {
@@ -76,6 +79,7 @@ export default function Ui({ routeData }) {
   const allTabs = [...history, currentPanel]
 
   function SingleSide({ currentPanel, index = 0 }) {
+    const [hideClass, setHideClass] = useState()
     const [down, setDown] = useState(
       allTabs.length < oldHistory.length || index < oldHistory.length
         ? '0'
@@ -86,12 +90,18 @@ export default function Ui({ routeData }) {
       oldHistory = allTabs
     }
 
+    const hideNext = () => {
+      setHideClass('remove')
+      setTimeout(() => {
+        setHideClass('')
+      }, 1000)
+    }
     setTimeout(() => {
       setDown('0')
     }, 10)
     return (
       <Wrapper
-        className={`w-[19.5rem] text-themeGray-600 border border-themeGray-200 bg-themeWhite-white side-${index} transition-all duration-300 cursor-pointer`}
+        className={`w-[19.5rem] text-themeGray-600 border border-themeGray-200 bg-themeWhite-white side-${index} transition-all duration-300 cursor-pointer ${hideClass}`}
         count={history.length}
         index={index}
         type={routeData.type}
@@ -101,19 +111,16 @@ export default function Ui({ routeData }) {
           <div className="upperSec">
             {routeData.type !== 'basic' ? (
               <div className="otherPanel">
-                {/* {[...history, currentPanel].map((panel, index) => ( */}
                 <div
-                  className="panelTitle pt-4   px-4 rounded-xl font-bold text-themeGray-700 relative z-10 overflow-hidden"
+                  className="panelTitle pt-4 px-4 rounded-xl font-bold text-themeGray-700 relative z-10 overflow-hidden"
                   key={index}
-                  onClick={() => goToTab(index)}
+                  onClick={() => {
+                    goToTab(index)
+                    hideNext()
+                  }}
                 >
                   {currentPanel.head.title}
                 </div>
-                {/* ))}   */}
-                {/* 
-                <div className="panelTitle pt-3 pb-5 px-4 rounded-xl font-bold text-themeGray-700 shadow-[0_-5px_7px_-2px_var(--themeGray-300)] mt-1 mb-[-2rem] relative z-10 overflow-hidden bg-primary-50 last:bg-themeWhite-white last:mb-[-1rem] first:rounded-sm first:mt-0 cursor-pointer last:cursor-default">
-                  {currentPanel.head.title}
-                </div> */}
               </div>
             ) : (
               <div className="top  p-4  flex items-center border-b border-themeGray-200  text-themeGray-700">

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import DateNavigator from './dateNavigator/DateNavigator'
 import CalendarEvent from './calendarEvent/CalendarEvent'
 import CalendarSelect from '../../../../elements/calendarSelect/CalendarSelect'
+import CustomCalendar from '@/app/[locale]/components/elements/customCalendar/CustomCalendar'
 
 export default function Ui({ EventsDatesString, eventData }) {
   const [selected, setSelected] = useState(new Date())
@@ -43,7 +44,7 @@ export default function Ui({ EventsDatesString, eventData }) {
 
   return (
     <>
-      <CalendarSelect
+      {/* <CalendarSelect
         EventsDatesString={EventsDatesString}
         inline={true}
         onSelect={(e) => {
@@ -51,7 +52,8 @@ export default function Ui({ EventsDatesString, eventData }) {
         }}
         dateTemplate={dateTemplate}
         selectionMode="multiple"
-      />
+      /> */}
+      <CustomCalendar currentDate={selected} setCurrentDate={setSelected} />
       <div className="pb-4">
         <DateNavigator setSelected={setSelected} selected={selected} />
         <CalendarEvent eventData={eventData} />
