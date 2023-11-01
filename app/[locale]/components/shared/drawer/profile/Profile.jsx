@@ -9,7 +9,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ChangeZoomSlider } from '@/app/store/slices/main'
 import english from '@/public/assets/images/english.png'
 import { useRouter } from 'next/navigation'
-import { changeMode, directionFun } from '@/app/store/slices/main'
+import {
+  changeMode,
+  directionFun,
+  ChangeInterface,
+} from '@/app/store/slices/main'
 import Cookies from 'js-cookie'
 
 export default function Profile() {
@@ -22,6 +26,8 @@ export default function Profile() {
     dispatch(ChangeZoomSlider(value))
   }
   const currentMode = useSelector((state) => state.main.currentMode)
+  const interfaceState = useSelector((state) => state.main.interface)
+  // const interface = useSelector((state) => state.main.interface)
 
   const notificationButtons = {
     user: {
@@ -76,11 +82,24 @@ export default function Profile() {
       { name: 'Auto', value: 'Auto', action: () => {} },
     ],
   }
+
   const interFace = {
-    selected: 0,
+    selected: interfaceState === 'Comfy' ? 0 : 1,
     options: [
-      { name: 'Comfy', value: 'Comfy', action: () => {} },
-      { name: 'Dense', value: 'Dense', action: () => {} },
+      {
+        name: 'Comfy',
+        value: 'Comfy',
+        action: () => {
+          dispatch(ChangeInterface('Comfy'))
+        },
+      },
+      {
+        name: 'Dense',
+        value: 'Dense',
+        action: () => {
+          dispatch(ChangeInterface('Dense'))
+        },
+      },
     ],
   }
 

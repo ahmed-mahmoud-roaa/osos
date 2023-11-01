@@ -26,6 +26,7 @@ module.exports = {
           800: 'var(--themeGray-800)',
           700: 'var(--themeGray-700)',
           500: 'var(--themeGray-500)',
+          600: 'var(--themeGray-600)',
           400: 'var(--themeGray-400)',
           300: 'var(--themeGray-300)',
           200: 'var(--themeGray-200)',

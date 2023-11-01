@@ -10,6 +10,8 @@ import ButtonsGroup from '../../elements/buttonsGroup/ButtonsGroup'
 import IconRoundedButton from '../../elements/buttons/iconRoundedButton/IconRoundedButton'
 import Activities from '../activities/Activities'
 import Search from '../../elements/search/Search'
+import PopupContainer from '../../elements/popupContainer/PopupContainer'
+import SearchResult from './searchResult/SearchResult'
 
 export default function Ui({ translation, dynamicElements, sidebarToggle }) {
   return (
@@ -59,6 +61,10 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
           <Activities />
         </div>
       }
+
+      <PopupContainer className={'justify-center items-baseline'}>
+        <SearchResult />
+      </PopupContainer>
     </>
   )
 }

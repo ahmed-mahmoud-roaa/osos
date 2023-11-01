@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     box-sizing: border-box;
     font-family: Inter, sans-serif;
+    letter-spacing:-0.2px
     /* color: ${(props) =>
       props.currentMode == 'dark' ? 'white' : 'black'}; */
  }
@@ -48,6 +49,8 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#344054' : '#8fa6c6'}; 
     --themeGray-500:${(props) =>
       props.currentMode !== 'dark' ? '#6b7280' : '#c3c6cd'}; 
+    --themeGray-600:${(props) =>
+      props.currentMode !== 'dark' ? '#475467' : '#c3c6cd'}; 
     --themeGray-400: ${(props) =>
       props.currentMode !== 'dark' ? '#98A2B3' : '#4b5360'}; 
     --themeGray-300: ${(props) =>
@@ -106,6 +109,7 @@ img{
     max-width: 100%;
 }
 
+ 
  /* width */
 ::-webkit-scrollbar {
   width: 5px;

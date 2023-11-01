@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   z-index: calc(2 * ${(props) => parseInt(props.index)});
   border-radius: 10px 10px 0 0;
   background-color: ${(props) =>
-    props.type == 'tabs'
+    props.type == 'Dense'
       ? sidesColor.slice(0, parseInt(props.count + 1)).reverse()[
           parseInt(props.index)
         ]

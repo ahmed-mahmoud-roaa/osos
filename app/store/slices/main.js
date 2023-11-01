@@ -5,6 +5,7 @@ export const mainSlice = createSlice({
   name: 'main',
   initialState: {
     currentMode: Cookies.get('CurrentMode') || 'light',
+    interface: Cookies.get('interface') || 'Comfy',
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
     sidebar: 'closed',
@@ -38,6 +39,10 @@ export const mainSlice = createSlice({
     ChangeSideBar: (state, action) => {
       state.sidebar = action.payload
     },
+    ChangeInterface: (state, action) => {
+      state.interface = action.payload
+      Cookies.set('interface', action.payload)
+    },
   },
 })
 
@@ -51,5 +56,6 @@ export const {
   ChangeDrawerStatus,
   ChangeZoomSlider,
   ChangeSideBar,
+  ChangeInterface,
 } = mainSlice.actions
 export default mainSlice.reducer

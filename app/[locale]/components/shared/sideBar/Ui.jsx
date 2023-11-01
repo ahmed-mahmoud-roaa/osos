@@ -11,12 +11,14 @@ import { FiArrowLeft } from 'react-icons/fi'
 import Accordion from '../../elements/accordion/Accordion'
 import { BsThreeDots } from 'react-icons/bs'
 import { Wrapper } from './SideBar.styled'
+import { useSelector } from 'react-redux'
 
 let oldHistory = []
 export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
 
   const [more, setMore] = useState('more')
+  const interfaceState = useSelector((state) => state.main.interface)
 
   const goToTab = (index) => {
     setTimeout(() => {
@@ -104,12 +106,12 @@ export default function Ui({ routeData }) {
         className={`w-[19.5rem] text-themeGray-600 border border-themeGray-200 bg-themeWhite-white side-${index} transition-all duration-300 cursor-pointer ${hideClass}`}
         count={history.length}
         index={index}
-        type={routeData.type}
+        type={interfaceState}
         down={down}
       >
         <div className="body h-full flex flex-col justify-between overflow-auto">
           <div className="upperSec">
-            {routeData.type !== 'basic' ? (
+            {interfaceState !== 'Comfy' ? (
               <div className="otherPanel">
                 <div
                   className="panelTitle pt-4 px-4 rounded-xl font-bold text-themeGray-700 relative z-10 overflow-hidden"
@@ -222,7 +224,7 @@ export default function Ui({ routeData }) {
 
   return (
     <div className="w-[19.5rem] overflow-hidden h-full relative">
-      {routeData.type === 'basic' ? (
+      {interfaceState === 'Comfy' ? (
         <SingleSide currentPanel={currentPanel} />
       ) : (
         <>

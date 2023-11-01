@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Wrapper } from './CustomCalendar.styled'
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from 'react-icons/hi'
 
@@ -74,24 +74,6 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
     return days
   }
 
-  const prevMonth = () => {
-    const prevMonthDate = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() - 1,
-      1
-    )
-    setCurrentDate(prevMonthDate)
-  }
-
-  const nextMonth = () => {
-    const nextMonthDate = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() + 1,
-      1
-    )
-    setCurrentDate(nextMonthDate)
-  }
-
   const getDaysInCurrentMonth = () => {
     const days = []
 
@@ -113,6 +95,24 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
     return days
   }
 
+  const prevMonth = () => {
+    const prevMonthDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() - 1,
+      1
+    )
+    setCurrentDate(prevMonthDate)
+  }
+
+  const nextMonth = () => {
+    const nextMonthDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      1
+    )
+    setCurrentDate(nextMonthDate)
+  }
+
   const isSameDate = (date1, date2) => {
     return (
       date1.getDate() === date2.getDate() &&
@@ -123,27 +123,30 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
 
   return (
     <Wrapper>
-      <div className="calendar-header flex align-center justify-between mx-5 mb-4">
-        <div className="control flex w-full items-center justify-between mr-4 rtl:mr-0 rtl:ml-4">
-          <button onClick={prevMonth}>
+      <div className="calendar-header flex align-center justify-between mx-3 mb-4">
+        <div className="control flex w-full items-center justify-between mr-4 rtl:mr-0 rtl:ml-4 text-themeGray-700">
+          <button onClick={prevMonth} className="rtl:rotate-180">
             <HiOutlineChevronLeft />
           </button>
           <h2>
             <span className="month font-semibold text-xl">
-              {monthNames[currentDate.getMonth()]}{' '}
-            </span>
+              {monthNames[currentDate.getMonth()]}
+            </span>{' '}
             <span className="year">{currentDate.getFullYear()}</span>
           </h2>
-          <button onClick={nextMonth}>
+          <button onClick={nextMonth} className="rtl:rotate-180">
             <HiOutlineChevronRight />
           </button>
         </div>
-        <div className="label text-themeGray-700 text-sm border border-themeGray-300 rounded-md bg-themeWhite-white px-3 py-2">
+        <button
+          className="label text-themeGray-700 text-sm border border-themeGray-300 rounded-md bg-themeWhite-white px-3 py-2"
+          onClick={() => setCurrentDate(new Date())}
+        >
           Today
-        </div>
+        </button>
       </div>
       <div className="calendar-body">
-        <div className="days flex justify-center mb-4">
+        <div className="days flex justify-between mb-4">
           <span className="text-sm font-medium text-themeGray-700">Su</span>
           <span className="text-sm font-medium text-themeGray-700">Mo</span>
           <span className="text-sm font-medium text-themeGray-700">Tu</span>
