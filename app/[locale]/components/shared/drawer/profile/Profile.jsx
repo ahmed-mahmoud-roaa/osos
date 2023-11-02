@@ -27,7 +27,6 @@ export default function Profile() {
   }
   const currentMode = useSelector((state) => state.main.currentMode)
   const interfaceState = useSelector((state) => state.main.interface)
-  // const interface = useSelector((state) => state.main.interface)
 
   const notificationButtons = {
     user: {

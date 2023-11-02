@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import squareLogo from '@/public/assets/images/squareLogo.png'
 import { BiCommand } from 'react-icons/bi'
 import { HiMenuAlt1 } from 'react-icons/hi'
@@ -14,6 +14,7 @@ import PopupContainer from '../../elements/popupContainer/PopupContainer'
 import SearchResult from './searchResult/SearchResult'
 
 export default function Ui({ translation, dynamicElements, sidebarToggle }) {
+  const [searchDetails, setSearchDetails] = useState(false)
   return (
     <>
       {
@@ -45,24 +46,33 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
             />
           </div>
 
-          <Search
-            placeholder={`${translation.Search}...`}
-            firstIcon={<PiMagnifyingGlass />}
-            className={'md:min-w-[20rem]'}
-            inputStyle={'bg-themeGray-50'}
-            lastIcon={
-              <>
-                <BiCommand />/
-              </>
-            }
-            roundedFull
-          />
-
+          <button
+            onClick={() => {
+              setSearchDetails(true)
+            }}
+          >
+            <Search
+              placeholder={`${translation.Search}...`}
+              firstIcon={<PiMagnifyingGlass />}
+              className={'md:min-w-[20rem]'}
+              inputStyle={'bg-themeGray-50'}
+              lastIcon={
+                <>
+                  <BiCommand />/
+                </>
+              }
+              roundedFull
+            />
+          </button>
           <Activities />
         </div>
       }
 
-      <PopupContainer className={'justify-center items-baseline'}>
+      <PopupContainer
+        className={'justify-center items-baseline'}
+        status={searchDetails}
+        setStatus={setSearchDetails}
+      >
         <SearchResult />
       </PopupContainer>
     </>

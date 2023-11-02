@@ -18,6 +18,7 @@ export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
 
   const [more, setMore] = useState('more')
+
   const interfaceState = useSelector((state) => state.main.interface)
 
   const goToTab = (index) => {
@@ -228,15 +229,9 @@ export default function Ui({ routeData }) {
         <SingleSide currentPanel={currentPanel} />
       ) : (
         <>
-          {allTabs.map((historyCard, index) => {
-            return (
-              <SingleSide
-                key={index}
-                currentPanel={historyCard}
-                index={index}
-              />
-            )
-          })}
+          {allTabs.map((historyCard, index) => (
+            <SingleSide key={index} currentPanel={historyCard} index={index} />
+          ))}
         </>
       )}
     </div>

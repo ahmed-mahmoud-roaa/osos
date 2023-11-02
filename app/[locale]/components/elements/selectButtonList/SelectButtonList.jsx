@@ -19,10 +19,14 @@ export default function SelectButtonList({ options, width }) {
       <SelectButton
         value={value}
         onChange={(e) => {
-          options.options
-            .filter((option) => option.value === e.value)[0]
-            .action()
-          return setValue(e.value)
+          if (e.value) {
+            options.options
+              .filter((option) => option.value === e.value)[0]
+              .action()
+            return setValue(e.value)
+          } else {
+            return value
+          }
         }}
         optionLabel="name"
         options={options.options}
