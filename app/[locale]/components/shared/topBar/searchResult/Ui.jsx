@@ -32,13 +32,13 @@ export default function Ui({ data }) {
         <div className="icon text-themeGray-700 p-2.5 border border-themeGray-200 items-start rounded-md text-lg shadow-[0_0_5px_0.5px_var(--themeGray-50)] ">
           {item.icon}
         </div>
-        <div className="text mx-2 text-left">
+        <div className="text mx-2 text-left rtl:text-right">
           <div className="title text-themeGray-900 font-semibold">
             {item.title}
           </div>
           <div className="des  text-themeGray-600">{item.des}</div>
         </div>
-        <div className="shortCut ml-auto flex items-center text-sm text-themeGray-600 ">
+        <div className="shortCut ml-auto rtl:ml-0 rtl:mr-auto flex items-center text-sm text-themeGray-600 ">
           {item.shortCut &&
             item.shortCut.map((key, index) => (
               <>
@@ -73,6 +73,20 @@ export default function Ui({ data }) {
       </button>
     )
   }
+
+  const handleBack = (event) => {
+    if (event.key === 'ArrowLeft') {
+      setCurrent('home')
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleBack)
+
+    return () => {
+      document.removeEventListener('keydown', handleBack)
+    }
+  }, [])
 
   return (
     <div

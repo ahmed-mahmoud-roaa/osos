@@ -37,7 +37,11 @@ export default function Ui({ currentComponent }) {
             } background fixed top-0 left-0 h-full backdrop-blur-[1px]`}
             onClick={() => dispatch(ChangeDrawerStatus(false))}
           ></span>
-          <div className="wrapper h-full overflow-y-auto relative z-20">
+          <div
+            className={`wrapper h-full overflow-y-auto relative z-20 ${
+              drawerStatus == true ? 'block' : 'hidden'
+            }`}
+          >
             <div className="flex flex-col min-h-full">
               <div className="h-20 flex items-center bg-primary-50 justify-end pr-6 rtl:pl-6 rtl:pr-0">
                 <Activities />
