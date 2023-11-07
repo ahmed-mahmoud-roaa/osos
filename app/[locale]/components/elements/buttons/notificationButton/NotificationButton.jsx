@@ -12,7 +12,7 @@ export default function NotificationButton({ icon, number, action, active }) {
         }}
         className={`relative circleButton rounded-full text-xl text-themeGray-500 mx-1.5 px-2 py-2 flex items-center ${
           active
-            ? 'bg-primary-600 text-themeWhite-white border-4 border-primary-300'
+            ? 'bg-primary-600 text-themeWhite-white  outline outline-4 outline-primary-300 border border-primary-300 '
             : ' border border-themeGray-300 hover:text-primary-600 hover:border-primary-300 hover:bg-primary-50 '
         }`}
       >

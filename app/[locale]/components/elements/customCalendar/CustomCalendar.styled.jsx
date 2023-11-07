@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   margin: auto;
   .body {
     & > span {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   }
   .days {
     & > span {
-      width: 2.5rem;
+      width: 2rem;
       text-align: center;
     }
   }

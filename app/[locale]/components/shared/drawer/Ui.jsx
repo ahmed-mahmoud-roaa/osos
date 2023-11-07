@@ -13,7 +13,7 @@ export default function Ui({ currentComponent }) {
   const [hideDrawer, setHideDrawer] = useState()
   useEffect(() => {
     if (drawerStatus === true) {
-      setHideDrawer('w-[22.5rem]')
+      setHideDrawer('w-[21.5rem]')
     } else {
       setTimeout(() => {
         setHideDrawer('w-0')
@@ -31,7 +31,7 @@ export default function Ui({ currentComponent }) {
           ${
             drawerStatus === true
               ? 'right-0 rtl:right-auto rtl:left-0'
-              : 'right-[-22.5rem] rtl:right-auto rtl:left-[-22.5rem]'
+              : 'right-[-21.5rem] rtl:right-auto rtl:left-[-21.5rem]'
           }
           ${
             CurrentMode !== 'dark'
@@ -49,7 +49,7 @@ export default function Ui({ currentComponent }) {
           ></span>
           <div className={`wrapper h-full overflow-y-auto relative z-20`}>
             <div className="flex flex-col min-h-full">
-              <div className="h-20 flex items-center bg-primary-50 justify-end pr-6 rtl:pl-6 rtl:pr-0">
+              <div className="h-20 flex items-center bg-primary-50 justify-end pr-4 rtl:pl-4 rtl:pr-0">
                 <Activities />
               </div>
               {currentComponent}

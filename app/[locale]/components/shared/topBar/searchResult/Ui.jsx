@@ -95,7 +95,7 @@ export default function Ui({ data }) {
   return (
     <ArrowNavigation>
       <div
-        className={`searchContainer w-[40rem] bg-themeWhite-white top-2 relative rounded-xl text-sm shadow-[0_0_5px_1px_var(--themeGray-200)] overflow-hidden duration-1000 max-w-[90%]  ${show}`}
+        className={`searchContainer w-[40rem] m-auto bg-themeWhite-white top-2 relative rounded-xl text-sm shadow-[0_0_5px_1px_var(--themeGray-200)] overflow-hidden duration-1000 max-w-[90vw]  ${show}`}
       >
         <div className="max-h-[90vh] overflow-auto">
           <div className="search p-4 flex items-center text-themeGray-500 border-b border-themeGray-200  font-medium">

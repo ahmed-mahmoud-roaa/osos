@@ -45,7 +45,15 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
             <IconRoundedButton
               status={focusStatus}
               setStatus={setFocusStatus}
-              icon={<TfiTarget />}
+              icon={
+                <span
+                  className={`text-themeGray-500 ${
+                    focusStatus && 'text-themeWhite-white'
+                  }`}
+                >
+                  <TfiTarget />
+                </span>
+              }
               action={() => {
                 console.log('focus')
               }}
@@ -60,7 +68,8 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
             <Search
               placeholder={`${translation.Search}...`}
               firstIcon={<PiMagnifyingGlass />}
-              className={' w-[33%] md:min-w-[20rem]'}
+              className={'w-[33%] md:min-w-[20rem]'}
+              inputStyle={'bg-themeWhite-white'}
               lastIcon={
                 <>
                   <BiCommand />/
@@ -76,7 +85,6 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
               label={<span className="ClickOut font-normal">Help</span>}
               className={'ClickOut text-themeGray-500  mr-5'}
               labelClass={'text-themeGray-700'}
-              clickOut={true}
               status={helpStatus}
               setStatus={setHelpStatus}
               action={() => {}}
