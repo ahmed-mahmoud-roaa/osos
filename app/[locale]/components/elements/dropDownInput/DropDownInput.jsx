@@ -33,7 +33,29 @@ export default function DropDownInput({
               <div>{option?.name}</div>
             </>
           ) : (
-            <div> {props.placeholder}</div>
+            <>
+              {selected ? (
+                <>
+                  {selected?.img?.src && (
+                    <Image
+                      alt={selected.name}
+                      src={selected.img.src}
+                      className="mr-2 w-4 h-4 rtl:mr-0 rtl:ml-2"
+                      width={20}
+                      height={20}
+                    />
+                  )}
+                  {selected?.icon && (
+                    <span className="mr-2 w-4 h-4 rtl:mr-0 rtl:ml-2">
+                      {selected.icon}
+                    </span>
+                  )}
+                  <div>{selected?.name}</div>
+                </>
+              ) : (
+                <div> {props.placeholder}</div>
+              )}
+            </>
           )}
         </div>
       </>
@@ -51,8 +73,8 @@ export default function DropDownInput({
           null
         }
         onChange={(e) => {
-          e.value.action(e.value.code)
           setSelected(e.value)
+          e.value.action(e.value.code)
         }}
         options={options.options}
         optionLabel="name"

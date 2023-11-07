@@ -22,10 +22,10 @@ export default function Ui({
       ))}
 
       <button
-        className={`avatarButton border-4 rounded-full ml-2 rtl:ml-0 rtl:mr-2  ${
+        className={`avatarButton border-4 rounded-full ml-3 rtl:ml-0 rtl:mr-3  ${
           profileActive
             ? 'border-primary-600'
-            : ' border-themeGray-300 hover:border-primary-200'
+            : ' border-themeGray-200 hover:border-primary-200'
         }`}
         onClick={() => openDrawer('profile')}
       >

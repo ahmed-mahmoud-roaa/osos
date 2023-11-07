@@ -5,23 +5,28 @@ import squareLogo from '@/public/assets/images/squareLogo.png'
 import { BiCommand } from 'react-icons/bi'
 import { HiMenuAlt1 } from 'react-icons/hi'
 import { PiMagnifyingGlass } from 'react-icons/pi'
-import { LuFocus } from 'react-icons/lu'
+
 import ButtonsGroup from '../../elements/buttonsGroup/ButtonsGroup'
 import IconRoundedButton from '../../elements/buttons/iconRoundedButton/IconRoundedButton'
 import Activities from '../activities/Activities'
 import Search from '../../elements/search/Search'
 import PopupContainer from '../../elements/popupContainer/PopupContainer'
 import SearchResult from './searchResult/SearchResult'
+import { TfiTarget } from 'react-icons/tfi'
+import { FiHelpCircle } from 'react-icons/fi'
+import Help from './help/Help'
 
 export default function Ui({ translation, dynamicElements, sidebarToggle }) {
   const [searchDetails, setSearchDetails] = useState(false)
+  const [helpStatus, setHelpStatus] = useState(false)
+  const [focusStatus, setFocusStatus] = useState(false)
   return (
     <>
       {
         <div
-          className={`wrapper flex border-b border-themeGray-200 py-4 px-6 justify-between items-center`}
+          className={`wrapper flex border-b border-themeGray-200 py-3 px-6 justify-between items-center`}
         >
-          <div className="firstSide flex items-center">
+          <div className="firstSide flex items-center  w-[33%]">
             <button
               className="sidebarMenuIcon text-2xl mr-6 rtl:mr-0 rtl:ml-6 transform rtl:rotate-180 text-themeGray-800"
               onClick={() => sidebarToggle()}
@@ -38,8 +43,9 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
             <ButtonsGroup data={dynamicElements.groupedButtons} />
 
             <IconRoundedButton
-              icon={<LuFocus />}
-              label={translation.Focus}
+              status={focusStatus}
+              setStatus={setFocusStatus}
+              icon={<TfiTarget />}
               action={() => {
                 console.log('focus')
               }}
@@ -54,8 +60,7 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
             <Search
               placeholder={`${translation.Search}...`}
               firstIcon={<PiMagnifyingGlass />}
-              className={'md:min-w-[20rem]'}
-              inputStyle={'bg-themeGray-50'}
+              className={' w-[33%] md:min-w-[20rem]'}
               lastIcon={
                 <>
                   <BiCommand />/
@@ -64,9 +69,25 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
               roundedFull
             />
           </button>
-          <Activities />
+
+          <div className=" w-[33%] rightSection flex items-center justify-end">
+            <IconRoundedButton
+              icon={<FiHelpCircle />}
+              label={<span className="ClickOut font-normal">Help</span>}
+              className={'ClickOut text-themeGray-500  mr-5'}
+              labelClass={'text-themeGray-700'}
+              clickOut={true}
+              status={helpStatus}
+              setStatus={setHelpStatus}
+              action={() => {}}
+            />
+
+            <Activities />
+          </div>
         </div>
       }
+
+      <Help helpStatus={helpStatus} setHelpStatus={setHelpStatus} />
 
       <PopupContainer
         className={'justify-center items-baseline'}

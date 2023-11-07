@@ -1,8 +1,16 @@
 'use client'
 import React, { useState } from 'react'
 
-export default function IconRoundedButton({ icon, label, action, className }) {
-  const [status, setStatus] = useState(false)
+export default function IconRoundedButton({
+  icon,
+  label,
+  action,
+  className,
+  labelClass,
+  clickOut,
+  status,
+  setStatus,
+}) {
   return (
     <button
       onClick={() => {
@@ -10,12 +18,28 @@ export default function IconRoundedButton({ icon, label, action, className }) {
         action()
       }}
       className={
-        `${className} roundedButtonInGroup flex rtl:mr-0 rtl:ml-1 mr-1 py-2 px-3 last:mr-0 justify-center items-center rounded-full text-sm shadow-sm border border-themeGray-300 text-themeGray-800 ` +
+        `${className} ${
+          clickOut && 'ClickOut'
+        } roundedButtonInGroup flex rtl:mr-0 rtl:ml-1 mr-1 py-2 px-3 last:mr-0 justify-center items-center rounded-full text-sm shadow-sm border border-themeGray-300 ` +
         (status && `bg-primary-600  text-themeWhite-white`)
       }
     >
-      <span className="icon  mr-1  rtl:mr-0 rtl:ml-1">{icon}</span>
-      <span className="label">{label}</span>
+      <span
+        className={`icon ${clickOut && 'ClickOut'} ${
+          label && 'mr-1  rtl:mr-0 rtl:ml-1'
+        }`}
+      >
+        {icon}
+      </span>
+      {label && (
+        <span
+          className={`label ${clickOut && 'ClickOut'} ${labelClass} ${
+            status && 'text-themeWhite-white'
+          }`}
+        >
+          {label}
+        </span>
+      )}
     </button>
   )
 }

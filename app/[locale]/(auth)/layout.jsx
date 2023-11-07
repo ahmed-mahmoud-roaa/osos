@@ -26,7 +26,7 @@ export default function Layout({ children }) {
   const translation = {
     Focus: t('Focus'),
     Search: t('Search'),
-    Developer: t('Developer'),
+    Build: t('Build'),
     Admin: t('Admin'),
     User: t('User'),
     RoaaPortal: t('RoaaPortal'),

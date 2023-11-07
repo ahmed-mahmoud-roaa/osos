@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import IconRoundedButton from '../../../elements/buttons/iconRoundedButton/IconRoundedButton'
 import { FiHelpCircle } from 'react-icons/fi'
 import Search from '../../../elements/search/Search'
 import { PiMagnifyingGlass } from 'react-icons/pi'
 import { MdClose } from 'react-icons/md'
+import ClickOut from '../../clickOut/ClickOut'
 
-export default function Ui({ helpData }) {
-  const [helpStatus, setHelpStatus] = useState(false)
-
+export default function Ui({ helpData, helpStatus, setHelpStatus }) {
+  const [hide, setHide] = useState(false)
+  useEffect(() => {
+    if (helpStatus === false) {
+      setTimeout(() => {
+        setHide(false)
+      }, 500)
+    } else {
+      setHide(true)
+    }
+  }, [helpStatus])
+  console.log({ setHelpStatus })
   return (
-    <div
-      className={`absolute  bottom-5 left-[-6rem] rtl:left-auto rtl:right-[-6rem]   `}
-    >
-      <IconRoundedButton
-        icon={helpStatus === false ? <FiHelpCircle /> : <MdClose />}
-        label={'Help'}
-        className={'bg-primary-600 text-themeWhite-white'}
-        action={() => {
-          setHelpStatus(!helpStatus)
-        }}
-      />
-      {helpStatus && (
-        <div className="helpMenu overflow-auto absolute bottom-[120%] h-[80vh] bg-themeWhite-white w-[360px] right-0 rtl:left-0 rtl:right-auto shadow-[0_0px_10px_var(--themeGray-200)]">
+    <ClickOut isComponentOpen={helpStatus} setIsComponentOpen={setHelpStatus}>
+      <div
+        className={`helpMenu overflow-auto bg-themeWhite-white  right-0 rtl:left-0 rtl:right-auto absolute  overflow-x-hidden transition-all duration-500 bottom-0 shadow-[0_0px_10px_var(--themeGray-200)]
+        ${
+          helpStatus
+            ? 'right-0 rtl:right-auto rtl:left-0 '
+            : 'right-[-22.5rem] rtl:right-auto rtl:left-[-22.5rem]  '
+        }
+        ${hide == true ? 'w-[22.5rem]' : 'w-[0]'}
+        `}
+        style={{ height: 'calc(100% - 4.48rem)' }}
+      >
+        <div className="">
           <div className="head bg-primary-50 p-4">
             <h3 className="font-medium text-xl mt-2 mb-4">Help & tips</h3>
             <Search
@@ -59,7 +69,7 @@ export default function Ui({ helpData }) {
             ))}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </ClickOut>
   )
 }

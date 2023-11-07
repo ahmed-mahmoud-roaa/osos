@@ -2,12 +2,13 @@
 import React from 'react'
 
 import { BsCodeSlash } from 'react-icons/bs'
-import { RiUserSettingsLine, RiUserLine } from 'react-icons/ri'
 
 import Ui from './Ui'
 import { addUserInfo } from '@/app/store/slices/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { ChangeSideBar } from '@/app/store/slices/main'
+import { LiaToolsSolid } from 'react-icons/lia'
+import { FiUser } from 'react-icons/fi'
 
 export default function TopBar({ translation, serverData }) {
   const sidebar = useSelector((state) => state.main.sidebar)
@@ -16,11 +17,11 @@ export default function TopBar({ translation, serverData }) {
   dispatch(addUserInfo(serverData))
 
   const groupedButtons = {
-    developer: {
+    build: {
       action: () => {
-        console.log('Developer')
+        console.log('Build')
       },
-      label: translation.Developer,
+      label: translation.Build,
       icon: <BsCodeSlash />,
     },
     admin: {
@@ -28,14 +29,14 @@ export default function TopBar({ translation, serverData }) {
         console.log('Admin')
       },
       label: translation.Admin,
-      icon: <RiUserSettingsLine />,
+      icon: <LiaToolsSolid />,
     },
     user: {
       action: () => {
         console.log('user')
       },
       label: translation.User,
-      icon: <RiUserLine />,
+      icon: <FiUser />,
     },
   }
 

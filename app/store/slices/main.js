@@ -5,7 +5,7 @@ export const mainSlice = createSlice({
   name: 'main',
   initialState: {
     currentMode: Cookies.get('CurrentMode') || 'light',
-    interface: Cookies.get('interface') || 'Comfy',
+    interface: Cookies.get('interface') ? Cookies.get('interface') : 'Comfy',
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
     sidebar: 'closed',

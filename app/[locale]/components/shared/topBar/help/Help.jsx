@@ -2,7 +2,7 @@ import React from 'react'
 import { PiMagnifyingGlass } from 'react-icons/pi'
 import Ui from './Ui'
 
-export default function Help() {
+export default function Help({ helpStatus, setHelpStatus }) {
   const helpData = [
     {
       title: 'Resource center',
@@ -46,5 +46,11 @@ export default function Help() {
     },
   ]
 
-  return <Ui helpData={helpData} />
+  return (
+    <Ui
+      helpData={helpData}
+      helpStatus={helpStatus}
+      setHelpStatus={setHelpStatus}
+    />
+  )
 }

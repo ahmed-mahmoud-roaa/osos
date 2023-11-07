@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiHomeAlt2 } from 'react-icons/bi'
 import { PiMagnifyingGlass } from 'react-icons/pi'
 import Search from '../../elements/search/Search'
@@ -12,14 +12,20 @@ import Accordion from '../../elements/accordion/Accordion'
 import { BsThreeDots } from 'react-icons/bs'
 import { Wrapper } from './SideBar.styled'
 import { useSelector } from 'react-redux'
+import Cookies from 'js-cookie'
 
 let oldHistory = []
 export default function Ui({ routeData }) {
   const [history, setHistory] = useState([])
 
   const [more, setMore] = useState('more')
+  const [interfaceState, setInterfaceState] = useState('Comfy')
 
-  const interfaceState = useSelector((state) => state.main.interface)
+  const storeInterface = useSelector((state) => state.main.interface)
+
+  useEffect(() => {
+    setInterfaceState(storeInterface)
+  }, [storeInterface])
 
   const goToTab = (index) => {
     setTimeout(() => {

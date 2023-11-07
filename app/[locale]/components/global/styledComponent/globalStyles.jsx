@@ -109,6 +109,9 @@ img{
     max-width: 100%;
 }
 
+button:focus-visible {
+    outline: 2px solid var(--primary-100);
+}
  
  /* width */
 ::-webkit-scrollbar {
