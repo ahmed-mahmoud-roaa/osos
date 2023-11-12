@@ -4,7 +4,7 @@ import { MdPlaylistAdd } from 'react-icons/md'
 import Accordion from '../../../elements/accordion/Accordion'
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
 import { formatTimeDifference } from '@/app/[locale]/func/time/time'
-import { Tooltip } from 'primereact/tooltip'
+import Tooltip from '../../tooltip/Tooltip'
 
 export default function Ui({ data, asRead }) {
   return (
@@ -44,18 +44,17 @@ export default function Ui({ data, asRead }) {
                 </div>
                 {item.markAsRead && (
                   <>
-                    <Tooltip target={`.view`}>
-                      <div className="break-normal w-max">
-                        Mark group as read
-                      </div>
-                    </Tooltip>
-
-                    <button
-                      className="view text-2xl text-gray-800 bg-themeWhite-white border border-themeGray-200 rounded-md p-1.5"
-                      onClick={(e) => asRead(e)}
+                    <Tooltip
+                      text={'Mark group as read'}
+                      className={'w-[8rem] break-word'}
                     >
-                      <IoCheckmarkDoneCircleOutline />
-                    </button>
+                      <button
+                        className="view text-2xl text-gray-800 bg-themeWhite-white border border-themeGray-200 rounded-md p-1.5"
+                        onClick={(e) => asRead(e)}
+                      >
+                        <IoCheckmarkDoneCircleOutline />
+                      </button>
+                    </Tooltip>
                   </>
                 )}
               </div>

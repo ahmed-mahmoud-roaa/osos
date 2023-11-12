@@ -25,7 +25,7 @@ export default function Ui({ currentComponent }) {
     <>
       {
         <div
-          className={` shadow-[0_0px_3px_var(--themeGray-200)] h-full drawer absolute top-0 transition-position ease-linear z-10 duration-500 ${
+          className={` shadow-[0_0px_3px_var(--themeGray-200)] h-full drawer absolute top-0 ease-linear z-10 duration-500 ${
             direction === 'ar' ? 'leftDrawer ' : ' '
           }  
           ${
@@ -33,11 +33,7 @@ export default function Ui({ currentComponent }) {
               ? 'right-0 rtl:right-auto rtl:left-0'
               : 'right-[-21.5rem] rtl:right-auto rtl:left-[-21.5rem]'
           }
-          ${
-            CurrentMode !== 'dark'
-              ? 'bg-themeBlack-black'
-              : 'bg-themeWhite-white'
-          }
+         
           ${hideDrawer}
           `}
         >
@@ -48,7 +44,7 @@ export default function Ui({ currentComponent }) {
             onClick={() => dispatch(ChangeDrawerStatus(false))}
           ></span>
           <div className={`wrapper h-full overflow-y-auto relative z-20`}>
-            <div className="flex flex-col min-h-full">
+            <div className="flex flex-col min-h-full  bg-themeWhite-white ">
               <div className="h-20 flex items-center bg-primary-50 justify-end pr-4 rtl:pl-4 rtl:pr-0">
                 <Activities />
               </div>

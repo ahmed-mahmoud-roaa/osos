@@ -25,31 +25,31 @@ export default function Activities() {
     feed: {
       icon: <TfiLayoutListThumb />,
       action: () => openDrawer('feed'),
-      label: 'toolTip',
+      label: 'Feed',
       active: 'feed' === drawer.currentComponent && drawer.status,
     },
     calendar: {
       icon: <TbCalendarFilled />,
       action: () => openDrawer('calendar'),
-      label: 'toolTip',
+      label: 'Calendar',
       active: 'calendar' === drawer.currentComponent && drawer.status,
     },
     notification: {
       icon: <GoBell />,
       action: () => openDrawer('notification'),
-      label: 'toolTip',
+      label: 'Notification',
       active: 'notification' === drawer.currentComponent && drawer.status,
     },
     chat: {
       icon: <BsChatLeftText />,
       action: () => openDrawer('chat'),
-      label: 'toolTip',
+      label: 'Chat',
       active: 'chat' === drawer.currentComponent && drawer.status,
     },
     task: {
       icon: <BsListCheck />,
       action: () => openDrawer('task'),
-      label: 'toolTip',
+      label: 'Task',
       active: 'task' === drawer.currentComponent && drawer.status,
     },
   }

@@ -40,7 +40,7 @@ module.exports = {
           white: 'var(--themeWhite-white)',
         },
         themeBlack: {
-          black: 'var(--themeWhite-white)',
+          black: 'var(--themeBlack-black)',
         },
         error: {
           700: 'var(--error-700)',

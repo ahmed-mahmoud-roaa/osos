@@ -13,7 +13,7 @@ export default function CheckBox({ label, status = false, action }) {
           action && action()
         }}
       />
-      <span class="checkmark"></span>
+      <span className="checkmark"></span>
     </Wrapper>
   )
 }

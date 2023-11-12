@@ -15,6 +15,7 @@ import SearchResult from './searchResult/SearchResult'
 import { TfiTarget } from 'react-icons/tfi'
 import { FiHelpCircle } from 'react-icons/fi'
 import Help from './help/Help'
+import Tooltip from '../tooltip/Tooltip'
 
 export default function Ui({ translation, dynamicElements, sidebarToggle }) {
   const [searchDetails, setSearchDetails] = useState(false)
@@ -42,22 +43,24 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
 
             <ButtonsGroup data={dynamicElements.groupedButtons} />
 
-            <IconRoundedButton
-              status={focusStatus}
-              setStatus={setFocusStatus}
-              icon={
-                <span
-                  className={`text-themeGray-500 ${
-                    focusStatus && 'text-themeWhite-white'
-                  }`}
-                >
-                  <TfiTarget />
-                </span>
-              }
-              action={() => {
-                console.log('focus')
-              }}
-            />
+            <Tooltip text={'Focus'}>
+              <IconRoundedButton
+                status={focusStatus}
+                setStatus={setFocusStatus}
+                icon={
+                  <span
+                    className={`text-themeGray-500 ${
+                      focusStatus && 'text-themeWhite-white'
+                    }`}
+                  >
+                    <TfiTarget />
+                  </span>
+                }
+                action={() => {
+                  console.log('focus')
+                }}
+              />
+            </Tooltip>
           </div>
 
           <button

@@ -1,7 +1,7 @@
 import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
 import React, { useState } from 'react'
 import MessageReact from './messageReact/MessageReact'
-import { Tooltip } from 'primereact/tooltip'
+import Tooltip from '../../../../tooltip/Tooltip'
 import { formatTimeDifference } from '@/app/[locale]/func/time/time'
 
 export default function Ui({ messageData, user, handleEmoji }) {
@@ -47,21 +47,22 @@ export default function Ui({ messageData, user, handleEmoji }) {
             {emoji &&
               Object.keys(handleEmoji(emoji)).map((react, index) => (
                 <span key={index}>
-                  <Tooltip target={`.emoji-${index}`}>
-                    <div className="w-max break-normal">
-                      {handleEmoji(emoji)[react].author.join(' , ')}
-                    </div>
-                  </Tooltip>
-                  <span
-                    className={`emoji-${index} px-2 py-1 bg-themeGray-50 rounded-full ml-1 rtl:ml-0 rtl:mr-1`}
+                  <Tooltip
+                    direction={'top'}
+                    className="w-max break-normal"
+                    text={handleEmoji(emoji)[react].author.join(' , ')}
                   >
-                    {handleEmoji(emoji)[react].count > 1 && (
-                      <span className="count text-xs text-themeGray-400">
-                        {handleEmoji(emoji)[react].count}
-                      </span>
-                    )}
-                    {react}
-                  </span>
+                    <span
+                      className={`emoji-${index} px-2 py-1 bg-themeGray-50 rounded-full ml-1 rtl:ml-0 rtl:mr-1`}
+                    >
+                      {handleEmoji(emoji)[react].count > 1 && (
+                        <span className="count text-xs text-themeGray-400">
+                          {handleEmoji(emoji)[react].count}
+                        </span>
+                      )}
+                      {react}
+                    </span>
+                  </Tooltip>
                 </span>
               ))}
           </div>
