@@ -16,7 +16,9 @@ export default function Content({ content }) {
         className={`transition-all ease-in-out duration-500 sidebarWrapper flex relative min-w-full left-[-19.5rem] rtl:left-[19.5rem]`}
       >
         <SideBar />
-        <div className="Content grow">{content}</div>
+        <div className="Content grow flex justify-between">
+          <span>{content}</span>
+        </div>
       </div>
     </Wrapper>
   )

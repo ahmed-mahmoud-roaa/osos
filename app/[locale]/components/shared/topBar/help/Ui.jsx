@@ -20,7 +20,7 @@ export default function Ui({ helpData, helpStatus, setHelpStatus }) {
   console.log({ setHelpStatus })
   return (
     <div
-      className={`helpMenu overflow-auto z-50 bg-themeWhite-white  right-0 rtl:left-0 rtl:right-auto absolute  overflow-x-hidden transition-all duration-500 bottom-0 shadow-[0_0px_10px_var(--themeGray-200)]
+      className={`helpMenu overflow-auto h-full z-50 bg-themeWhite-white  right-0 rtl:left-0 rtl:right-auto absolute  overflow-x-hidden transition-all duration-500 bottom-0 shadow-[0_0px_10px_var(--themeGray-200)]
         ${
           helpStatus
             ? 'right-0 rtl:right-auto rtl:left-0 '
@@ -28,10 +28,9 @@ export default function Ui({ helpData, helpStatus, setHelpStatus }) {
         }
         ${hide == true ? 'w-[21.5rem]' : 'w-[0]'}
         `}
-      style={{ height: 'calc(100% - 4.48rem)' }}
     >
       <div className="">
-        <div className="head bg-primary-50 p-4">
+        <div className="head bg-themeGray-200 p-4">
           <div className="head flex items-center justify-between">
             <h3 className="font-medium text-xl mt-2 mb-4">Help & tips</h3>
             <button

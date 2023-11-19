@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
         return '0rem !important'
       }
     }};
-    width: ${(props) => {
+    min-width: ${(props) => {
       if (props.sidebar === 'opened') {
         return '100%'
       } else {

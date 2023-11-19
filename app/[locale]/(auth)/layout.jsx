@@ -33,10 +33,13 @@ export default function Layout({ children }) {
   }
 
   return (
-    <div className="flex flex-col h-screen">
-      <TopBar translation={translation} serverData={serverData.userInfo} />
-      <Drawer />
-      <Content content={children} />
+    <div className="flex">
+      <div className="flex flex-col h-screen relative flex-grow">
+        <TopBar translation={translation} serverData={serverData.userInfo} />
+        <Drawer />
+        <Content content={children} />
+      </div>
+      {/* <div className="content">contentcontentcontentcontent</div> */}
     </div>
   )
 }
