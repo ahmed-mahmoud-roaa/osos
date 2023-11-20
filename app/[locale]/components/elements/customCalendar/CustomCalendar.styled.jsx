@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
       justify-content: center;
       margin: 0.15rem;
       cursor: pointer;
-      border-radius: 50%;
+      border-radius: ${(props) => (props.borderRound ? '50%' : '0!important')};
 
       &:hover {
         background-color: var(--primary-600);
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
       height: 0.25rem;
       bottom: 0.25rem;
       background-color: var(--primary-600);
-      border-radius: 50%;
+      border-radius: ${(props) => (props.borderRound ? '50%' : '0!important')};
     }
   }
 

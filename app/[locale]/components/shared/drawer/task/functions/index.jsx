@@ -1,5 +1,4 @@
 export const dotesColor = (count) => {
-  console.log({ count })
   if (count == 1) {
     return 'var(--themeGreen-400)'
   } else if (count == 2) {

@@ -21,13 +21,12 @@ export const Wrapper = styled.div`
       ? '100%'
       : 'calc(100% - (' + negativeHight(props.index, props.count) + 'px))'};
 
-  border-radius: 10px 10px 0 0;
+  border-radius: ${(props) =>
+    props.borderRound ? '10px 10px 0 0' : '0!important'};
 
-  /* bottom: -100%; */
   bottom: ${(props) => props.down};
   position: absolute;
   z-index: calc(2 * ${(props) => parseInt(props.index)});
-  border-radius: 10px 10px 0 0;
   background-color: ${(props) =>
     props.type == 'Dense'
       ? sidesColor.slice(0, parseInt(props.count + 1)).reverse()[
@@ -67,7 +66,8 @@ export const Wrapper = styled.div`
     top: 0;
     height: 5px;
     width: 100%;
-    border-radius: 10px 10px 0 0;
+    border-radius: ${(props) =>
+      props.borderRound ? '10px 10px 0 0' : '0!important'};
     left: 0;
     box-shadow: 0px -4px 3px var(--themeGray-200);
     opacity: 50%;

@@ -25,7 +25,6 @@ export default function ClickOut({
         event.target.parentElement.parentElement.classList.contains('ClickOut')
       )
     ) {
-      console.log(event.target.classList)
       closeComponent()
     }
   }
@@ -36,8 +35,6 @@ export default function ClickOut({
     } else {
       document.removeEventListener('mousedown', handleOutsideClick)
     }
-
-    console.log({ isComponentOpen })
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick)
     }

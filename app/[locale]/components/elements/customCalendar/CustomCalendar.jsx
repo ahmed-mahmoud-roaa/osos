@@ -1,8 +1,11 @@
 import React from 'react'
 import { Wrapper } from './CustomCalendar.styled'
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from 'react-icons/hi'
+import { useSelector } from 'react-redux'
 
 const Calendar = ({ currentDate, setCurrentDate }) => {
+  const borderRound = useSelector((state) => state.main.borderRound)
+
   const specialDates = [
     new Date('2023-10-31T10:16:41'),
     new Date('2023-10-30T10:16:41'),
@@ -122,7 +125,7 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper borderRound={borderRound}>
       <div className="calendar-header flex align-center justify-between mx-3 mb-4">
         <div className="control flex w-full items-center justify-between mr-4 rtl:mr-0 rtl:ml-4 text-themeGray-700">
           <button onClick={prevMonth} className="rtl:rotate-180">

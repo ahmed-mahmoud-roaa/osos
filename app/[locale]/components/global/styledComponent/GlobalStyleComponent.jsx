@@ -7,10 +7,15 @@ import './clientTheme.scss'
 export default function GlobalStyleComponent({ children }) {
   const currentMode = useSelector((state) => state.main.currentMode)
   const direction = useSelector((state) => state.main.direction)
+  const borderRound = useSelector((state) => state.main.borderRound)
 
   return (
     <>
-      <GlobalStyle currentMode={currentMode} direction={direction} />
+      <GlobalStyle
+        currentMode={currentMode}
+        direction={direction}
+        borderRound={borderRound}
+      />
       <Override direction={direction} currentMode={currentMode} />
       {children}
     </>

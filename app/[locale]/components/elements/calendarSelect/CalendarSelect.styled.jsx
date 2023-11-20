@@ -24,8 +24,7 @@ export const Wrapper = styled.div`
   th {
     padding: 0;
     font-size: 0.75rem;
-    border-radius: 50%;
-
+    border-radius: ${(props) => (props.borderRound ? '50%' : '0!important')};
     span {
       box-shadow: unset;
     }
@@ -42,7 +41,7 @@ export const Wrapper = styled.div`
     height: 0.25rem;
     background-color: var(--primary-500);
     top: 2rem;
-    border-radius: 50%;
+    border-radius: ${(props) => (props.borderRound ? '50%' : '0!important')};
   }
 
   button[class^='p-datepicker'] svg {

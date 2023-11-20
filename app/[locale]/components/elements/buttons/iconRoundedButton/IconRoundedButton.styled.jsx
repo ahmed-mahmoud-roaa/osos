@@ -3,7 +3,7 @@ export const Wrapper = styled.button`
   &.magic {
     position: relative;
     overflow: hidden;
-    border: 0;
+    border-color: var(--primary-300);
     &:before {
       content: '';
       position: absolute;
@@ -14,7 +14,7 @@ export const Wrapper = styled.button`
       z-index: -1;
       background: linear-gradient(
         to bottom,
-        var(--primary-500),
+        var(--primary-400),
         var(--primary-200)
       );
     }
@@ -24,8 +24,9 @@ export const Wrapper = styled.button`
       top: 2px;
       left: 2px;
       width: calc(100% - 4px);
-      height: calc(100% - 5px);
-      border-radius: 50px;
+      height: calc(100% - 4px);
+      border-radius: ${(props) => (props.borderRound ? '50px' : '0!important')};
+
       z-index: -1;
 
       background: var(--themeWhite-white);

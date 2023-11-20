@@ -1,7 +1,15 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
 
+.rounded, .rounded-full, .rounded-md, .rounded-lg, .rounded-xl, .rounded-t-3xl  {
+  border-radius:${(props) => !props.borderRound && '0!important'}
+}
 
+.rtl\:rounded-tl-xl{
+  border-radius:${(props) => !props.borderRound && '0!important'}
+}
+ 
+ 
   body {
     background-color: ${(props) =>
       props.currentMode !== 'dark' ? 'white' : 'black'}; 
@@ -101,8 +109,6 @@ const GlobalStyle = createGlobalStyle`
 }
 
 
- 
-
 
 
 img{
@@ -118,16 +124,11 @@ button:focus-visible {
   width: 5px;
 }
 
-/* Track */
-/* ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
-  */
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--themeGray-800); 
-  border-radius: 10px;
+   border-radius: ${(props) => (props.borderRound ? '10px' : '0!important')};
 }
 
 /* Handle on hover */
@@ -136,7 +137,7 @@ button:focus-visible {
 }
 
 
-
+ 
 `
 
 export default GlobalStyle

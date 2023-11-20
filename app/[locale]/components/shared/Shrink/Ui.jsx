@@ -1,13 +1,10 @@
 'use client'
 import React from 'react'
 import { Wrapper } from './Shrink.styled'
-export default function Ui({
-  sideDirection,
-  status,
-  width,
-  direction,
-  children,
-}) {
+import { useSelector } from 'react-redux'
+
+export default function Ui({ sideDirection, status, width, children }) {
+  const direction = useSelector((state) => state.main.direction)
   return (
     <>
       <Wrapper

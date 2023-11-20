@@ -12,7 +12,6 @@ import Accordion from '../../elements/accordion/Accordion'
 import { BsThreeDots } from 'react-icons/bs'
 import { Wrapper } from './SideBar.styled'
 import { useSelector } from 'react-redux'
-import Cookies from 'js-cookie'
 
 let oldHistory = []
 export default function Ui({ routeData }) {
@@ -22,6 +21,7 @@ export default function Ui({ routeData }) {
   const [interfaceState, setInterfaceState] = useState('Comfy')
 
   const storeInterface = useSelector((state) => state.main.interface)
+  const borderRound = useSelector((state) => state.main.borderRound)
 
   useEffect(() => {
     setInterfaceState(storeInterface)
@@ -115,6 +115,7 @@ export default function Ui({ routeData }) {
         index={index}
         type={interfaceState}
         down={down}
+        borderRound={borderRound}
       >
         <div className="body h-full flex flex-col justify-between overflow-auto">
           <div className="upperSec">

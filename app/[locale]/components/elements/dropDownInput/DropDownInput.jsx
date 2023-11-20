@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { Dropdown } from 'primereact/dropdown'
 import Image from 'next/image'
 import './dropDownInput.scss'
+import { useSelector } from 'react-redux'
+
 export default function DropDownInput({
   options,
   className,
   placeholder,
   optionStyle,
 }) {
+  const borderRound = useSelector((state) => state.main.borderRound)
   const [selected, setSelected] = useState(null)
 
   const optionTemplate = (option, props) => {
@@ -64,7 +67,9 @@ export default function DropDownInput({
 
   return (
     <div
-      className={`dropDownInput bg-themeWhite-white text-themeGray-800 ${className}`}
+      className={`dropDownInput bg-themeWhite-white text-themeGray-800 ${className} ${
+        !borderRound ? 'rounded-none' : 'rounded-md'
+      }`}
     >
       <Dropdown
         value={

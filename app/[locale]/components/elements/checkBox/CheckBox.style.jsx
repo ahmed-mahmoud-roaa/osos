@@ -31,7 +31,7 @@ export const Wrapper = styled.label`
     height: 1.25rem;
     width: 1.25rem;
     background: var(--themeWhite-white);
-    border-radius: 5px;
+    border-radius: ${(props) => (props.borderRound ? '5px' : '0!important')};
     border: 1px solid var(--themeGray-200);
   }
 

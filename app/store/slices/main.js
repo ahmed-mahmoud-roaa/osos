@@ -9,6 +9,7 @@ export const mainSlice = createSlice({
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
     helpStatus: false,
+    borderRound: true,
     sidebar: 'closed',
     drawer: {
       status: 'false',
@@ -26,6 +27,9 @@ export const mainSlice = createSlice({
     },
     changePreloader: (state, action) => {
       state.preloader = action.payload
+    },
+    changeBorderRound: (state, action) => {
+      state.borderRound = action.payload
     },
     changeHelpStatus: (state, action) => {
       state.helpStatus = action.payload

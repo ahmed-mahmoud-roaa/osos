@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   & > div {
     display: flex;
-    border-radius: 8px;
+    border-radius: ${(props) => (props.borderRound ? '8px' : '0!important')};
     overflow: hidden;
     align-items: center;
     border: 1px solid var(--themeGray-300);

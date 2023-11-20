@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import MessageHistory from './messageHistory/MessageHistory'
 import Details from './details/Details'

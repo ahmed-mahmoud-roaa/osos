@@ -8,6 +8,7 @@ export default function SelectButtonList({ options, width }) {
     options.options && options.options[options.selected].value
   )
   const direction = useSelector((state) => state.main.direction)
+  const borderRound = useSelector((state) => state.main.borderRound)
 
   return (
     <Wrapper
@@ -15,6 +16,7 @@ export default function SelectButtonList({ options, width }) {
       width={width}
       background={'var(--themeWhite-white)'}
       className={`card flex justify-content-center selectButtonList`}
+      borderRound={borderRound}
     >
       <SelectButton
         value={value}

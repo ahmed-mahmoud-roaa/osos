@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Wrapper } from './IconRoundedButton.styled'
+import { useSelector } from 'react-redux'
 
 export default function IconRoundedButton({
   icon,
@@ -12,8 +13,11 @@ export default function IconRoundedButton({
   status,
   setStatus,
 }) {
+  const borderRound = useSelector((state) => state.main.borderRound)
+
   return (
     <Wrapper
+      borderRound={borderRound}
       onClick={() => {
         setStatus && setStatus(!status)
         action()

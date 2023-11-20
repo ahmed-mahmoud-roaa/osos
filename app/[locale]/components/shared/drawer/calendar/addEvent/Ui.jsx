@@ -179,7 +179,6 @@ export default function Ui({
             name={'attendees'}
             placeholder=" "
             onChange={(e) => {
-              console.log('multiValues', e.value)
               formik.setFieldValue('attendees', e.value)
               setMultiValues(e.value)
             }}

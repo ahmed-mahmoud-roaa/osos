@@ -90,17 +90,15 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
               icon={<BsStars />}
               label={<span className="ClickOut font-normal">AI</span>}
               className={
-                'ClickOut magic text-primary-600 mr-3 rtl:mr-0 rtl:ml-3 relative '
+                'ClickOut magic text-primary-600 mr-3 rtl:mr-0 rtl:ml-3 relative'
               }
               labelClass={'text-primary-700 '}
-              action={() => {
-                dispatch(changeHelpStatus(!helpStatus))
-              }}
+              action={() => {}}
             />
             <IconRoundedButton
               icon={<FiHelpCircle />}
               label={<span className="ClickOut font-normal">Help</span>}
-              className={'ClickOut text-themeGray-500 mr-5 rtl:mr-0 rtl:ml-5'}
+              className={'ClickOut text-themeGray-500 mr-5 rtl:mr-0 rtl:ml-5 '}
               labelClass={'text-themeGray-700'}
               action={() => {
                 dispatch(changeHelpStatus(!helpStatus))

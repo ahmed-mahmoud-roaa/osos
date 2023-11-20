@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import TaskItems from './TaskItems/TaskItems'
 import Details from './Details/Details'

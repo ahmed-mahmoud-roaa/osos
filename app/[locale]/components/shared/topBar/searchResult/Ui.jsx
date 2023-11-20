@@ -19,7 +19,6 @@ export default function Ui({ data }) {
   const [show, setShow] = useState('w-[10rem] max-h-10')
 
   useEffect(() => {
-    console.log({ searchInput })
     searchInput.current.focus()
     setShow('w-[40rem] max-h-screen')
     document.addEventListener('keydown', handleBack)
