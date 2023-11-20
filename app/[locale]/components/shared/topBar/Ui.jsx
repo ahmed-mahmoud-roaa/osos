@@ -14,13 +14,16 @@ import PopupContainer from '../../elements/popupContainer/PopupContainer'
 import SearchResult from './searchResult/SearchResult'
 import { TfiTarget } from 'react-icons/tfi'
 import { FiHelpCircle } from 'react-icons/fi'
-import Help from './help/Help'
 import Tooltip from '../tooltip/Tooltip'
+import { changeHelpStatus } from '@/app/store/slices/main'
+import { useDispatch, useSelector } from 'react-redux'
+import { BsStars } from 'react-icons/bs'
 
 export default function Ui({ translation, dynamicElements, sidebarToggle }) {
+  const dispatch = useDispatch()
   const [searchDetails, setSearchDetails] = useState(false)
-  const [helpStatus, setHelpStatus] = useState(false)
   const [focusStatus, setFocusStatus] = useState(false)
+  const helpStatus = useSelector((state) => state.main.helpStatus)
   return (
     <>
       {
@@ -84,21 +87,30 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
 
           <div className=" w-[33%] rightSection flex items-center justify-end">
             <IconRoundedButton
+              icon={<BsStars />}
+              label={<span className="ClickOut font-normal">AI</span>}
+              className={
+                'ClickOut magic text-primary-600 mr-3 rtl:mr-0 rtl:ml-3 relative '
+              }
+              labelClass={'text-primary-700 '}
+              action={() => {
+                dispatch(changeHelpStatus(!helpStatus))
+              }}
+            />
+            <IconRoundedButton
               icon={<FiHelpCircle />}
               label={<span className="ClickOut font-normal">Help</span>}
-              className={'ClickOut text-themeGray-500  mr-5'}
+              className={'ClickOut text-themeGray-500 mr-5 rtl:mr-0 rtl:ml-5'}
               labelClass={'text-themeGray-700'}
-              status={helpStatus}
-              setStatus={setHelpStatus}
-              action={() => {}}
+              action={() => {
+                dispatch(changeHelpStatus(!helpStatus))
+              }}
             />
 
             <Activities />
           </div>
         </div>
       }
-
-      <Help helpStatus={helpStatus} setHelpStatus={setHelpStatus} />
 
       <PopupContainer
         className={'justify-center items-baseline'}

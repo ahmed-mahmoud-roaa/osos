@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import { Wrapper } from './IconRoundedButton.styled'
 
 export default function IconRoundedButton({
   icon,
@@ -12,9 +13,9 @@ export default function IconRoundedButton({
   setStatus,
 }) {
   return (
-    <button
+    <Wrapper
       onClick={() => {
-        setStatus(!status)
+        setStatus && setStatus(!status)
         action()
       }}
       className={
@@ -40,6 +41,6 @@ export default function IconRoundedButton({
           {label}
         </span>
       )}
-    </button>
+    </Wrapper>
   )
 }

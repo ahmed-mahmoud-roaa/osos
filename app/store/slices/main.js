@@ -8,6 +8,7 @@ export const mainSlice = createSlice({
     interface: Cookies.get('interface') ? Cookies.get('interface') : 'Comfy',
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
+    helpStatus: false,
     sidebar: 'closed',
     drawer: {
       status: 'false',
@@ -25,6 +26,9 @@ export const mainSlice = createSlice({
     },
     changePreloader: (state, action) => {
       state.preloader = action.payload
+    },
+    changeHelpStatus: (state, action) => {
+      state.helpStatus = action.payload
     },
 
     changeCurrentComponent: (state, action) => {
@@ -57,5 +61,6 @@ export const {
   ChangeZoomSlider,
   ChangeSideBar,
   ChangeInterface,
+  changeHelpStatus,
 } = mainSlice.actions
 export default mainSlice.reducer
