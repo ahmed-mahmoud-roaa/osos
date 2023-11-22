@@ -14,7 +14,6 @@ import {
   directionFun,
   ChangeInterface,
 } from '@/app/store/slices/main'
-import Cookies from 'js-cookie'
 
 export default function Profile() {
   const router = useRouter()

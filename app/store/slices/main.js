@@ -9,7 +9,7 @@ export const mainSlice = createSlice({
     direction: Cookies.get('NEXT_LOCALE') || 'en',
     preloader: true,
     helpStatus: false,
-    borderRound: true,
+    borderRound: false,
     sidebar: 'closed',
     drawer: {
       status: 'false',
