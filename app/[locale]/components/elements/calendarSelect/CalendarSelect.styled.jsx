@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
   }
 
   .p-datepicker-month {
-    margin: 0 5px;
+    margin: 0 0.31rem;
     font-weight: 600;
   }
   .p-datepicker-title {
@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
     font-weight: 400;
   }
   .p-datepicker-header {
-    margin-bottom: 10px;
+    margin-bottom: 1.6rem;
   }
   svg.p-icon.p-datepicker-next-icon,
   svg.p-icon.p-datepicker-prev-icon {

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import NotificationButton from '../../elements/buttons/notificationButton/NotificationButton'
 import Image from 'next/image'
@@ -24,14 +25,18 @@ export default function Ui({
       </span>
       <span>
         <button
-          className={`avatarButton border-4 rounded-full ml-3 rtl:ml-0 rtl:mr-3  ${
+          className={`avatarButton border-[0.25rem] rounded-full ml-3 rtl:ml-0 rtl:mr-3  ${
             profileActive
               ? 'border-primary-600'
               : ' border-themeGray-200 hover:border-primary-200'
           }`}
           onClick={() => openDrawer('profile')}
         >
-          <Image src={avatar} alt={'user avatar'} width="40" height="40" />
+          <img
+            src={avatar}
+            alt={'user avatar'}
+            style={{ width: '2.5rem', height: '2.5rem' }}
+          />
         </button>
       </span>
     </div>

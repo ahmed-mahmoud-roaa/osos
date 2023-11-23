@@ -9,7 +9,7 @@ export default function CalendarEvent({ eventData }) {
       {eventData.map((data, index) => (
         <div
           key={index}
-          className="p-3 border-l-8 border-primary-200  text-themeGray-800 bg-themeWhite-white shadow-[0_0px_5px_var(--themeGray-200)] mx-4 mt-1 mb-2 rounded-lg"
+          className="p-3 border-l-8 border-primary-200  text-themeGray-800 bg-themeWhite-white shadow-[0_0px_0.3rem_var(--themeGray-200)] mx-4 mt-1 mb-2 rounded-lg"
         >
           <div className="eventTitle text-base text-themeGray-800 font-semibold">
             {data.title}

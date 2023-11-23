@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-const sidesArray = [32, 28, 24]
+const sidesArray = [2, 1.75, 1.5]
 const sidesColor = [
   'var(--themeWhite-white)',
   'var(--themeGray-50)',
@@ -19,10 +19,10 @@ export const Wrapper = styled.div`
   height: ${(props) =>
     parseInt(props.index) == 0
       ? '100%'
-      : 'calc(100% - (' + negativeHight(props.index, props.count) + 'px))'};
+      : 'calc(100% - (' + negativeHight(props.index, props.count) + 'rem))'};
 
   border-radius: ${(props) =>
-    props.borderRound ? '10px 10px 0 0' : '0!important'};
+    props.borderRound ? '0.62rem 0.62rem 0 0' : '0!important'};
 
   bottom: ${(props) => props.down};
   position: absolute;
@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 
   &:hover {
     transform: ${(props) =>
-      'translateY(-' + ((props.count - props.index) * 4 + 4) + 'px)'};
+      'translateY(-' + ((props.count - props.index) * 0.25 + 0.25) + 'rem)'};
   }
 
   &:first-child {
@@ -44,12 +44,16 @@ export const Wrapper = styled.div`
     &:hover {
       transform: ${(props) =>
         props.count == 1
-          ? 'translateY(-' + ((props.count - props.index) * 4 + 4) + 'px)'
-          : 'translateY(0px)'};
+          ? 'translateY(-' +
+            ((props.count - props.index) * 0.25 + 0.25) +
+            'rem)'
+          : 'translateY(0rem)'};
       & + div {
         transform: ${(props) =>
           props.count != 1
-            ? 'translateY(' + ((props.count - props.index) * 4 + 4) + 'px)'
+            ? 'translateY(' +
+              ((props.count - props.index) * 0.25 + 0.25) +
+              'rem)'
             : ''};
       }
     }
@@ -64,12 +68,12 @@ export const Wrapper = styled.div`
     content: '';
     position: absolute;
     top: 0;
-    height: 5px;
+    height: 0.3rem;
     width: 100%;
     border-radius: ${(props) =>
-      props.borderRound ? '10px 10px 0 0' : '0!important'};
+      props.borderRound ? '0.62rem 0.62rem 0 0' : '0!important'};
     left: 0;
-    box-shadow: 0px -4px 3px var(--themeGray-200);
+    box-shadow: 0px -0.25rem 0.18rem var(--themeGray-200);
     opacity: 50%;
   }
 

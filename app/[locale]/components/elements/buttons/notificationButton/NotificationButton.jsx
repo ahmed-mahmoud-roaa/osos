@@ -24,7 +24,7 @@ export default function NotificationButton({
     >
       {icon}
       {number && (
-        <span className="notification absolute text-xs rounded-full text-themeWhite-white top-[-14px] left-5 py-0.5 px-2 bg-error-700">
+        <span className="notification absolute text-xs rounded-full text-themeWhite-white top-[-0.8rem] left-5 py-0.5 px-2 bg-error-700">
           {number}
         </span>
       )}

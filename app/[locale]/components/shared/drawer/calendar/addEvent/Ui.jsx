@@ -27,7 +27,7 @@ export default function Ui({
         <div className="flex align-items-center">
           <div className="py-1 px-1 m-0.5 flex items-center w-fit text-themeGray-700 bg-themeWhite-white border border-themeGray-200 rounded-md">
             <span className="avatar">
-              <Avatar src={option.avatar} width={16} height={16} />
+              <Avatar src={option.avatar} width={1} height={1} />
             </span>
             <span className="name text-xs px-1">{option.name}</span>
             <span

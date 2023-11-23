@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Ui from './Ui'
 
 import { FiSettings } from 'react-icons/fi'
@@ -14,16 +14,27 @@ import {
   directionFun,
   ChangeInterface,
 } from '@/app/store/slices/main'
-
+let x = 0
 export default function Profile() {
   const router = useRouter()
   const dispatch = useDispatch()
   const zoomSlider = useSelector((state) => state.main.zoomSlider)
   const direction = useSelector((state) => state.main.direction)
   const changeFontSize = (value) => {
-    document.documentElement.style.zoom = value / 4 + 87.5 + '%'
+    x++
+    const y = x
+    setTimeout(() => {
+      if (y == x) {
+        document.documentElement.style.fontSize = 12 + (value * 8) / 100 + 'px'
+      }
+    }, 500)
     dispatch(ChangeZoomSlider(value))
   }
+
+  useEffect(() => {
+    console.log({ zoomSlider })
+  }, [])
+
   const currentMode = useSelector((state) => state.main.currentMode)
   const interfaceState = useSelector((state) => state.main.interface)
 

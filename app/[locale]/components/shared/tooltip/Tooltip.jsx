@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Tooltip = ({ children, text, className, direction }) => {
   const [showTooltip, setShowTooltip] = useState(false)
-
-  const toggleTooltip = () => {
-    setShowTooltip(!showTooltip)
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setShowTooltip(false)
+    }, 1000)
+  }, [showTooltip])
 
   return (
     <div
       className="tooltip-container relative inline-block"
-      onMouseEnter={toggleTooltip}
-      onMouseLeave={toggleTooltip}
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
     >
       {children}
       {showTooltip && (

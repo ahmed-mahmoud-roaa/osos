@@ -29,8 +29,8 @@ export default function Ui({
         <div className="profileData p-4 relative  after:content-[''] flex justify-center after:absolute after:top-0 after:left-0 after:w-full after:h-1/2 after:bg-primary-50">
           <Avatar
             src={userData.avatar}
-            width={64}
-            height={64}
+            width={4}
+            height={4}
             status={true}
             classAttr={'z-10'}
           />
@@ -92,7 +92,7 @@ export default function Ui({
               value={value}
               onChange={(e) => setValue(e.value)}
               options={interFace}
-              width={80}
+              width={5}
             />
           </div>
 
@@ -102,7 +102,7 @@ export default function Ui({
               value={value}
               onChange={(e) => setValue(e.value)}
               options={modeOptions}
-              width={53}
+              width={3.3}
             />
           </div>
           <div className="flex justify-between items-center mt-2">

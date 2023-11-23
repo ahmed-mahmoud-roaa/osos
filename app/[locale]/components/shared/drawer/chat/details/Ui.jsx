@@ -37,7 +37,7 @@ export default function Ui({ setCurrentPage, data }) {
         </div>
         <div
           className="messages p-4 overflow-auto"
-          style={{ height: 'calc(100vh - 236px)' }}
+          style={{ height: 'calc(100vh - 14.75rem)' }}
         >
           {data.messages.map((message, index) => (
             <span key={index}>

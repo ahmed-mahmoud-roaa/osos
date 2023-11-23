@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   & > div {
     display: flex;
-    border-radius: ${(props) => (props.borderRound ? '8px' : '0!important')};
+    border-radius: ${(props) => (props.borderRound ? '0.5rem' : '0!important')};
     overflow: hidden;
     align-items: center;
     border: 1px solid var(--themeGray-300);
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
         props.direction !== 'ar' ? '1px solid var(--themeGray-300)' : 0};
       outline: none;
       box-shadow: unset;
-      width: ${(props) => (props.width ? props.width + 'px' : '100px')};
+      width: ${(props) => (props.width ? props.width + 'rem' : '6.25rem')};
       text-align: center;
       background-color: ${(props) => props.background};
       &.p-highlight {

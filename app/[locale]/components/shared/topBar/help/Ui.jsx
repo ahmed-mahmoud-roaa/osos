@@ -20,9 +20,9 @@ export default function Ui({ helpData }) {
   //   }
   // }, [helpStatus])
   return (
-    <div className=" w-[21.5rem] ">
+    <div className=" min-w-[21.5rem] w-[21.5rem] ">
       <div
-        className={`helpMenu  w-[21.5rem] overflow-auto h-full z-50 bg-themeWhite-white  right-0 rtl:left-0 rtl:right-auto absolute  overflow-x-hidden transition-all duration-500 bottom-0 shadow-[0_0px_10px_var(--themeGray-200)] `}
+        className={`helpMenu  w-[21.5rem] overflow-auto h-full z-50 bg-themeWhite-white  right-0 rtl:left-0 rtl:right-auto absolute  overflow-x-hidden transition-all duration-500 bottom-0 shadow-[0_0px_0.62rem_var(--themeGray-200)] `}
         // ${
         //   helpStatus
         //     ? 'right-0 rtl:right-auto rtl:left-0 '
@@ -57,9 +57,9 @@ export default function Ui({ helpData }) {
                 {item.blocks.map((block, blockIndex) => (
                   <div
                     key={blockIndex}
-                    className="helpItem flex border border-themeGray-200 rounded-xl p-4 mt-1 mb-3 shadow-[0_0px_3px_var(--themeGray-200)] items-start"
+                    className="helpItem flex border border-themeGray-200 rounded-xl p-4 mt-1 mb-3 shadow-[0_0px_0.19rem_var(--themeGray-200)] items-start"
                   >
-                    <div className="icon p-3  border border-themeGray-200 mr-4 rtl:mr-auto rtl:ml-4 rounded-xl shadow-[0_0px_3px_var(--themeGray-200)] text-primary-600 text-2xl">
+                    <div className="icon p-3  border border-themeGray-200 mr-4 rtl:mr-auto rtl:ml-4 rounded-xl shadow-[0_0px_0.19rem_var(--themeGray-200)] text-primary-600 text-2xl">
                       {block.icon}
                     </div>
                     <div className="content">

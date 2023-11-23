@@ -4,10 +4,10 @@ export const Wrapper = styled.label`
   display: block;
   position: relative;
   padding-left: 1.25rem;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   min-height: 1.25rem;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 1.4rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -31,7 +31,8 @@ export const Wrapper = styled.label`
     height: 1.25rem;
     width: 1.25rem;
     background: var(--themeWhite-white);
-    border-radius: ${(props) => (props.borderRound ? '5px' : '0!important')};
+    border-radius: ${(props) =>
+      props.borderRound ? '0.31rem' : '0!important'};
     border: 1px solid var(--themeGray-200);
   }
 
@@ -65,7 +66,7 @@ export const Wrapper = styled.label`
     width: 0.37rem;
     height: 0.62rem;
     border: solid var(--primary-500);
-    border-width: 0 2px 2px 0;
+    border-width: 0 0.13rem 0.13rem 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);

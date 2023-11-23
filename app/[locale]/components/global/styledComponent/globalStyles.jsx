@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
    }
 
    *{
-    margin:0;
+     margin:0;
     box-sizing: border-box;
     font-family: Inter, sans-serif;
     letter-spacing:-0.2px
@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 
  
 :root{
+  font-size: 16px;
     --primary-950:${(props) =>
       props.currentMode !== 'dark' ? '#102a56' : '#EFF8FF'};
     --primary-600:${(props) =>
@@ -116,19 +117,19 @@ img{
 }
 
 button:focus-visible {
-    outline: 2px solid var(--primary-100);
+    outline: 0.13rem solid var(--primary-100);
 }
  
  /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0.3rem;
 }
 
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--themeGray-800); 
-   border-radius: ${(props) => (props.borderRound ? '10px' : '0!important')};
+   border-radius: ${(props) => (props.borderRound ? '0.62rem' : '0!important')};
 }
 
 /* Handle on hover */

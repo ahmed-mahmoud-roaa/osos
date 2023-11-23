@@ -34,7 +34,7 @@ export default function Ui({ data }) {
         onClick={() => console.log('item clicked')}
         className="itemContent flex w-full items-start p-2.5"
       >
-        <div className="icon text-themeGray-700 p-2.5 border border-themeGray-200 items-start rounded-md text-lg shadow-[0_0_5px_0.5px_var(--themeGray-50)] ">
+        <div className="icon text-themeGray-700 p-2.5 border border-themeGray-200 items-start rounded-md text-lg shadow-[0_0_0.31rem_0.5px_var(--themeGray-50)] ">
           {item.icon}
         </div>
         <div className="text mx-2 text-left rtl:text-right">
@@ -71,7 +71,7 @@ export default function Ui({ data }) {
         onClick={() => console.log('item clicked')}
         className="itemContent flex w-full items-center px-2.5  py-1.5"
       >
-        <Avatar src={item.src} shape="circle" width={24} height={24} />
+        <Avatar src={item.src} shape="circle" width={1.5} height={1.5} />
         <div className="text mx-2 text-left flex">
           <div className="title text-themeGray-900 font-semibold">
             {item.name}
@@ -94,7 +94,7 @@ export default function Ui({ data }) {
   return (
     <ArrowNavigation>
       <div
-        className={`searchContainer w-[40rem] m-auto bg-themeWhite-white top-2 relative rounded-xl text-sm shadow-[0_0_5px_1px_var(--themeGray-200)] overflow-hidden duration-1000 max-w-[90vw]  ${show}`}
+        className={`searchContainer w-[40rem] m-auto bg-themeWhite-white top-2 relative rounded-xl text-sm shadow-[0_0_0.3rem_1px_var(--themeGray-200)] overflow-hidden duration-1000 max-w-[90vw]  ${show}`}
       >
         <div className="max-h-[90vh] overflow-auto">
           <div className="search p-4 flex items-center text-themeGray-500 border-b border-themeGray-200  font-medium">
@@ -120,7 +120,7 @@ export default function Ui({ data }) {
                 <PiArrowLeftBold />
               </button>
               <span className="flex items-center mx-3 text-base">
-                <span className="text-themeGray-500 mr-1 rtl:mr-0 rlt:ml-1">
+                <span className="text-themeGray-500 mr-1 rtl:mr-0 rtl:ml-1">
                   {data[current].info?.icon}
                 </span>
 

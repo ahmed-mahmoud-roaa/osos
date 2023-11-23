@@ -19,8 +19,8 @@ export default function Ui({ messageData, user, handleEmoji }) {
       {messageData.owner !== 'you' && (
         <Avatar
           src={user.avatar}
-          width={40}
-          height={40}
+          width={2.5}
+          height={2.5}
           status={messageData.status}
           classAttr={'mr-3 rtl:mr-0 rtl:ml-3'}
         />

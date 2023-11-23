@@ -31,7 +31,7 @@ export default function Ui({ data, asRead }) {
               <div className="headCont flex justify-between items-center grow">
                 <div className="flex items-center">
                   <div
-                    className={`icon border border-themeGray-200 p-1.5 mr-4 rlt:mr-0 rtl:ml-4 rounded-md text-lg ${item.className}`}
+                    className={`icon border border-themeGray-200 p-1.5 mr-4 rtl:mr-0 rtl:ml-4 rounded-md text-lg ${item.className}`}
                   >
                     {item.icon}
                   </div>

@@ -31,7 +31,7 @@ export default async function HomeServer({ translation, childrenProp }) {
     <>
       <div className="w-full">
         <HelpShrink direction={direction}>
-          <div className="flex flex-col h-screen  relative flex-grow">
+          <div className="flex flex-col h-screen  relative flex-grow w-1">
             <TopBar
               translation={translation}
               serverData={serverData.userInfo}

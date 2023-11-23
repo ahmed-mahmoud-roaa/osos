@@ -21,11 +21,12 @@ export const Wrapper = styled.button`
     &:after {
       content: '';
       position: absolute;
-      top: 2px;
-      left: 2px;
-      width: calc(100% - 4px);
-      height: calc(100% - 4px);
-      border-radius: ${(props) => (props.borderRound ? '50px' : '0!important')};
+      top: 0.13rem;
+      left: 0.13rem;
+      width: calc(100% - 0.25rem);
+      height: calc(100% - 0.25rem);
+      border-radius: ${(props) =>
+        props.borderRound ? '3.1rem' : '0!important'};
 
       z-index: -1;
 
