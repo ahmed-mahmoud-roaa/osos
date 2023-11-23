@@ -1,10 +1,28 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Wrapper } from './Shrink.styled'
 import { useSelector } from 'react-redux'
 
-export default function Ui({ sideDirection, status, width, children }) {
+export default function Ui({
+  sideDirection,
+  status,
+  width,
+  staticElement,
+  movable,
+}) {
+  const [movementState, setMovementState] = useState(status)
   const direction = useSelector((state) => state.main.direction)
+
+  useEffect(() => {
+    if (status == true) {
+      setMovementState(status)
+    } else {
+      setTimeout(() => {
+        setMovementState(status)
+      }, 500)
+    }
+  }, [status])
+
   return (
     <>
       <Wrapper
@@ -14,19 +32,47 @@ export default function Ui({ sideDirection, status, width, children }) {
         width={width}
         className={`content max-w-full flex grow overflow-x-hidden`}
       >
-        {sideDirection == 'left' ? (
-          <div
-            className={`transition-all ease-in-out duration-500 sidebarWrapper flex relative min-w-full `}
-          >
-            {children}
-          </div>
-        ) : (
-          <div
-            className={`transition-all ease-in-out duration-500 sidebarWrapper flex relative min-w-full `}
-          >
-            {children}
-          </div>
-        )}
+        <div className={`sidebarWrapper flex relative min-w-full`}>
+          {sideDirection !== 'left' ? (
+            <>
+              {staticElement}
+              <div
+                className={`relative  transition-all ease-in-out duration-700`}
+                style={{
+                  width: !status ? '0' : width,
+                }}
+              >
+                <div
+                  className={`w-[${width}] relative  
+                    ${movementState && 'h-full'}
+                  `}
+                >
+                  {movable}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className={`relative  transition-all ease-in-out duration-700 `}
+                style={{
+                  width: !status ? '0' : width,
+                  direction: direction == 'en' ? 'rtl' : 'ltr',
+                }}
+              >
+                <div
+                  className={`w-[${width}] relative  
+                  ${movementState && 'h-screen'}
+                  `}
+                  style={{ direction: direction == 'en' ? 'ltr' : 'rtl' }}
+                >
+                  {movable}
+                </div>
+              </div>
+              {staticElement}
+            </>
+          )}
+        </div>
       </Wrapper>
     </>
   )

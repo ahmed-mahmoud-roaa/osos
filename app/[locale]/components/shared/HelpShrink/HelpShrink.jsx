@@ -11,9 +11,12 @@ export default function HelpShrink({ direction, children }) {
   dispatch(directionFun(direction))
 
   return (
-    <Shrink sideDirection={'right'} status={helpStatus} width={'21.5rem'}>
-      {children}
-      <Help />
-    </Shrink>
+    <Shrink
+      sideDirection={'right'}
+      status={helpStatus}
+      width={'21.5rem'}
+      staticElement={children}
+      movable={<Help />}
+    />
   )
 }

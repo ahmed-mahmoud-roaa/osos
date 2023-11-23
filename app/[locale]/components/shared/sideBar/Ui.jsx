@@ -231,7 +231,7 @@ export default function Ui({ routeData }) {
   }
 
   return (
-    <div className="w-[19.5rem] overflow-hidden h-full relative">
+    <>
       {interfaceState === 'Comfy' ? (
         <SingleSide currentPanel={currentPanel} />
       ) : (
@@ -241,6 +241,6 @@ export default function Ui({ routeData }) {
           ))}
         </>
       )}
-    </div>
+    </>
   )
 }

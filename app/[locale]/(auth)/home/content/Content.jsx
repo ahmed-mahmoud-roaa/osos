@@ -14,11 +14,12 @@ export default function Content({ content }) {
       status={sidebar == 'opened'}
       width={'19.5rem'}
       direction={Cookies.get('NEXT_LOCALE')}
-    >
-      <SideBar />
-      <div className="Content grow flex justify-between">
-        <span>{content}</span>
-      </div>
-    </Shrink>
+      staticElement={
+        <div className="Content grow flex justify-between">
+          <span>{content}</span>
+        </div>
+      }
+      movable={<SideBar />}
+    />
   )
 }

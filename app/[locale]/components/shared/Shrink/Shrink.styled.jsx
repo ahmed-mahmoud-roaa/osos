@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 export const Wrapper = styled.div`
   & > .sidebarWrapper {
-    left: ${(props) => {
+    /* left: ${(props) => {
       if (
         (props.sidebar == true && props.sideDirection == 'left') ||
         props.sideDirection == 'right'
@@ -26,14 +26,14 @@ export const Wrapper = styled.div`
           return `0`
         }
       }
-    }};
+    }}; */
 
-    min-width: ${(props) => {
-      if (props.sidebar == true) {
+    /* min-width: ${(props) => {
+      if (props.sidebar == true || props.movementState == false) {
         return '100%'
       } else {
         return `calc(100% + ${props.width})`
       }
-    }};
+    }}; */
   }
 `
