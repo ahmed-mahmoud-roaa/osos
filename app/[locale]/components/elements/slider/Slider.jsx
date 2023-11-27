@@ -19,7 +19,8 @@ export default function SliderInput({
         className={`slider ${!borderRound && 'notRounded'} `}
         type="range"
         min="1"
-        max="100"
+        max="101"
+        step="20"
         onChange={(e) => {
           setValueInput(e.target.value)
         }}

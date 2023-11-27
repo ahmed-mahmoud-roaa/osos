@@ -18,7 +18,7 @@ export default function NotificationButton({
       }}
       className={`relative circleButton rounded-full text-xl text-themeGray-500 mx-1.5 px-2 py-2 flex items-center ${
         active
-          ? 'bg-primary-600 text-themeWhite-white  outline outline-4 outline-primary-300 border border-primary-300 '
+          ? 'bg-primary-600 text-themeWhite-white  outline outline-[0.25rem] outline-primary-300 border border-primary-300 '
           : ' border border-themeGray-300 hover:text-primary-600 hover:border-primary-300 hover:bg-primary-50 '
       }`}
     >

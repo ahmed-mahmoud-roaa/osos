@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
 .rtl\:rounded-tl-xl{
   border-radius:${(props) => !props.borderRound && '0!important'}
 }
+
+.fullRound{
+  border-radius: 50%!important;
+}
  
  
   body {

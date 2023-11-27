@@ -19,11 +19,11 @@ export default function AvatarGroupeImage({
           {images.map((image, index) => (
             <div key={index} className="avatarCont">
               {index < count ? (
-                <div className="  border-2 border-themeWhite-white rounded-full">
+                <div className="  border-2 border-themeWhite-white fullRound">
                   <Avatar image={image} shape="circle" />
                 </div>
               ) : index === count ? (
-                <div className="  border-2 border-themeWhite-white rounded-full">
+                <div className="  border-2 border-themeWhite-white fullRound">
                   <Avatar
                     label={`+${images.length - count}`}
                     shape="circle"

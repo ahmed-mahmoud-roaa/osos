@@ -62,7 +62,7 @@ export default function Ui({
               >
                 <div
                   className={`w-[${width}] relative  
-                  ${movementState && 'h-screen'}
+                  ${movementState && 'h-full'}
                   `}
                   style={{ direction: direction == 'en' ? 'ltr' : 'rtl' }}
                 >

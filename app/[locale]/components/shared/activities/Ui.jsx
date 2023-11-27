@@ -25,7 +25,7 @@ export default function Ui({
       </span>
       <span>
         <button
-          className={`avatarButton border-[0.25rem] rounded-full ml-3 rtl:ml-0 rtl:mr-3  ${
+          className={`avatarButton border-[0.25rem] fullRound ml-3 rtl:ml-0 rtl:mr-3  ${
             profileActive
               ? 'border-primary-600'
               : ' border-themeGray-200 hover:border-primary-200'
