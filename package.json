@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tailwindcss/typography": "^0.5.10",
     "@tinymce/tinymce-react": "^4.3.0",
+    "ahmed-react-ui": "^0.1.0",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.0",
     "cookies-next": "^4.1.0",
@@ -30,6 +31,7 @@
     "js-cookie": "^3.0.5",
     "next": "13.5.2",
     "next-intl": "3.0.0-beta.19",
+    "osos-ai": "^0.1.6",
     "postcss": "8.4.30",
     "primereact": "^10.0.2",
     "react": "18.2.0",
@@ -39,7 +41,7 @@
     "react-redux": "^8.1.2",
     "sass": "^1.68.0",
     "styled-components": "^6.0.8",
-    "tailwindcss": "3.3.3",
+    "tailwindcss": "^3.3.5",
     "yup": "^1.2.0"
   },
   "devDependencies": {
