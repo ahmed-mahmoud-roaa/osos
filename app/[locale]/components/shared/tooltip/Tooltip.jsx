@@ -19,7 +19,7 @@ const Tooltip = ({ children, text, className, direction }) => {
         <div
           className={`${
             showTooltip ? 'block' : 'hidden'
-          } absolute bg-themeGray-900 text-themeWhite-white p-2 rounded-lg z-10 text-center text-sm left-[50%] translate-x-[-50%] w-max 
+          } absolute bg-themeGray-900 text-themeWhite-white p-2 rounded-lg z-30 text-center text-sm left-[50%] translate-x-[-50%] w-max 
           before:content-[""] before:absolute before:w-0 before:h-0 before:border-x-8
           before:left-[50%] before:translate-x-[-50%] before:border-x-transparent  ${
             direction === 'top'

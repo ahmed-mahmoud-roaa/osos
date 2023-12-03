@@ -9,17 +9,31 @@ import Notification from './notification/Notification'
 import Chat from './chat/Chat'
 import Task from './task/Task'
 
-export default function Drawer() {
+export default function Drawer({ content }) {
   const drawerElements = {
-    profile: <Profile />,
-    feed: <Feed />,
-    calendar: <Calendar />,
-    notification: <Notification />,
-    chat: <Chat />,
-    task: <Task />,
+    drawer: {
+      profile: <Profile />,
+      feed: <Feed />,
+      calendar: <Calendar />,
+      notification: <Notification />,
+      chat: <Chat />,
+      task: <Task />,
+    },
+    drawerAi: {
+      chatBot: <div>ai helper</div>,
+    },
   }
+
   const currentComponent = useSelector(
-    (state) => state.main.drawer
+    (state) => state.main[content]
   ).currentComponent
-  return <Ui currentComponent={drawerElements[currentComponent]} />
+
+  return (
+    <>
+      <Ui
+        currentComponent={drawerElements[content][currentComponent]}
+        type={content}
+      />
+    </>
+  )
 }

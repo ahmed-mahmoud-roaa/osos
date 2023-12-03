@@ -36,7 +36,8 @@ export default async function HomeServer({ translation, childrenProp }) {
               translation={translation}
               serverData={serverData.userInfo}
             />
-            <Drawer />
+            <Drawer content="drawerAi" />
+            <Drawer content="drawer" />
             <Content content={childrenProp} />
           </div>
         </HelpShrink>

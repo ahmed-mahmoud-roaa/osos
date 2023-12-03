@@ -15,6 +15,10 @@ export const mainSlice = createSlice({
       status: 'false',
       currentComponent: '',
     },
+    drawerAi: {
+      status: false,
+      currentComponent: 'chatBot',
+    },
     zoomSlider: 50,
   },
   reducers: {
@@ -41,6 +45,9 @@ export const mainSlice = createSlice({
     ChangeDrawerStatus: (state, action) => {
       state.drawer.status = action.payload
     },
+    ChangeDrawerAiStatus: (state, action) => {
+      state.drawerAi.status = action.payload
+    },
     ChangeZoomSlider: (state, action) => {
       state.zoomSlider = action.payload
     },
@@ -66,5 +73,6 @@ export const {
   ChangeSideBar,
   ChangeInterface,
   changeHelpStatus,
+  ChangeDrawerAiStatus,
 } = mainSlice.actions
 export default mainSlice.reducer

@@ -15,7 +15,7 @@ import SearchResult from './searchResult/SearchResult'
 import { TfiTarget } from 'react-icons/tfi'
 import { FiHelpCircle } from 'react-icons/fi'
 import Tooltip from '../tooltip/Tooltip'
-import { changeHelpStatus } from '@/app/store/slices/main'
+import { ChangeDrawerAiStatus, changeHelpStatus } from '@/app/store/slices/main'
 import { useDispatch, useSelector } from 'react-redux'
 import { BsStars } from 'react-icons/bs'
 
@@ -24,11 +24,12 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
   const [searchDetails, setSearchDetails] = useState(false)
   const [focusStatus, setFocusStatus] = useState(false)
   const helpStatus = useSelector((state) => state.main.helpStatus)
+  const drawerAiStatus = useSelector((state) => state.main.drawerAi)
   return (
     <>
       {
         <div
-          className={`wrapper flex border-b border-themeGray-200 py-3 px-6 justify-between items-center`}
+          className={`wrapper flex border-b border-themeGray-200 py-3 px-6 justify-between items-center z-20 `}
         >
           <div className="firstSide flex items-center  w-[33%]">
             <button
@@ -93,7 +94,10 @@ export default function Ui({ translation, dynamicElements, sidebarToggle }) {
                 'ClickOut magic text-primary-600 mr-3 rtl:mr-0 rtl:ml-3 relative'
               }
               labelClass={'text-primary-700 '}
-              action={() => {}}
+              action={() => {
+                console.log({ drawerAiStatus })
+                dispatch(ChangeDrawerAiStatus(!drawerAiStatus.status))
+              }}
             />
             <IconRoundedButton
               icon={<FiHelpCircle />}

@@ -49,6 +49,7 @@ export default function TopBar({ translation, serverData }) {
     const status = sidebar === 'closed' ? 'opened' : 'closed'
     dispatch(ChangeSideBar(status))
   }
+
   return (
     <Ui
       dynamicElements={dynamicElements}
