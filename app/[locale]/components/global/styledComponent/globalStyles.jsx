@@ -37,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
       props.currentMode !== 'dark' ? '#102a56' : '#EFF8FF'};
     --primary-600:${(props) =>
       props.currentMode !== 'dark' ? '#1570EF' : '#072d61'};
+    --primary-800:${(props) =>
+      props.currentMode !== 'dark' ? '#1849A9' : '#b2ddff'};
     --primary-700:${(props) =>
       props.currentMode !== 'dark' ? '#175CD3' : '#072d61'};
     --primary-500:${(props) =>
