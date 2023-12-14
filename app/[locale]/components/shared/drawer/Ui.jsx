@@ -1,5 +1,5 @@
 'use client'
-import { ChangeDrawerStatus } from '@/app/store/slices/main'
+import { ChangeDrawerStatus } from '../../../../store/slices/main'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Activities from '../activities/Activities'

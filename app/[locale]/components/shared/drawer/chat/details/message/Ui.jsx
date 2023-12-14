@@ -1,8 +1,8 @@
-import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
+import Avatar from '../../../../../../components/elements/avatar/Avatar'
 import React, { useState } from 'react'
 import MessageReact from './messageReact/MessageReact'
 import Tooltip from '../../../../tooltip/Tooltip'
-import { formatTimeDifference } from '@/app/[locale]/func/time/time'
+import { formatTimeDifference } from '../../../../../../func/time/time'
 
 export default function Ui({ messageData, user, handleEmoji }) {
   const [showReact, setShowReact] = useState(false)

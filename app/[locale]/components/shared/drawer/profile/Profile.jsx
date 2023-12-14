@@ -6,14 +6,14 @@ import { FiSettings } from 'react-icons/fi'
 import { BiUser } from 'react-icons/bi'
 import { MdOutlineLogout } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChangeZoomSlider } from '@/app/store/slices/main'
-import english from '@/public/assets/images/english.png'
+import { ChangeZoomSlider } from '../../../../../store/slices/main'
+import english from '../../../../../../public/assets/images/english.png'
 import { useRouter } from 'next/navigation'
 import {
   changeMode,
   directionFun,
   ChangeInterface,
-} from '@/app/store/slices/main'
+} from '../../../../../store/slices/main'
 let x = 0
 export default function Profile() {
   const router = useRouter()

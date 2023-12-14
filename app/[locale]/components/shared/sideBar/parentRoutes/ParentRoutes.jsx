@@ -1,9 +1,17 @@
+import { AiOutlinePlus } from 'react-icons/ai'
 import ChildrenRoutes from '../childRoutes/ChildRoutes'
+import { HiOutlineUsers } from 'react-icons/hi'
+import { LuUsers } from 'react-icons/lu'
 
 const { useState } = require('react')
 const { HiOutlineChevronRight } = require('react-icons/hi')
 
-const ParentRoutes = ({ parentRoutes, actions }) => {
+const icons = {
+  HiOutlineUsers: <HiOutlineUsers />,
+  AiOutlinePlus: <AiOutlinePlus />,
+  LuUsers: <LuUsers />,
+}
+const ParentRoutes = ({ parentRoutes, actions, direction }) => {
   const [status, setStatus] = useState(false)
 
   return (
@@ -15,10 +23,10 @@ const ParentRoutes = ({ parentRoutes, actions }) => {
         >
           <div className={`flex items-center p-2 font-semibold`}>
             <div className="icon pr-2 rtl:pl-2 rtl:pr-0 text-xl text-themeGray-500  group-hover:text-primary-600  ">
-              {parentRoutes.icon}
+              {icons[parentRoutes.icon]}
             </div>
             <div className="title group-hover:text-primary-600">
-              {parentRoutes.title}
+              {parentRoutes.title[direction]}
             </div>
           </div>
           <div
@@ -42,11 +50,13 @@ const ParentRoutes = ({ parentRoutes, actions }) => {
                     <ParentRoutes
                       parentRoutes={parentRoutes.children[childRoute]}
                       actions={actions}
+                      direction={direction}
                     />
                   ) : (
                     <ChildrenRoutes
-                      actions={actions}
                       childRoutes={parentRoutes.children[childRoute]}
+                      actions={actions}
+                      direction={direction}
                     />
                   )}
                 </div>

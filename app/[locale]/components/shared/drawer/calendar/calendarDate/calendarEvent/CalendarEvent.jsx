@@ -1,4 +1,4 @@
-import AvatarGroupeImage from '@/app/[locale]/components/elements/avatarGroupeImage/AvatarGroupeImage'
+import AvatarGroupeImage from '../../../../../../components/elements/avatarGroupeImage/AvatarGroupeImage'
 import React from 'react'
 import { HiOutlineChevronRight } from 'react-icons/hi'
 import { MdOutlineWatchLater } from 'react-icons/md'

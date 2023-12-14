@@ -6,10 +6,10 @@ import { BsCheckCircle } from 'react-icons/bs'
 import ImageWithName from './imageWithName/ImageWithName'
 import { RiFlag2Line } from 'react-icons/ri'
 import { dotesColor, dotesRender } from '../functions'
-import LineTitle from '@/app/[locale]/components/elements/lineTitle/LineTitle'
+import LineTitle from '../../../../../components/elements/lineTitle/LineTitle'
 import { HiMiniArrowUpRight } from 'react-icons/hi2'
-import WideButton from '@/app/[locale]/components/elements/buttons/wideButton/WideButton'
-import { weekDayDayMonth } from '@/app/[locale]/func/time/time'
+import WideButton from '../../../../../components/elements/buttons/wideButton/WideButton'
+import { weekDayDayMonth } from '../../../../../func/time/time'
 
 const Assignees = ({ data }) => (
   <div className="flex flex-wrap">

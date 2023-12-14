@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { formatTimeDifference } from '@/app/[locale]/func/time/time'
+import { formatTimeDifference } from '../../../../../func/time/time'
 import Ui from './Ui'
 
 export default function MessageHistory({ setCurrentPage }) {

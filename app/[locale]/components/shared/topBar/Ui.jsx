@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import squareLogo from '@/public/assets/images/squareLogo.png'
+import squareLogo from '../../../../../public/assets/images/squareLogo.png'
 import { BiCommand } from 'react-icons/bi'
 import { HiMenuAlt1 } from 'react-icons/hi'
 import { PiMagnifyingGlass } from 'react-icons/pi'
@@ -15,7 +15,10 @@ import SearchResult from './searchResult/SearchResult'
 import { TfiTarget } from 'react-icons/tfi'
 import { FiHelpCircle } from 'react-icons/fi'
 import Tooltip from '../tooltip/Tooltip'
-import { ChangeDrawerAiStatus, changeHelpStatus } from '@/app/store/slices/main'
+import {
+  ChangeDrawerAiStatus,
+  changeHelpStatus,
+} from '../../../../store/slices/main'
 import { useDispatch, useSelector } from 'react-redux'
 import { BsStars } from 'react-icons/bs'
 

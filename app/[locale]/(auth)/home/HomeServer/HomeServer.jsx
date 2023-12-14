@@ -1,14 +1,16 @@
 import React from 'react'
 
-import TopBar from '@/app/[locale]/components/shared/topBar/TopBar'
-import Drawer from '@/app/[locale]/components/shared/drawer/Drawer'
-import HelpShrink from '@/app/[locale]/components/shared/HelpShrink/HelpShrink'
+import TopBar from '../../../components/shared/topBar/TopBar'
+import Drawer from '../../../components/shared/drawer/Drawer'
+import HelpShrink from '../../../components/shared/HelpShrink/HelpShrink'
 import { cookies } from 'next/headers'
 import Content from '../content/Content'
+import { serverClient } from '../../../../_trpc/serverClient'
 
 export default async function HomeServer({ translation, childrenProp }) {
   const cookieStore = cookies()
   const direction = cookieStore.get('NEXT_LOCALE').value
+  const getSidebar = await serverClient.getSidebar()
 
   const serverData = {
     userInfo: {
@@ -38,7 +40,7 @@ export default async function HomeServer({ translation, childrenProp }) {
             />
             <Drawer content="drawerAi" />
             <Drawer content="drawer" />
-            <Content content={childrenProp} />
+            <Content content={childrenProp} sidebarContent={getSidebar} />
           </div>
         </HelpShrink>
       </div>

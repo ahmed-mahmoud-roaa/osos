@@ -1,19 +1,27 @@
-import Accordion from '@/app/[locale]/components/elements/accordion/Accordion'
-import CheckBox from '@/app/[locale]/components/elements/checkBox/CheckBox'
+import Accordion from '../../../../../../components/elements/accordion/Accordion'
+import CheckBox from '../../../../../../components/elements/checkBox/CheckBox'
 import React from 'react'
 import { MdOutlineWatchLater } from 'react-icons/md'
 import { RiFlag2Line } from 'react-icons/ri'
 import { TbWeight } from 'react-icons/tb'
 import Label from '../../label/Label'
 import { dotesColor, dotesRender } from '../../functions'
-import { dateInLabel } from '@/app/[locale]/func/time/time'
+import { dateInLabel } from '../../../../../../func/time/time'
+import { BsCheckLg, BsExclamationTriangle } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
 
-const head = (head) => (
+const icons = {
+  RiFlag2Line: <RiFlag2Line />,
+  BsExclamationTriangle: <BsExclamationTriangle />,
+  BsCheckLg: <BsCheckLg />,
+  RiFlag2Line: <RiFlag2Line />,
+}
+const head = (head, direction) => (
   <div
     className={`head flex items-center py-2 font-semibold ${
-      head.title === 'High'
+      head.status === 'High'
         ? 'text-error-700'
-        : head.title === 'Normal'
+        : head.status === 'Normal'
         ? 'text-primary-600'
         : 'text-themeGray-600'
     }`}
@@ -21,24 +29,24 @@ const head = (head) => (
     {head.icon ? (
       <span
         className={`icon mr-2 rtl:mr-0 rtl:ml-2 text-base  ${
-          head.title === 'High'
+          head.status === 'High'
             ? 'text-error-400 '
-            : head.title === 'Normal'
+            : head.status === 'Normal'
             ? 'text-primary-400 '
             : 'text-themeGray-400'
         }`}
       >
-        {head.icon}
+        {icons[head.icon]}
       </span>
     ) : (
       ''
     )}
     <span className={`title mr-2 rtl:mr-0 rtl:ml-2 text-base `}>
-      {head.title}
+      {head.title[direction]}
     </span>
     <span
       className={`count py-0.5 px-1.5 text-xs rounded-full ${
-        head.title === 'High'
+        head.status === 'High'
           ? ' bg-error-50 border-error-200 border'
           : 'border-themeGray-200 border'
       }`}
@@ -48,7 +56,7 @@ const head = (head) => (
   </div>
 )
 
-const body = (body, setCurrentPage) => (
+const body = (body, setCurrentPage, direction) => (
   <>
     {body.map((block, index) => (
       <div
@@ -77,7 +85,7 @@ const body = (body, setCurrentPage) => (
               block.block.status === 'green' && 'line-through'
             }`}
           >
-            {block.title}
+            {block.title[direction]}
           </div>
           <div className="from text-xs text-themeGray-600 mb-3">
             {block.from}
@@ -126,13 +134,15 @@ const body = (body, setCurrentPage) => (
 )
 
 export default function Ui({ taskData, setCurrentPage }) {
+  const direction = useSelector((state) => state.main.direction)
+
   return (
     <>
       {taskData.map((item, index) => (
         <div key={index} className="border-b border-themeGray-100 px-4">
           <Accordion
-            head={head(item.head)}
-            body={body(item.body, setCurrentPage)}
+            head={head(item.head, direction)}
+            body={body(item.body, setCurrentPage, direction)}
           />
         </div>
       ))}

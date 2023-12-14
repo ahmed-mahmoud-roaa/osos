@@ -1,5 +1,5 @@
-import CheckBox from '@/app/[locale]/components/elements/checkBox/CheckBox'
-import LineTitle from '@/app/[locale]/components/elements/lineTitle/LineTitle'
+import CheckBox from '../../../../../components/elements/checkBox/CheckBox'
+import LineTitle from '../../../../../components/elements/lineTitle/LineTitle'
 import React from 'react'
 
 export default function Ui({ checks }) {

@@ -1,11 +1,11 @@
 'use client'
-import SideBar from '@/app/[locale]/components/shared/sideBar/SideBar'
+import SideBar from '../../../components/shared/sideBar/SideBar'
 import React from 'react'
-import Shrink from '@/app/[locale]/components/shared/Shrink/Shrink'
+import Shrink from '../../../components/shared/Shrink/Shrink'
 import { useSelector } from 'react-redux'
 import Cookies from 'js-cookie'
 
-export default function Content({ content }) {
+export default function Content({ content, sidebarContent }) {
   const sidebar = useSelector((state) => state.main.sidebar)
 
   return (
@@ -19,7 +19,7 @@ export default function Content({ content }) {
           <span>{content}</span>
         </div>
       }
-      movable={<SideBar />}
+      movable={<SideBar sidebarContent={sidebarContent} />}
     />
   )
 }

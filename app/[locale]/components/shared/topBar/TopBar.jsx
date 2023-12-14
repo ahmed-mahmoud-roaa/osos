@@ -4,9 +4,9 @@ import React from 'react'
 import { BsCodeSlash } from 'react-icons/bs'
 
 import Ui from './Ui'
-import { addUserInfo } from '@/app/store/slices/auth'
+import { addUserInfo } from '../../../../store/slices/auth'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChangeSideBar } from '@/app/store/slices/main'
+import { ChangeSideBar } from '../../../../store/slices/main'
 import { LiaToolsSolid } from 'react-icons/lia'
 import { FiUser } from 'react-icons/fi'
 

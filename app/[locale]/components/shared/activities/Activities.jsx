@@ -9,7 +9,7 @@ import { TfiLayoutListThumb } from 'react-icons/tfi'
 import {
   ChangeDrawerStatus,
   changeCurrentComponent,
-} from '@/app/store/slices/main'
+} from '../../../../store/slices/main'
 
 export default function Activities() {
   const dispatch = useDispatch()

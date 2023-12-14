@@ -1,9 +1,9 @@
 'use client'
-import Shrink from '@/app/[locale]/components/shared/Shrink/Shrink'
+import Shrink from '../../../components/shared/Shrink/Shrink'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Help from '../topBar/help/Help'
-import { directionFun } from '@/app/store/slices/main'
+import { directionFun } from '../../../../store/slices/main'
 
 export default function HelpShrink({ direction, children }) {
   const helpStatus = useSelector((state) => state.main.helpStatus)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import DateNavigator from './dateNavigator/DateNavigator'
 import CalendarEvent from './calendarEvent/CalendarEvent'
 import CalendarSelect from '../../../../elements/calendarSelect/CalendarSelect'
-import CustomCalendar from '@/app/[locale]/components/elements/customCalendar/CustomCalendar'
+import CustomCalendar from '../../../../../components/elements/customCalendar/CustomCalendar'
 
 export default function Ui({ EventsDatesString, eventData }) {
   const [selected, setSelected] = useState(new Date())

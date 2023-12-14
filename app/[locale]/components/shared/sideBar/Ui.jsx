@@ -14,9 +14,10 @@ import { Wrapper } from './SideBar.styled'
 import { useSelector } from 'react-redux'
 
 let oldHistory = []
-export default function Ui({ routeData }) {
-  const [history, setHistory] = useState([])
 
+export default function Ui({ routeData }) {
+  const direction = useSelector((state) => state.main.direction)
+  const [history, setHistory] = useState([])
   const [more, setMore] = useState('more')
   const [interfaceState, setInterfaceState] = useState('Comfy')
 
@@ -70,15 +71,24 @@ export default function Ui({ routeData }) {
             icon: <BsThreeDots />,
             title: more == 'more' ? 'More' : 'Less',
           }}
+          direction={direction}
         />
       </span>
     )
     const routeRender = routes.map((route, index) => (
       <div key={index}>
         {routeGroupe[route].type === 'parent' ? (
-          <ParentRoutes parentRoutes={routeGroupe[route]} actions={actions} />
+          <ParentRoutes
+            parentRoutes={routeGroupe[route]}
+            actions={actions}
+            direction={direction}
+          />
         ) : (
-          <ChildrenRoutes childRoutes={routeGroupe[route]} actions={actions} />
+          <ChildrenRoutes
+            childRoutes={routeGroupe[route]}
+            actions={actions}
+            direction={direction}
+          />
         )}
       </div>
     ))
@@ -129,7 +139,7 @@ export default function Ui({ routeData }) {
                     hideNext()
                   }}
                 >
-                  {currentPanel.head.title}
+                  {currentPanel.head.title[direction]}
                 </div>
               </div>
             ) : (
@@ -141,7 +151,7 @@ export default function Ui({ routeData }) {
                   {history.length > 0 ? <FiArrowLeft /> : <BiHomeAlt2 />}
                 </div>
                 <div className="title text-base font-semibold">
-                  {currentPanel.head.title}
+                  {currentPanel.head.title[direction]}
                 </div>
               </div>
             )}
@@ -169,7 +179,11 @@ export default function Ui({ routeData }) {
                               }
                               content={
                                 <>
-                                  {currentPanel.topSections.groupe[item].title}
+                                  {
+                                    currentPanel.topSections.groupe[item].title[
+                                      direction
+                                    ]
+                                  }
                                   <span className="py-0.5 px-1.5 bg-themeGray-50 text-themeGreen-700 border border-themeGray-200 rounded-full ml-2 rtl:ml-0 rtl:mr-2 font-medium text-xs">
                                     {Object.keys(
                                       currentPanel.topSections.groupe[item]
@@ -208,7 +222,11 @@ export default function Ui({ routeData }) {
                   <div className="groupe" key={index}>
                     <div className="groupeTitle pt-3 pb-1 flex items-center justify-between grow text-sm text-themeGray-500">
                       <div className="title mb-0 w-full font-semibold">
-                        {currentPanel.bottomSections.groupe[item].title}
+                        {
+                          currentPanel.bottomSections.groupe[item].title[
+                            direction
+                          ]
+                        }
                       </div>
                     </div>
                     <div className="groupeRout">

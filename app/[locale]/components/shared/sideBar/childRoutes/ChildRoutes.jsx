@@ -1,4 +1,14 @@
-const ChildrenRoutes = ({ childRoutes, actions }) => {
+import { AiOutlinePlus } from 'react-icons/ai'
+import { HiOutlineUsers } from 'react-icons/hi'
+import { LuUsers } from 'react-icons/lu'
+
+const icons = {
+  HiOutlineUsers: <HiOutlineUsers />,
+  AiOutlinePlus: <AiOutlinePlus />,
+  LuUsers: <LuUsers />,
+}
+
+const ChildrenRoutes = ({ childRoutes, actions, direction }) => {
   return (
     <div
       onClick={() => {
@@ -16,14 +26,14 @@ const ChildrenRoutes = ({ childRoutes, actions }) => {
             childRoutes.active ? ' text-primary-600' : 'text-themeGray-500 '
           }`}
         >
-          {childRoutes.icon}
+          {icons[childRoutes.icon]}
         </div>
         <div
           className={`title group-hover:text-primary-600  text-themeGray-700 ${
             childRoutes.active && 'text-primary-600'
           }`}
         >
-          {childRoutes.title}
+          {childRoutes.title[direction]}
         </div>
       </div>
     </div>

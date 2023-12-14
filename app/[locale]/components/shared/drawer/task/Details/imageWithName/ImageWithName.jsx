@@ -1,4 +1,4 @@
-import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
+import Avatar from '../../../../../../components/elements/avatar/Avatar'
 import React from 'react'
 
 export default function ImageWithName({ user }) {

@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import ReduxProvider from './components/global/reduxProvider/ReduxProvider'
 import { notFound } from 'next/navigation'
 import { Inter } from 'next/font/google'
-
+import Provider from '../_trpc/Provider'
 export const metadata = {
   title: 'OSOS BASE',
   description: '',
@@ -32,7 +32,7 @@ export default function RootLayout({ children, params }) {
               : 'light'
           }
         >
-          {children}
+          <Provider>{children}</Provider>
         </body>
       </ReduxProvider>
     </html>

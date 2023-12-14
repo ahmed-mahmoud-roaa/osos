@@ -3,7 +3,7 @@ import { FiUsers } from 'react-icons/fi'
 import { MdPlaylistAdd } from 'react-icons/md'
 import Accordion from '../../../elements/accordion/Accordion'
 import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
-import { formatTimeDifference } from '@/app/[locale]/func/time/time'
+import { formatTimeDifference } from '../../../../func/time/time'
 import Tooltip from '../../tooltip/Tooltip'
 
 export default function Ui({ data, asRead }) {

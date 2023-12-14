@@ -3,9 +3,9 @@ import { Calendar } from 'primereact/calendar'
 import { Wrapper } from './AddEvent.styled'
 import { BsCalendar4 } from 'react-icons/bs'
 import { MdClose, MdOutlineWatchLater } from 'react-icons/md'
-import CustomMultiSelect from '@/app/[locale]/components/elements/customMultiSelect/CustomMultiSelect'
-import WideButton from '@/app/[locale]/components/elements/buttons/wideButton/WideButton'
-import Avatar from '@/app/[locale]/components/elements/avatar/Avatar'
+import CustomMultiSelect from '../../../../../components/elements/customMultiSelect/CustomMultiSelect'
+import WideButton from '../../../../../components/elements/buttons/wideButton/WideButton'
+import Avatar from '../../../../../components/elements/avatar/Avatar'
 import CalendarSelect from '../../../../elements/calendarSelect/CalendarSelect'
 
 export default function Ui({

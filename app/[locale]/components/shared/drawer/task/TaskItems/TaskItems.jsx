@@ -62,7 +62,12 @@ export default function TaskItems({ setCurrentPage }) {
 
   const taskData = [
     {
-      head: { icon: <RiFlag2Line />, title: 'High', count: '2' },
+      head: {
+        icon: 'RiFlag2Line',
+        status: 'High',
+        title: { ar: 'High', en: 'High' },
+        count: '2',
+      },
       body: [
         {
           block: {
@@ -76,12 +81,15 @@ export default function TaskItems({ setCurrentPage }) {
               label: 'Service Request',
             },
             {
-              icon: <BsExclamationTriangle />,
+              icon: 'BsExclamationTriangle',
               status: 'red',
               label: 'Overdue',
             },
           ],
-          title: 'Leave Request - Jasmin ELsayed',
+          title: {
+            ar: 'Leave Request - Jasmin ELsayed',
+            en: 'Leave Request - Jasmin ELsayed',
+          },
           from: 'HR > Leaves',
           points: '2',
           level: 'high',
@@ -104,12 +112,16 @@ export default function TaskItems({ setCurrentPage }) {
               label: 'Service Request',
             },
             {
-              icon: <BsExclamationTriangle />,
+              icon: 'BsExclamationTriangle',
               status: 'red',
               label: 'Overdue',
             },
           ],
-          title: 'Leave Request - Jasmin ELsayed',
+          title: {
+            ar: 'Leave Request - Jasmin ELsayed',
+            en: 'Leave Request - Jasmin ELsayed',
+          },
+
           from: 'HR > Leaves',
           points: '2',
           level: 'low',
@@ -123,7 +135,12 @@ export default function TaskItems({ setCurrentPage }) {
       ],
     },
     {
-      head: { icon: <RiFlag2Line />, title: 'Normal', count: '5' },
+      head: {
+        icon: 'RiFlag2Line',
+        status: 'Normal',
+        title: { ar: 'Normal', en: 'Normal' },
+        count: '5',
+      },
       body: [
         {
           block: {
@@ -137,12 +154,16 @@ export default function TaskItems({ setCurrentPage }) {
               label: 'Service Request',
             },
             {
-              icon: <BsCheckLg />,
+              icon: 'BsCheckLg',
               status: 'green',
               label: 'Completed',
             },
           ],
-          title: 'Leave Request - Jasmin ELsayed',
+          title: {
+            ar: 'Leave Request - Jasmin ELsayed',
+            en: 'Leave Request - Jasmin ELsayed',
+          },
+
           from: 'HR > Leaves',
           points: '2',
           level: 'high',
@@ -166,12 +187,15 @@ export default function TaskItems({ setCurrentPage }) {
               label: 'Service Request',
             },
             {
-              icon: <BsExclamationTriangle />,
+              icon: 'BsExclamationTriangle',
               status: 'red',
               label: 'Overdue',
             },
           ],
-          title: 'Leave Request - Jasmin ELsayed',
+          title: {
+            ar: 'Leave Request - Jasmin ELsayed',
+            en: 'Leave Request - Jasmin ELsayed',
+          },
           from: 'HR > Leaves',
           points: '3',
           level: 'low',

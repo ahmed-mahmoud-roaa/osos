@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Search from '../../../elements/search/Search'
 import { PiMagnifyingGlass } from 'react-icons/pi'
 import { MdClose } from 'react-icons/md'
-import { changeHelpStatus } from '@/app/store/slices/main'
+import { changeHelpStatus } from '../../../../../store/slices/main'
 import { useDispatch, useSelector } from 'react-redux'
 export default function Ui({ helpData }) {
   const dispatch = useDispatch()

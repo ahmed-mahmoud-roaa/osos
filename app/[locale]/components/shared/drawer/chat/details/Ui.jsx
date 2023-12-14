@@ -4,7 +4,7 @@ import { BsSend } from 'react-icons/bs'
 import { MdOutlineArrowBack } from 'react-icons/md'
 import { SlOptionsVertical } from 'react-icons/sl'
 import Message from './message/Message'
-import { dateInLabel } from '@/app/[locale]/func/time/time'
+import { dateInLabel } from '../../../../../func/time/time'
 
 export default function Ui({ setCurrentPage, data }) {
   const [newMessage, setNewMessage] = useState()
