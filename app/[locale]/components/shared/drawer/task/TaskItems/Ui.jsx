@@ -4,7 +4,6 @@ import FakeTabs from '../../../../elements/fakeTabs/FakeTabs'
 import Search from '../../../../elements/search/Search'
 import DropDownInput from '../../../../elements/dropDownInput/DropDownInput'
 import DropDownWithIcon from '../../../../elements/dropDownWithIcon/DropDownWithIcon'
-
 import TaskItem from './taskItem/TaskItem'
 
 export default function Ui({ setCurrentPage, orderTask, cats, taskData }) {

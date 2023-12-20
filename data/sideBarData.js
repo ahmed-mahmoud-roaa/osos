@@ -290,7 +290,10 @@ export const sideBarData = {
             childRoute2: {
               type: 'got to forth',
               icon: 'LuUsers',
-              title: 'child route2',
+              title: {
+                ar: 'child route2',
+                en: 'child route2',
+              },
               action: ['goToPanel', ['forth']],
             },
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import Ui from './Ui'
 
 export default function SideBar({ sidebarContent }) {
